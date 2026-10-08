@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!-- This line tells the browser that the file is written in modern HTML (HTML5). -->
+<html lang="en">
+
+<!-- ================================================================
+     HEAD: information about the page. Nothing in here is shown
+     directly on the page, except the title in the browser tab.
+     ================================================================ -->
+<head>
+  <!-- Makes sure special characters (like ä, ö, ü, ß) display correctly -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the page fit nicely on phones and tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Short description that search engines like Google can show -->
+  <meta name="description" content="Muhammad Hasan, business master's student in Berlin looking for a working student position.">
+
+  <!-- The text shown in the browser tab -->
+  <title>Muhammad Hasan</title>
+
+  <!-- ==============================================================
+       CSS: the styling (colors, fonts, spacing).
+       For now it lives inside this file. Later you can move it into
+       a separate file called style.css if you like.
+       ============================================================== -->
+  <style>
+    /* ---------- 1. Color and size settings ----------
+       These are "variables". Change a value here and it changes
+       everywhere on the page. This makes experimenting easy. */
+    :root {
+      --color-text: #1f2a37;        /* dark blue-grey for normal text */
+      --color-muted: #5b6776;       /* lighter grey for less important text */
+      --color-background: #ffffff;  /* page background */
+      --color-soft: #eef3f6;        /* light background for the header */
+      --color-accent: #1d5c63;      /* dark teal for links and headings */
+      --max-width: 760px;           /* how wide the text column can get */
+    }
+
+    /* ---------- 2. Basic page settings ---------- */
+    * {
+      box-sizing: border-box;  /* makes width and padding easier to calculate */
+    }
+
+    html {
+      scroll-behavior: smooth;  /* menu links scroll smoothly to their section */
+    }
+
+    body {
+      margin: 0;
+      /* A clean font that is already installed on most computers */
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;          /* space between lines, easier to read */
+      color: var(--color-text);
+      background: var(--color-background);
+    }
+
+    /* ---------- 3. Navigation menu ---------- */
+    nav {
+      position: sticky;   /* the menu stays at the top when you scroll */
+      top: 0;
+      background: var(--color-background);
+      border-bottom: 1px solid #dde3e8;
+    }
+
+    nav ul {
+      list-style: none;   /* removes the bullet points */
+      margin: 0 auto;
+      padding: 14px 20px;
+      max-width: var(--max-width);
+      display: flex;      /* places the menu items next to each other */
+      flex-wrap: wrap;    /* lets items move to a new line on small screens */
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--color-text);
+      text-decoration: none;  /* removes the underline */
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--color-accent);  /* color changes when the mouse is over it */
+    }
+
+    /* ---------- 4. Header (name and introduction) ---------- */
+    header {
+      background: var(--color-soft);
+      padding: 80px 20px 64px;
+    }
+
+    header .inner {
+      max-width: var(--max-width);
+      margin: 0 auto;   /* "auto" centers the block on the page */
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 44px;
+      line-height: 1.15;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 20px;
+      color: var(--color-muted);
+    }
+
+    /* ---------- 5. Content sections ---------- */
+    section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 56px 20px 24px;
+      scroll-margin-top: 60px;  /* stops the sticky menu covering the heading */
+    }
+
+    h2 {
+      color: var(--color-accent);
+      font-size: 28px;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      margin: 24px 0 4px;
+      font-size: 19px;
+    }
+
+    /* Small grey line under a job title (company, dates) */
+    .meta {
+      margin: 0 0 8px;
+      color: var(--color-muted);
+      font-size: 15px;
+    }
+
+    a {
+      color: var(--color-accent);
+    }
+
+    /* ---------- 6. Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--color-muted);
+      font-size: 14px;
+    }
+
+    /* ---------- 7. Small screens (phones) ----------
+       The rules inside only apply when the screen is 600px wide or less. */
+    @media (max-width: 600px) {
+      header h1 { font-size: 34px; }
+      header { padding: 56px 20px 44px; }
+    }
+  </style>
+</head>
+
+<!-- ================================================================
+     BODY: everything visitors actually see on the page.
+     ================================================================ -->
+<body>
+
+  <!-- NAVIGATION MENU
+       Each link points to a section further down.
+       href="#about" jumps to the element that has id="about". -->
+  <nav>
+    <ul>
+      <li><a href="#about">About me</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER: your name and one-line introduction -->
+  <header>
+    <div class="inner">
+      <h1>Muhammad Hasan</h1>
+      <!-- Replace this line with your own introduction -->
+      <p>[One-line introduction, for example: Business master's student in Berlin, looking for a working student role in marketing.]</p>
+    </div>
+  </header>
+
+  <!-- The <main> tag holds the main content of the page -->
+  <main>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about">
+      <h2>About me</h2>
+      <p>[Write 3 to 4 sentences about yourself: what you study, where, and what kind of work you are looking for.]</p>
+      <p>[Add 1 to 2 sentences about what motivates you or what makes you a good fit for a team.]</p>
+    </section>
+
+    <!-- EXPERIENCE SECTION
+         Copy one <h3> + <p class="meta"> + <p> block for each job. -->
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <!-- Job 1 -->
+      <h3>[Job title]</h3>
+      <p class="meta">[Company name], [City] | [Start date] to [End date]</p>
+      <p>[One or two sentences about what you did and what you achieved.]</p>
+
+      <!-- Job 2 -->
+      <h3>[Job title]</h3>
+      <p class="meta">[Company name], [City] | [Start date] to [End date]</p>
+      <p>[One or two sentences about what you did and what you achieved.]</p>
+
+      <!-- Job 3 -->
+      <h3>[Job title]</h3>
+      <p class="meta">[Company name], [City] | [Start date] to [End date]</p>
+      <p>[One or two sentences about what you did and what you achieved.]</p>
+    </section>
+
+    <!-- SKILLS SECTION
+         <ul> makes a bulleted list, each <li> is one item. -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>[Skill 1, for example a software tool]</li>
+        <li>[Skill 2, for example a business skill]</li>
+        <li>[Skill 3]</li>
+        <li>[Languages, for example: English, Urdu, German]</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT SECTION
+         "mailto:" opens the visitor's email program when clicked. -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>[Short sentence inviting people to get in touch.]</p>
+      <p>
+        Email: <a href="mailto:your.email@example.com">[your.email@example.com]</a><br>
+        LinkedIn: <a href="https://www.linkedin.com/in/your-profile">[LinkedIn profile link]</a>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: small text at the very bottom of the page -->
+  <footer>
+    <p>&copy; 2026 Muhammad Hasan</p>
+  </footer>
+
+</body>
+</html>
