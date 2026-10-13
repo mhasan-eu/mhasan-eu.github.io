@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Hasan | In the Driver's Seat</title>
+
+  <!-- Fonts from Google: a bold font for headlines, a clean one for text -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* STORY IDEA: my life is a road trip. The page is a road you drive down,
+       and each chapter of my life is a stop along the way. */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #1c1c1e;   /* asphalt grey */
+      color: #f2f2f2;
+      line-height: 1.6;
+    }
+
+    /* top navigation bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 8%;
+      font-size: 14px;
+    }
+    nav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+    nav a:hover { color: #ffc531; }
+
+    /* first screen */
+    .hero {
+      min-height: 80vh;
+      padding: 0 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .sign {
+      display: inline-block;
+      background: #1f6f43;    /* green like a motorway sign */
+      border: 3px solid #fff;
+      border-radius: 8px;
+      padding: 6px 16px;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 2px;
+      width: fit-content;
+    }
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(40px, 8vw, 80px);
+      margin: 16px 0;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .hero p {
+      max-width: 580px;
+      font-size: 18px;
+      opacity: 0.85;
+    }
+    .yellow { color: #ffc531; }
+
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 34px;
+      text-transform: uppercase;
+    }
+    section { padding: 60px 8%; }
+
+    /* THE ROAD: a dashed yellow line down the left, like the middle of a road */
+    .road {
+      border-left: 4px dashed #ffc531;
+      margin-left: 10px;
+    }
+    .stop {
+      position: relative;
+      padding: 0 0 50px 34px;
+      max-width: 640px;
+    }
+    /* small round marker on the road for each stop */
+    .stop::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #1c1c1e;
+      border: 3px solid #ffc531;
+    }
+    .km {
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: #ffc531;
+    }
+    .stop h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      margin: 2px 0;
+    }
+    .lesson {
+      font-style: italic;
+      opacity: 0.75;
+    }
+
+    /* the destination box at the end of the road */
+    .destination {
+      background: #1f6f43;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      padding: 24px;
+      max-width: 640px;
+    }
+
+    /* skills as small labels */
+    .tags span {
+      display: inline-block;
+      border: 1px solid #ffc531;
+      border-radius: 20px;
+      padding: 6px 14px;
+      margin: 4px;
+      font-size: 14px;
+    }
+
+    a { color: #ffc531; }
+
+    footer {
+      padding: 30px 8%;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <strong>Muhammad Hasan</strong>
+    <div>
+      <a href="#route">Route</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO: the main message of my storyline -->
+  <header class="hero">
+    <div class="sign">KARACHI &rarr; BERLIN</div>
+    <h1>In the <span class="yellow">driver's seat</span></h1>
+    <p>I love cars, and driving taught me how I want to work: watch the dashboard,
+       plan the route, and keep moving forward. My destination is a career in
+       finance or supply chain, where money and goods have to keep moving too.</p>
+  </header>
+
+  <!-- THE ROUTE: my story as stops on a road trip -->
+  <section id="route">
+    <h2>The route so far</h2>
+    <div class="road">
+
+      <div class="stop">
+        <div class="km">START | KARACHI</div>
+        <h3>Where the engine started</h3>
+        <p>I have always been fascinated by cars: how they are built, how they move,
+           and how every small part has to work together.</p>
+        <p class="lesson">Lesson: big things move because small parts do their job.</p>
+      </div>
+
+      <div class="stop">
+        <div class="km">2019 | KARACHI</div>
+        <h3>Learning to read the dashboard</h3>
+        <p>Bachelor of Science in Accountancy, Management and Law at the Institute of Business Management.
+           Numbers are a company's dashboard: they tell you how fast it is going and how much fuel is left.</p>
+        <p class="lesson">Lesson: you can't drive well if you can't read the gauges.</p>
+      </div>
+
+      <div class="stop">
+        <div class="km">2021 | KARACHI</div>
+        <h3>Reading the road</h3>
+        <p>Two and a half years in outbound sales and lead qualification at Breakthru (Apexchat),
+           working in Salesforce CRM with clients in the US.</p>
+        <p class="lesson">Lesson: understand the people around you before you make a move.</p>
+      </div>
+
+      <div class="stop">
+        <div class="km">2024 | KARACHI</div>
+        <h3>A look under the hood</h3>
+        <p>Finance Intern at Hoechst Pakistan Limited, working on vendor and payment operations in SAP.
+           I saw how money flows through a real company, step by step.</p>
+        <p class="lesson">Lesson: the engine only runs if every process is done right.</p>
+      </div>
+
+      <div class="stop">
+        <div class="km">2024 | BERLIN</div>
+        <h3>Changing lanes</h3>
+        <p>I moved to Germany to start my Master's in European Business Management at TH Wildau,
+           specializing in Marketing and Sustainability.</p>
+        <p class="lesson">Lesson: sometimes you have to change lanes to reach your destination.</p>
+      </div>
+
+      <div class="stop">
+        <div class="km">2025 | BERLIN</div>
+        <h3>Behind the wheel in Germany</h3>
+        <p>About four months after arriving, I started working toward my EU driving license,
+           in a new country, with new rules, and new roads. I earned it, because when I decide
+           to do something, I give it full effort.</p>
+        <p class="lesson">Lesson: new roads are learned by driving them.</p>
+      </div>
+
+    </div>
+
+    <!-- DESTINATION: where I want my career to go -->
+    <div class="destination">
+      <div class="km" style="color:#fff;">DESTINATION</div>
+      <h3 style="font-family:'Oswald',sans-serif;font-size:28px;margin:4px 0;">Finance and Supply Chain</h3>
+      <p>I want to work where things have to keep moving: money through finance,
+         and goods through supply chains. Next stop: a Werkstudent role in Berlin
+         that gets me closer to that destination.</p>
+    </div>
+  </section>
+
+  <!-- TOOLKIT: my skills -->
+  <section id="toolkit">
+    <h2>My toolkit</h2>
+    <div class="tags">
+      <span>Advanced Excel</span>
+      <span>Advanced PowerPoint</span>
+      <span>SAP (vendor and payments)</span>
+      <span>Salesforce CRM</span>
+      <span>Zapier automation</span>
+      <span>AI-assisted workflows</span>
+      <span>Google Workspace</span>
+    </div>
+    <h2>Languages</h2>
+    <div class="tags">
+      <span>English (C1/Fluent)</span>
+      <span>Urdu (native)</span>
+      <span>German (conversational)</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Want to ride along?</h2>
+    <p>Connect with me on <a href="https://www.linkedin.com/in/hasanmu" target="_blank">LinkedIn</a>.</p>
+  </section>
+
+  <footer>Muhammad Hasan, Berlin 2026. Built with HTML, CSS and AI as part of my TH Wildau project.</footer>
+
+</body>
+</html>
