@@ -2,458 +2,850 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Hasan | In the Driver's Seat</title>
-
-  <!-- Fonts from Google: a bold font for headlines, a clean one for text -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17191d">
+  <meta name="description" content="Muhammad Hasan is a European Business Management master's student in Germany with a background in accountancy and finance-related experience, interested in finance and supply chain.">
+  <title>Muhammad Hasan | Business, Finance &amp; Operations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* STORY IDEA: my life is a road trip. The page is a road you drive down,
-       and each chapter of my life is a stop along the way. */
+    :root {
+      color-scheme: dark;
+      --bg: #17191d;
+      --surface: #1e2228;
+      --surface-raised: #242a32;
+      --text: #f4f5f6;
+      --muted: #a8b4c2;
+      --blue: #6da0ff;
+      --blue-strong: #4d8dff;
+      --border: #343b45;
+      --content: 1160px;
+      --nav-height: 76px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 20px); }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #1c1c1e;   /* asphalt grey */
-      color: #f2f2f2;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
-    html { scroll-behavior: smooth; }
+    img { max-width: 100%; }
+    a { color: inherit; }
+    button, summary { font: inherit; }
+    button:focus-visible, a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 4px;
+    }
+    ::selection { background: var(--blue-strong); color: #fff; }
+
+    .skip-link {
+      position: fixed;
+      z-index: 20;
+      top: 12px;
+      left: 12px;
+      transform: translateY(-160%);
+      border-radius: 6px;
+      padding: 10px 14px;
+      background: var(--text);
+      color: var(--bg);
+    }
+    .skip-link:focus { transform: translateY(0); }
     .scroll-progress {
       position: fixed;
+      z-index: 15;
       inset: 0 auto auto 0;
-      z-index: 5;
       width: 100%;
-      height: 4px;
-      background: #ffc531;
+      height: 2px;
+      background: var(--blue);
       transform: scaleX(0);
       transform-origin: left;
+      pointer-events: none;
     }
-
-    /* top navigation bar */
-    nav {
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid rgb(255 255 255 / 6%);
+      background: rgb(23 25 29 / 92%);
+      backdrop-filter: blur(16px);
+    }
+    .nav-wrap, .section-wrap, .hero-wrap, .footer-wrap {
+      width: min(var(--content), calc(100% - 56px));
+      margin-inline: auto;
+    }
+    .nav-wrap {
+      position: relative;
       display: flex;
-      justify-content: space-between;
+      min-height: var(--nav-height);
       align-items: center;
-      padding: 20px 8%;
-      font-size: 14px;
+      justify-content: space-between;
+      gap: 30px;
     }
-    nav > div { display: flex; gap: 20px; }
-    nav a {
-      color: #f2f2f2;
+    .brand {
+      color: var(--text);
+      font-family: Manrope, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -.04em;
       text-decoration: none;
+      white-space: nowrap;
     }
-    nav a:hover { color: #ffc531; }
+    .brand-mark { color: var(--blue); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      position: relative;
+      padding-block: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+    .nav-links a::after {
+      position: absolute;
+      right: 0;
+      bottom: 2px;
+      left: 0;
+      height: 1px;
+      background: var(--blue);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+    }
+    .nav-links a:hover, .nav-links a[aria-current="location"] { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a[aria-current="location"]::after { transform: scaleX(1); }
     .menu-toggle {
       display: none;
-      color: #f2f2f2;
-      border: 1px solid #777;
+      border: 1px solid var(--border);
       border-radius: 6px;
+      padding: 7px 11px;
       background: transparent;
-      padding: 8px 12px;
-      font: inherit;
+      color: var(--text);
+      cursor: pointer;
     }
 
-    /* first screen */
     .hero {
-      min-height: 72vh;
-      padding: 0 8%;
+      position: relative;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      min-height: min(720px, calc(100svh - var(--nav-height)));
       align-items: center;
-      gap: 48px;
-      justify-content: center;
+      overflow: hidden;
+      padding-block: 78px 88px;
     }
-    .hero-copy { padding: 50px 0; }
-    .sign {
-      display: inline-block;
-      background: #1f6f43;    /* green like a motorway sign */
-      border: 3px solid #fff;
-      border-radius: 8px;
-      padding: 6px 16px;
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 2px;
-      width: fit-content;
+    .hero::before {
+      position: absolute;
+      top: 12%;
+      left: -22%;
+      width: 68%;
+      height: 78%;
+      border: 1px solid rgb(109 160 255 / 9%);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+      transform: rotate(-22deg);
     }
-    h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(40px, 8vw, 80px);
-      margin: 16px 0;
-      line-height: 1.05;
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: clamp(44px, 7vw, 92px);
+    }
+    .eyebrow, .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      line-height: 1.4;
       text-transform: uppercase;
     }
-    .hero p {
-      max-width: 580px;
-      font-size: 18px;
-      opacity: 0.85;
+    .eyebrow::before, .section-kicker::before {
+      width: 25px;
+      height: 1px;
+      background: currentColor;
+      content: "";
     }
-    .hero-photo {
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: Manrope, sans-serif; }
+    h1 {
+      max-width: 680px;
+      margin: 24px 0 22px;
+      font-size: clamp(46px, 6.5vw, 80px);
+      font-weight: 600;
+      letter-spacing: -.075em;
+      line-height: 1.02;
+    }
+    h1 span { color: var(--blue); }
+    .hero-intro { max-width: 540px; margin-bottom: 30px; color: var(--muted); font-size: 17px; }
+    .hero-focus {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 30px;
+    }
+    .focus-chip {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 11px;
+      color: #d7dce3;
+      font-size: 12px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 11px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button:active { transform: translateY(0) scale(.98); }
+    .button-primary { background: var(--blue-strong); color: #fff; }
+    .button-primary:hover { background: #6da0ff; }
+    .button-secondary { border-color: var(--border); color: var(--text); }
+    .button-secondary:hover { border-color: var(--blue); color: var(--blue); }
+    .hero-note { margin: 14px 0 0; color: #8290a0; font-size: 12px; }
+    .hero-visual {
       position: relative;
-      min-height: 430px;
-      margin: 0;
+      min-height: 460px;
       overflow: hidden;
-      border: 1px solid #595959;
-      border-radius: 14px;
-      background: #303033;
-      box-shadow: 0 24px 70px #0006;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #20262e;
+      isolation: isolate;
     }
-    .hero-photo img {
+    .hero-visual::after {
       position: absolute;
+      z-index: -1;
+      inset: 30% 0 0;
+      background: linear-gradient(transparent, rgb(10 13 18 / 76%));
+      content: "";
+    }
+    .hero-visual img {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      inset: 0;
+      object-position: center;
+      transform: scale(1.015);
+      animation: hero-drift 18s ease-in-out infinite alternate;
     }
-    .photo-button {
+    .hero-caption {
+      position: absolute;
+      right: 24px;
+      bottom: 22px;
+      left: 24px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 15px;
+      color: #f2f4f8;
+      font-size: 12px;
+    }
+    .hero-caption span:first-child { max-width: 250px; }
+    .route-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgb(255 255 255 / 22%);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgb(15 18 23 / 45%);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      white-space: nowrap;
+    }
+    .route-stamp b { color: var(--blue); }
+
+    section { padding-block: 104px; scroll-margin-top: calc(var(--nav-height) + 10px); }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 35px;
+      margin-bottom: 40px;
+    }
+    .section-heading h2 {
+      margin: 12px 0 0;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 600;
+      letter-spacing: -.06em;
+      line-height: 1.1;
+    }
+    .section-heading > p { max-width: 430px; margin: 0; color: var(--muted); font-size: 14px; }
+    .about { border-top: 1px solid rgb(255 255 255 / 5%); background: #1a1d22; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(48px, 9vw, 130px); }
+    .about-route {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 280px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 32px;
+      background: linear-gradient(145deg, #202833, #1d2127 72%);
+    }
+    .city { display: flex; align-items: center; gap: 14px; font-family: Manrope, sans-serif; font-size: 19px; font-weight: 700; }
+    .city-dot { width: 9px; height: 9px; border: 2px solid var(--blue); border-radius: 50%; }
+    .city-line { width: 1px; height: 68px; margin: 8px 0 8px 4px; background: linear-gradient(var(--blue), rgb(109 160 255 / 12%)); }
+    .route-caption { margin: 23px 0 0; color: var(--muted); font-size: 12px; }
+    .about-copy { align-self: center; }
+    .about-copy h2 { max-width: 570px; margin: 0 0 22px; font-size: clamp(30px, 3.4vw, 42px); letter-spacing: -.06em; line-height: 1.15; }
+    .about-copy p { color: var(--muted); }
+    .about-copy p:last-child { margin-bottom: 0; }
+
+    .experience { position: relative; }
+    .timeline {
+      position: relative;
+      max-width: 850px;
+      margin-left: 7px;
+      padding-left: 35px;
+    }
+    .timeline::before, .timeline-progress {
+      position: absolute;
+      top: 7px;
+      bottom: 8px;
+      left: 0;
+      width: 1px;
+      content: "";
+    }
+    .timeline::before { background: var(--border); }
+    .timeline-progress {
+      bottom: auto;
+      height: 100%;
+      background: var(--blue);
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    .milestone {
+      position: relative;
+      padding: 0 0 39px;
+    }
+    .milestone:last-child { padding-bottom: 0; }
+    .milestone::before {
+      position: absolute;
+      top: 7px;
+      left: -41px;
+      width: 11px;
+      height: 11px;
+      border: 2px solid #697583;
+      border-radius: 50%;
+      background: var(--bg);
+      content: "";
+      transition: border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+    }
+    .milestone.is-active::before {
+      border-color: var(--blue);
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgb(77 141 255 / 14%);
+    }
+    .milestone time, .milestone .kind { color: var(--blue); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .milestone h3 { margin: 7px 0 8px; font-size: 20px; letter-spacing: -.03em; }
+    .milestone p { max-width: 740px; margin-bottom: 0; color: var(--muted); font-size: 14px; }
+
+    .focus { background: #1a1d22; }
+    .focus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .focus-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      transition: border-color 200ms ease, transform 200ms ease, background-color 200ms ease;
+    }
+    .focus-card:hover { transform: translateY(-3px); border-color: #526987; background: #202630; }
+    .focus-card summary { position: relative; display: block; padding: 25px; cursor: pointer; list-style: none; }
+    .focus-card summary::-webkit-details-marker { display: none; }
+    .focus-card summary::after {
+      position: absolute;
+      top: 29px;
+      right: 24px;
+      color: var(--blue);
+      content: "+";
+      font-size: 22px;
+      line-height: 1;
+      transition: transform 180ms ease;
+    }
+    .focus-card[open] summary::after { transform: rotate(45deg); }
+    .card-number { color: var(--blue); font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+    .focus-card h3 { margin: 9px 30px 8px 0; font-size: 22px; letter-spacing: -.04em; }
+    .focus-card summary p { max-width: 440px; margin: 0; color: var(--muted); font-size: 13px; }
+    .focus-detail { border-top: 1px solid var(--border); padding: 18px 25px 24px; }
+    .focus-detail p { margin-bottom: 13px; color: var(--muted); font-size: 13px; }
+    .focus-detail p:last-child { margin-bottom: 0; }
+    .detail-label { color: var(--text); font-weight: 700; }
+    .tool-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .tool-list span { border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; color: #c4ccd6; font-size: 11px; }
+    .skills-strip { margin-top: 26px; border: 1px solid var(--border); border-radius: 9px; padding: 22px 25px; background: #1c2026; }
+    .skills-strip h3 { margin: 0 0 7px; font-size: 14px; }
+    .skills-strip p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project-card { overflow: hidden; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+    .project-visual {
+      position: relative;
+      display: grid;
+      min-height: 185px;
+      place-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, transparent 49.5%, rgb(109 160 255 / 12%) 50%, transparent 50.5%),
+        linear-gradient(25deg, transparent 49.5%, rgb(109 160 255 / 10%) 50%, transparent 50.5%),
+        #202833;
+    }
+    .project-visual::before, .project-visual::after {
+      position: absolute;
+      width: 190px;
+      height: 100px;
+      border: 1px solid rgb(109 160 255 / 20%);
+      border-radius: 50%;
+      content: "";
+      transform: rotate(-22deg);
+    }
+    .project-visual::after { width: 270px; height: 140px; }
+    .visual-label { z-index: 1; border: 1px solid rgb(109 160 255 / 35%); border-radius: 5px; padding: 9px 12px; background: rgb(23 25 29 / 80%); color: #dce7f8; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .project-content { padding: 22px; }
+    .project-status { color: var(--blue); font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .project-content h3 { margin: 8px 0; font-size: 21px; letter-spacing: -.04em; }
+    .project-content > p { color: var(--muted); font-size: 13px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 15px 0 20px; }
+    .project-tags span { border-radius: 4px; padding: 4px 8px; background: #292f38; color: #cad2dd; font-size: 10px; }
+    .project-card details { border-top: 1px solid var(--border); }
+    .project-card summary { display: flex; justify-content: space-between; gap: 10px; padding: 13px 22px; color: #dce6f4; font-size: 12px; font-weight: 700; cursor: pointer; list-style: none; }
+    .project-card summary::-webkit-details-marker { display: none; }
+    .project-card summary::after { color: var(--blue); content: "+"; font-size: 17px; line-height: 1; }
+    .project-card details[open] summary::after { content: "−"; }
+    .project-detail { padding: 0 22px 20px; }
+    .project-detail dl { display: grid; grid-template-columns: 105px 1fr; gap: 7px 14px; margin: 0; font-size: 12px; }
+    .project-detail dt { color: var(--text); font-weight: 700; }
+    .project-detail dd { margin: 0; color: var(--muted); }
+    .project-note { margin: 20px 0 0; color: #8491a0; font-size: 12px; }
+
+    .personal { background: #1a1d22; }
+    .gallery-note { margin: -24px 0 25px; color: var(--muted); font-size: 13px; }
+    .gallery-grid { display: grid; grid-template-columns: 1.15fr .85fr .85fr; gap: 14px; }
+    .gallery-card {
+      position: relative;
+      min-height: 300px;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .gallery-card:first-child { min-height: 390px; }
+    .gallery-card button {
       position: absolute;
       inset: 0;
-      display: block;
       width: 100%;
       height: 100%;
-      padding: 0;
       border: 0;
-      color: inherit;
-      background: none;
+      padding: 0;
+      background: transparent;
+      color: var(--text);
       text-align: left;
       cursor: zoom-in;
     }
-    .hero-photo::after {
-      position: absolute;
-      content: "";
-      inset: 35% 0 0;
-      background: linear-gradient(transparent, #111d);
-      pointer-events: none;
-    }
-    .hero-photo figcaption {
-      position: absolute;
-      z-index: 1;
-      right: 22px;
-      bottom: 18px;
-      left: 22px;
-      font-size: 14px;
-      text-shadow: 0 2px 10px #000;
-      pointer-events: none;
-    }
-    .yellow { color: #ffc531; }
-
-    h2 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 34px;
-      text-transform: uppercase;
-    }
-    section { padding: 60px 8%; }
-
-    /* THE ROAD: a dashed yellow line down the left, like the middle of a road */
-    .road {
-      border-left: 4px dashed #ffc531;
-      margin-left: 10px;
-    }
-    .stop {
-      position: relative;
-      padding: 0 0 50px 34px;
-      max-width: 640px;
-    }
-    /* small round marker on the road for each stop */
-    .stop::before {
-      content: "";
-      position: absolute;
-      left: -12px;
-      top: 4px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: #1c1c1e;
-      border: 3px solid #ffc531;
-    }
-    .km {
-      font-size: 13px;
-      letter-spacing: 2px;
-      color: #ffc531;
-    }
-    .stop h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 26px;
-      margin: 2px 0;
-    }
-    .lesson {
-      font-style: italic;
-      opacity: 0.75;
-    }
-
-    /* the destination box at the end of the road */
-    .destination {
-      background: #1f6f43;
-      border: 3px solid #fff;
-      border-radius: 10px;
-      padding: 24px;
-      max-width: 640px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .gallery-card {
-      position: relative;
-      min-height: 260px;
-      margin: 0;
-      overflow: hidden;
-      border: 1px solid #505054;
-      border-radius: 12px;
-      background: #303033;
-    }
-    .gallery-card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 350ms ease;
-    }
-    .gallery-card:hover img,
-    .gallery-card:focus-visible img { transform: scale(1.06); }
-    .gallery-card::after {
-      position: absolute;
-      content: "";
-      inset: 35% 0 0;
-      background: linear-gradient(transparent, #111e);
-      pointer-events: none;
-    }
-    .gallery-card figcaption {
-      position: absolute;
-      z-index: 1;
-      right: 16px;
-      bottom: 14px;
-      left: 16px;
-      font-weight: 600;
-      pointer-events: none;
-    }
-    .gallery-note { opacity: 0.7; font-size: 14px; }
+    .gallery-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 450ms ease; }
+    .gallery-card button:hover img, .gallery-card button:focus-visible img { transform: scale(1.045); }
+    .gallery-card::after { position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgb(9 12 16 / 82%)); content: ""; pointer-events: none; }
+    .gallery-card figcaption { position: absolute; z-index: 1; right: 18px; bottom: 16px; left: 18px; color: #f2f4f8; font-size: 12px; pointer-events: none; }
+    .gallery-card figcaption span { display: block; margin-top: 4px; color: #bac5d2; font-size: 10px; }
+    .gallery-caveat { margin: 15px 0 0; color: #8491a0; font-size: 11px; }
     dialog {
-      width: min(900px, calc(100% - 32px));
+      width: min(940px, calc(100% - 32px));
       max-width: none;
-      padding: 0;
+      max-height: calc(100% - 32px);
       overflow: hidden;
-      color: #f2f2f2;
-      border: 1px solid #777;
+      border: 1px solid #535c68;
+      border-radius: 10px;
+      padding: 0;
+      background: #17191d;
+      color: var(--text);
+    }
+    dialog::backdrop { background: rgb(0 0 0 / 82%); backdrop-filter: blur(5px); }
+    dialog img { display: block; width: 100%; max-height: 78vh; object-fit: contain; }
+    .dialog-caption { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 12px 16px; color: var(--muted); font-size: 12px; }
+    .dialog-close { border: 1px solid var(--border); border-radius: 5px; padding: 6px 10px; background: #252a32; color: var(--text); cursor: pointer; }
+
+    .contact { padding-block: 96px; }
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
       border-radius: 12px;
-      background: #1c1c1e;
+      padding: clamp(30px, 6vw, 66px);
+      background: linear-gradient(120deg, #202833, #1d2229 70%);
     }
-    dialog::backdrop { background: #000c; backdrop-filter: blur(4px); }
-    dialog img { display: block; width: 100%; max-height: 75vh; object-fit: contain; }
-    .dialog-caption { display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; }
-    .dialog-close { color: #1c1c1e; border: 0; border-radius: 5px; background: #ffc531; padding: 7px 12px; font: inherit; cursor: pointer; }
-
-    /* skills as small labels */
-    .tags span {
-      display: inline-block;
-      border: 1px solid #ffc531;
-      border-radius: 20px;
-      padding: 6px 14px;
-      margin: 4px;
-      font-size: 14px;
+    .contact-panel::after {
+      position: absolute;
+      top: -120px;
+      right: -45px;
+      width: 340px;
+      height: 340px;
+      border: 1px solid rgb(109 160 255 / 15%);
+      border-radius: 50%;
+      box-shadow: 0 0 0 35px rgb(109 160 255 / 3%), 0 0 0 70px rgb(109 160 255 / 2%);
+      content: "";
+      pointer-events: none;
     }
+    .contact-panel h2 { position: relative; z-index: 1; max-width: 620px; margin: 13px 0 12px; font-size: clamp(34px, 5vw, 56px); letter-spacing: -.07em; line-height: 1.08; }
+    .contact-panel > p { position: relative; z-index: 1; max-width: 570px; margin-bottom: 23px; color: var(--muted); font-size: 14px; }
+    .contact-panel .button { position: relative; z-index: 1; }
+    .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 23px 30px; color: #8390a0; font-size: 11px; }
+    .footer-wrap p { margin: 0; }
+    .footer-wrap a { color: #bdc9d7; text-decoration-color: #5a6775; text-underline-offset: 3px; }
 
-    a { color: #ffc531; }
+    @keyframes hero-drift { from { transform: scale(1.015); } to { transform: scale(1.07); } }
+    .js .reveal { opacity: .12; transform: translateY(15px); transition: opacity 650ms ease, transform 650ms ease; }
+    .js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .js .hero-copy .reveal:nth-child(2) { transition-delay: 80ms; }
+    .js .hero-copy .reveal:nth-child(3) { transition-delay: 150ms; }
+    .js .hero-copy .reveal:nth-child(4) { transition-delay: 210ms; }
+    .js .hero-visual.reveal { transition-delay: 120ms; }
 
-    footer {
-      padding: 30px 8%;
-      font-size: 13px;
-      opacity: 0.6;
+    @media (max-width: 850px) {
+      :root { --nav-height: 68px; }
+      .nav-wrap, .section-wrap, .hero-wrap, .footer-wrap { width: min(var(--content), calc(100% - 40px)); }
+      .nav-links { gap: 17px; }
+      .nav-links a { font-size: 12px; }
+      .hero-grid { grid-template-columns: 1fr .85fr; gap: 35px; }
+      .hero-visual { min-height: 380px; }
+      .about-grid { gap: 45px; }
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery-card:first-child { min-height: 330px; grid-column: span 2; }
+      .gallery-card { min-height: 270px; }
     }
-    @media (max-width: 760px) {
-      nav { position: relative; }
-      .menu-toggle { display: block; }
-      nav > div {
-        display: none;
+    @media (max-width: 650px) {
+      .nav-wrap, .section-wrap, .hero-wrap, .footer-wrap { width: min(var(--content), calc(100% - 36px)); }
+      .menu-toggle { display: inline-flex; align-items: center; }
+      .nav-links {
         position: absolute;
-        z-index: 4;
-        top: 100%;
-        right: 8%;
-        left: 8%;
-        flex-direction: column;
+        top: calc(100% - 1px);
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
         gap: 0;
-        padding: 8px 16px;
-        border: 1px solid #505054;
-        border-radius: 8px;
-        background: #252528;
+        border: 1px solid var(--border);
+        border-radius: 0 0 8px 8px;
+        padding: 7px 15px;
+        background: #1c2026;
       }
-      nav > div.is-open { display: flex; }
-      nav a { padding: 10px 0; }
-      .hero { min-height: unset; grid-template-columns: 1fr; gap: 0; }
-      .hero-copy { padding: 64px 0 24px; }
-      .hero-photo { min-height: 300px; margin-bottom: 24px; }
-      section { padding-top: 42px; padding-bottom: 42px; }
+      .nav-links.is-open { display: flex; flex-direction: column; }
+      .nav-links a { padding: 10px 0; font-size: 13px; }
+      .nav-links a::after { display: none; }
+      .hero { min-height: unset; padding-block: 64px 50px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      h1 { max-width: 520px; margin-top: 19px; font-size: clamp(45px, 12.5vw, 65px); }
+      .hero-intro { font-size: 15px; }
+      .hero-visual { min-height: 310px; }
+      section { padding-block: 75px; }
+      .section-heading { align-items: start; flex-direction: column; gap: 14px; margin-bottom: 29px; }
+      .section-heading > p { font-size: 13px; }
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .about-route { min-height: 230px; padding: 25px; }
+      .focus-grid, .projects-grid { grid-template-columns: 1fr; }
+      .focus-card summary { padding: 22px; }
+      .focus-detail { padding: 17px 22px 22px; }
+      .project-visual { min-height: 155px; }
       .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-card { min-height: 230px; }
+      .gallery-card:first-child { min-height: 330px; grid-column: auto; }
+      .gallery-card { min-height: 270px; }
+      .gallery-note { margin-top: -13px; }
+      .contact { padding-block: 60px; }
+      .contact-panel::after { right: -210px; }
+      .footer-wrap { align-items: flex-start; flex-direction: column; gap: 7px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: 0.01ms !important; }
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="scroll-progress" aria-hidden="true"></div>
-  <nav>
-    <strong>Muhammad Hasan</strong>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links">Menu</button>
-    <div id="site-links">
-      <a href="#route">Route</a>
-      <a href="#moments">Moments</a>
-      <a href="#toolkit">Toolkit</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <!-- HERO: the main message of my storyline -->
-  <header class="hero">
-    <div class="hero-copy">
-      <div class="sign">KARACHI &rarr; BERLIN</div>
-      <h1>In the <span class="yellow">driver's seat</span></h1>
-      <p>I love cars, and driving taught me how I want to work: watch the dashboard,
-         plan the route, and keep moving forward. My destination is a career in
-         finance or supply chain, where money and goods have to keep moving too.</p>
-    </div>
-    <figure class="hero-photo">
-      <button class="photo-button" type="button"
-        data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85"
-        data-caption="Every journey begins with a road ahead.">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
-          alt="A winding road through a wide, open landscape" fetchpriority="high">
-        <figcaption>Every journey begins with a road ahead. <span class="yellow">↗</span></figcaption>
-      </button>
-    </figure>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="#top">MUHAMMAD HASAN<span class="brand-mark">.</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links">Menu</button>
+      <div class="nav-links" id="site-links">
+        <a href="#story">My story</a>
+        <a href="#experience">Experience</a>
+        <a href="#focus">Focus</a>
+        <a href="#projects">Projects</a>
+        <a href="#drive">The drive</a>
+      </div>
+    </nav>
   </header>
 
-  <!-- THE ROUTE: my story as stops on a road trip -->
-  <section id="route">
-    <h2>The route so far</h2>
-    <div class="road">
-
-      <div class="stop">
-        <div class="km">START | KARACHI</div>
-        <h3>Where the engine started</h3>
-        <p>I have always been fascinated by cars: how they are built, how they move,
-           and how every small part has to work together.</p>
-        <p class="lesson">Lesson: big things move because small parts do their job.</p>
+  <main id="main">
+    <div class="hero" id="top">
+      <div class="hero-wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow reveal">European Business Management · Germany</div>
+          <h1 class="reveal">Driven by curiosity.<br><span>Focused on performance.</span></h1>
+          <p class="hero-intro reveal">I bring an academic foundation in accountancy and business, finance-related work experience, and an analytical approach to the way organisations operate. I am interested in opportunities across finance and supply chain.</p>
+          <div class="hero-focus reveal" aria-label="Professional interests">
+            <span class="focus-chip">Finance &amp; Accounting</span>
+            <span class="focus-chip">Supply Chain &amp; Operations</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#experience">Explore my experience <span aria-hidden="true">↓</span></a>
+            <a class="button button-secondary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">View my CV <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hero-note">Based in Germany · Open to Werkstudent opportunities</p>
+        </div>
+        <figure class="hero-visual reveal">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=82"
+            alt="A dark sports car on a quiet road, reflecting a personal love of driving"
+            fetchpriority="high">
+          <figcaption class="hero-caption">
+            <span>A genuine love of cars and the open road — alongside a professional focus on business.</span>
+            <span class="route-stamp">KHI <b>—</b> BER</span>
+          </figcaption>
+        </figure>
       </div>
-
-      <div class="stop">
-        <div class="km">2019 | KARACHI</div>
-        <h3>Learning to read the dashboard</h3>
-        <p>Bachelor of Science in Accountancy, Management and Law at the Institute of Business Management.
-           Numbers are a company's dashboard: they tell you how fast it is going and how much fuel is left.</p>
-        <p class="lesson">Lesson: you can't drive well if you can't read the gauges.</p>
-      </div>
-
-      <div class="stop">
-        <div class="km">2021 | KARACHI</div>
-        <h3>Reading the road</h3>
-        <p>Two and a half years in outbound sales and lead qualification at Breakthru (Apexchat),
-           working in Salesforce CRM with clients in the US.</p>
-        <p class="lesson">Lesson: understand the people around you before you make a move.</p>
-      </div>
-
-      <div class="stop">
-        <div class="km">2024 | KARACHI</div>
-        <h3>A look under the hood</h3>
-        <p>Finance Intern at Hoechst Pakistan Limited, working on vendor and payment operations in SAP.
-           I saw how money flows through a real company, step by step.</p>
-        <p class="lesson">Lesson: the engine only runs if every process is done right.</p>
-      </div>
-
-      <div class="stop">
-        <div class="km">2024 | BERLIN</div>
-        <h3>Changing lanes</h3>
-        <p>I moved to Germany to start my Master's in European Business Management at TH Wildau,
-           specializing in Marketing and Sustainability.</p>
-        <p class="lesson">Lesson: sometimes you have to change lanes to reach your destination.</p>
-      </div>
-
-      <div class="stop">
-        <div class="km">2025 | BERLIN</div>
-        <h3>Behind the wheel in Germany</h3>
-        <p>About four months after arriving, I started working toward my EU driving license,
-           in a new country, with new rules, and new roads. I earned it, because when I decide
-           to do something, I give it full effort.</p>
-        <p class="lesson">Lesson: new roads are learned by driving them.</p>
-      </div>
-
     </div>
 
-    <!-- DESTINATION: where I want my career to go -->
-    <div class="destination">
-      <div class="km" style="color:#fff;">DESTINATION</div>
-      <h3 style="font-family:'Oswald',sans-serif;font-size:28px;margin:4px 0;">Finance and Supply Chain</h3>
-      <p>I want to work where things have to keep moving: money through finance,
-         and goods through supply chains. Next stop: a Werkstudent role in Berlin
-         that gets me closer to that destination.</p>
-    </div>
-  </section>
+    <section class="about" id="story" aria-labelledby="story-title">
+      <div class="section-wrap about-grid">
+        <div class="about-route reveal" aria-label="Journey from Karachi to Berlin">
+          <div class="city"><span class="city-dot" aria-hidden="true"></span>Karachi</div>
+          <div class="city-line" aria-hidden="true"></div>
+          <div class="city"><span class="city-dot" aria-hidden="true"></span>Berlin</div>
+          <p class="route-caption">A new place to learn, build experience and find my next opportunity.</p>
+        </div>
+        <div class="about-copy reveal">
+          <div class="section-kicker">The person behind the work</div>
+          <h2 id="story-title">A business foundation. A broader perspective.</h2>
+          <p>My journey from Karachi to Berlin has taken me from studying Accountancy, Management and Law to gaining experience in sales operations and finance, and now to master's studies in European Business Management at TH Wildau.</p>
+          <p>That path has shaped my interest in how organisations make decisions and keep work moving. I am exploring finance and supply chain as distinct career directions, bringing a shared interest in sound analysis, reliable processes and business performance.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="moments">
-    <h2>Snapshots along the way</h2>
-    <p class="gallery-note">A few scenes from the road so far. Select a photo to take a closer look.</p>
-    <div class="gallery-grid">
-      <figure class="gallery-card">
-        <button class="photo-button" type="button"
-          data-image="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=1800&q=85"
-          data-caption="Karachi — where the journey began.">
-          <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=800&q=80"
-            alt="City street lined with buildings in warm evening light" loading="lazy">
-          <figcaption>01 / Karachi — the starting point</figcaption>
-        </button>
-      </figure>
-      <figure class="gallery-card">
-        <button class="photo-button" type="button"
-          data-image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1800&q=85"
-          data-caption="Learning to read the numbers behind every decision.">
-          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
-            alt="Calculator and financial paperwork on a desk" loading="lazy">
-          <figcaption>02 / Finance — reading the dashboard</figcaption>
-        </button>
-      </figure>
-      <figure class="gallery-card">
-        <button class="photo-button" type="button"
-          data-image="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1800&q=85"
-          data-caption="Berlin — a new city, a new lane.">
-          <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80"
-            alt="Berlin street with the Brandenburg Gate in the distance" loading="lazy">
-          <figcaption>03 / Berlin — changing lanes</figcaption>
-        </button>
-      </figure>
-    </div>
-  </section>
+    <section class="experience" id="experience" aria-labelledby="experience-title">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Education &amp; experience</div>
+            <h2 id="experience-title">The road so far</h2>
+          </div>
+          <p>A concise view of the education and work experiences that have informed my professional direction.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-progress" aria-hidden="true"></div>
+          <article class="milestone">
+            <time datetime="2019">2019 · Karachi</time>
+            <h3>Bachelor of Science in Accountancy, Management and Law</h3>
+            <p>Institute of Business Management. An academic foundation in accounting and business, with a broad grounding in management and law.</p>
+          </article>
+          <article class="milestone">
+            <time datetime="2021">2021 · Karachi</time>
+            <h3>Outbound Sales &amp; Lead Qualification</h3>
+            <p>Two and a half years at Breakthru (Apexchat), working with US clients and using Salesforce CRM.</p>
+          </article>
+          <article class="milestone">
+            <time datetime="2024">2024 · Karachi</time>
+            <h3>Finance Intern · Hoechst Pakistan Limited</h3>
+            <p>Exposure to vendor and payment operations using SAP, seeing how finance processes connect across day-to-day business activity.</p>
+          </article>
+          <article class="milestone">
+            <time datetime="2024">2024 · Germany</time>
+            <h3>Master's in European Business Management</h3>
+            <p>TH Wildau, with a specialisation in Marketing and Sustainability. Moving to Germany broadened my academic and international perspective.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <!-- TOOLKIT: my skills -->
-  <section id="toolkit">
-    <h2>My toolkit</h2>
-    <div class="tags">
-      <span>Advanced Excel</span>
-      <span>Advanced PowerPoint</span>
-      <span>SAP (vendor and payments)</span>
-      <span>Salesforce CRM</span>
-      <span>Zapier automation</span>
-      <span>AI-assisted workflows</span>
-      <span>Google Workspace</span>
-    </div>
-    <h2>Languages</h2>
-    <div class="tags">
-      <span>English (C1/Fluent)</span>
-      <span>Urdu (native)</span>
-      <span>German (conversational)</span>
-    </div>
-  </section>
+    <section class="focus" id="focus" aria-labelledby="focus-title">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Professional direction</div>
+            <h2 id="focus-title">Two paths. One analytical mindset.</h2>
+          </div>
+          <p>Finance and supply chain are separate professional interests, grounded in business study and a curiosity about how organisations perform.</p>
+        </div>
+        <div class="focus-grid">
+          <details class="focus-card">
+            <summary>
+              <span class="card-number">01 / FINANCE</span>
+              <h3>Finance &amp; Accounting</h3>
+              <p>Practical exposure to vendor and payment operations, backed by an academic accountancy foundation.</p>
+            </summary>
+            <div class="focus-detail">
+              <p><span class="detail-label">Demonstrated:</span> Finance internship experience involving vendor and payment operations in SAP; bachelor's study in Accountancy, Management and Law.</p>
+              <p><span class="detail-label">Interested in:</span> Financial operations, reporting and analytical work that supports well-informed business decisions.</p>
+              <div class="tool-list" aria-label="Relevant tools and study areas"><span>SAP · vendor and payment processes</span><span>Accountancy studies</span></div>
+            </div>
+          </details>
+          <details class="focus-card">
+            <summary>
+              <span class="card-number">02 / OPERATIONS</span>
+              <h3>Supply Chain &amp; Operations</h3>
+              <p>A developing career interest in procurement, logistics and the processes that help goods move reliably.</p>
+            </summary>
+            <div class="focus-detail">
+              <p><span class="detail-label">Transferable foundation:</span> Business studies, client-facing operations experience and familiarity with business systems.</p>
+              <p><span class="detail-label">Currently developing:</span> Deeper knowledge of procurement, supplier performance, logistics and inventory analysis. These are areas of interest, not claimed professional experience.</p>
+              <div class="tool-list" aria-label="Relevant tools"><span>Excel</span><span>Salesforce CRM</span><span>Business process analysis</span></div>
+            </div>
+          </details>
+        </div>
+        <div class="skills-strip">
+          <h3>Tools &amp; working skills</h3>
+          <p>Advanced Excel and PowerPoint · SAP (vendor and payment processes) · Salesforce CRM · Zapier automation · AI-assisted workflows · Google Workspace</p>
+        </div>
+        <div class="skills-strip">
+          <h3>Languages</h3>
+          <p>English (C1 / fluent) · Urdu (native) · German (conversational)</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Want to ride along?</h2>
-    <p>Connect with me on <a href="https://www.linkedin.com/in/hasanmu" target="_blank">LinkedIn</a>.</p>
-  </section>
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Selected work</div>
+            <h2 id="projects-title">Building evidence through analysis.</h2>
+          </div>
+          <p>Portfolio project concepts designed to turn business questions into clear, useful analysis. No results are presented until the work is completed and verified.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-visual" aria-hidden="true"><span class="visual-label">Finance · concept</span></div>
+            <div class="project-content">
+              <div class="project-status">Portfolio project · planned</div>
+              <h3>Finance Performance Dashboard</h3>
+              <p>A planned analysis of invoice ageing, vendor balances, payment priorities and expenses using a clearly documented sample dataset.</p>
+              <div class="project-tags"><span>Invoice ageing</span><span>Vendor balances</span><span>Reporting</span></div>
+            </div>
+            <details>
+              <summary>Project outline</summary>
+              <div class="project-detail">
+                <dl>
+                  <dt>Business question</dt><dd>How could finance teams review open invoices and prioritise payment follow-up?</dd>
+                  <dt>Dataset &amp; tools</dt><dd>Add the dataset source, assumptions and tools after the project is completed.</dd>
+                  <dt>Approach</dt><dd>Explore invoice ageing, vendor balances, payment timing and expense categories.</dd>
+                  <dt>Findings</dt><dd>To be added after analysis. No results or business impact are claimed yet.</dd>
+                </dl>
+              </div>
+            </details>
+          </article>
+          <article class="project-card">
+            <div class="project-visual" aria-hidden="true"><span class="visual-label">Supply chain · concept</span></div>
+            <div class="project-content">
+              <div class="project-status">Portfolio project · planned</div>
+              <h3>Supply Chain Analytics Dashboard</h3>
+              <p>A planned exploration of inventory levels, supplier lead times and delivery performance, with stockout analysis as a potential extension.</p>
+              <div class="project-tags"><span>Inventory</span><span>Supplier lead times</span><span>Delivery performance</span></div>
+            </div>
+            <details>
+              <summary>Project outline</summary>
+              <div class="project-detail">
+                <dl>
+                  <dt>Business question</dt><dd>What patterns in stock and supplier delivery data could support operational review?</dd>
+                  <dt>Dataset &amp; tools</dt><dd>Add the dataset source, assumptions and tools after the project is completed.</dd>
+                  <dt>Approach</dt><dd>Examine inventory levels, lead-time variation, delivery performance and possible stockout indicators.</dd>
+                  <dt>Findings</dt><dd>To be added after analysis. No results or business impact are claimed yet.</dd>
+                </dl>
+              </div>
+            </details>
+          </article>
+        </div>
+        <p class="project-note">These are planned portfolio case studies, not completed client or employer projects. Add real datasets, analysis, findings, screenshots and repository links when available.</p>
+      </div>
+    </section>
 
-  <footer>Muhammad Hasan, Berlin 2026. Built with HTML, CSS and AI as part of my TH Wildau project.</footer>
+    <section class="personal" id="drive" aria-labelledby="drive-title">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Outside the spreadsheet</div>
+            <h2 id="drive-title">A personal love of the drive.</h2>
+          </div>
+          <p>Cars, roads and the feeling of setting out are a genuine part of who I am — a personal interest, not my professional specialisation.</p>
+        </div>
+        <p class="gallery-note">A few road-and-car scenes that capture the atmosphere I enjoy. Select an image to view it larger.</p>
+        <div class="gallery-grid">
+          <figure class="gallery-card">
+            <button type="button" class="photo-button"
+              data-image="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85"
+              data-caption="A quiet stretch of road and the anticipation of a drive.">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=78"
+                alt="Dark sports car photographed on a quiet road" loading="lazy">
+              <figcaption>01 / The machine <span>Design, detail and the joy of driving</span></figcaption>
+            </button>
+          </figure>
+          <figure class="gallery-card">
+            <button type="button" class="photo-button"
+              data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85"
+              data-caption="Open landscapes make every journey feel like a new possibility.">
+              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=78"
+                alt="Winding road crossing a broad, open landscape" loading="lazy">
+              <figcaption>02 / The road <span>Space to think and enjoy the journey</span></figcaption>
+            </button>
+          </figure>
+          <figure class="gallery-card">
+            <button type="button" class="photo-button"
+              data-image="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=85"
+              data-caption="A mountain road at dusk, where the landscape becomes part of the experience.">
+              <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=78"
+                alt="Mountain landscape beneath a starry evening sky" loading="lazy">
+              <figcaption>03 / The landscape <span>The places that make a drive memorable</span></figcaption>
+            </button>
+          </figure>
+        </div>
+        <p class="gallery-caveat">Illustrative photography from Unsplash; these images are not presented as personal photographs or places I have visited.</p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="section-wrap contact-panel">
+        <div class="section-kicker">The next destination</div>
+        <h2 id="contact-title">Ready for the next opportunity.</h2>
+        <p>I am interested in opportunities where financial understanding, analytical thinking and operational execution can create business value.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="mailto:muhammadhasan20001@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">View my CV <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-wrap">
+      <p>Muhammad Hasan · Germany · 2026</p>
+      <p>Built with HTML, CSS and JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">CV</a> · <a href="mailto:muhammadhasan20001@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    </div>
+  </footer>
 
   <dialog aria-label="Photo viewer">
     <img alt="">
@@ -492,15 +884,63 @@
     photoDialog.addEventListener('click', (event) => {
       if (event.target === photoDialog) photoDialog.close();
     });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && photoDialog.open) photoDialog.close();
+    });
 
     const progress = document.querySelector('.scroll-progress');
-    const updateProgress = () => {
+    const timeline = document.querySelector('.timeline');
+    const timelineProgress = document.querySelector('.timeline-progress');
+    const updateScrollDecorations = () => {
       const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.transform = `scaleX(${scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0})`;
+      const timelineRect = timeline.getBoundingClientRect();
+      const timelineTravel = timelineRect.height + Math.max(0, timelineRect.top - window.innerHeight * .55);
+      const timelinePassed = Math.max(0, Math.min(timelineRect.height, window.innerHeight * .55 - timelineRect.top));
+      timelineProgress.style.transform = `scaleY(${timelineTravel > 0 ? timelinePassed / timelineRect.height : 0})`;
     };
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    window.addEventListener('resize', updateProgress);
-    updateProgress();
+    let scrollUpdateQueued = false;
+    const queueScrollUpdate = () => {
+      if (scrollUpdateQueued) return;
+      scrollUpdateQueued = true;
+      window.requestAnimationFrame(() => {
+        updateScrollDecorations();
+        scrollUpdateQueued = false;
+      });
+    };
+    window.addEventListener('scroll', queueScrollUpdate, { passive: true });
+    window.addEventListener('resize', queueScrollUpdate);
+    updateScrollDecorations();
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      document.documentElement.classList.add('js');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 });
+      document.querySelectorAll('.reveal, .milestone').forEach((element) => revealObserver.observe(element));
+
+      const sectionLinks = [...document.querySelectorAll('.nav-links a')];
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            sectionLinks.forEach((link) => {
+              if (link.hash === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
+              else link.removeAttribute('aria-current');
+            });
+          }
+        });
+      }, { rootMargin: '-25% 0px -65% 0px' });
+      sectionLinks.forEach((link) => {
+        const section = document.querySelector(link.hash);
+        if (section) sectionObserver.observe(section);
+      });
+    }
   </script>
 </body>
 </html>
