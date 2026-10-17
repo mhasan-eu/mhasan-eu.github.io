@@ -200,6 +200,7 @@
       opacity: var(--intro-car-opacity, 1);
       transform: translate3d(-50%, var(--intro-car-y, 0px), 0);
       will-change: transform, opacity;
+      object-fit: contain;
     }
     .intro-car .car-body { fill: #f4f5f6; stroke: #a8b4c2; stroke-width: 1.5; }
     .intro-car .car-glass { fill: #242a32; stroke: #68788d; stroke-width: 1.3; }
@@ -732,17 +733,7 @@
           <div class="intro-location">Karachi <span aria-hidden="true">—</span> Berlin</div>
           <h1 class="intro-title"><span>Muhammad</span><span>Hasan</span></h1>
         </div>
-        <svg class="intro-car" viewBox="0 0 120 220" role="img" aria-label="Top-down illustration of a white vintage classic car" xmlns="http://www.w3.org/2000/svg">
-          <title>Top-down view of a white vintage classic car</title>
-          <path class="car-wheel" d="M9 46q0-5 5-5h12q5 0 5 5v34q0 5-5 5H14q-5 0-5-5zM89 46q0-5 5-5h12q5 0 5 5v34q0 5-5 5H94q-5 0-5-5zM9 143q0-5 5-5h12q5 0 5 5v34q0 5-5 5H14q-5 0-5-5zM89 143q0-5 5-5h12q5 0 5 5v34q0 5-5 5H94q-5 0-5-5z"/>
-          <path class="car-body" d="M60 8c-12 0-20 7-24 19l-8 25c-4 11-6 23-6 37v40c0 19 4 35 10 49l8 19c4 9 10 14 20 14s16-5 20-14l8-19c6-14 10-30 10-49V89c0-14-2-26-6-37l-8-25C80 15 72 8 60 8ZM25 56c-8 4-12 11-12 21v25c0 8 4 13 11 13l8-2V65zM95 56c8 4 12 11 12 21v25c0 8-4 13-11 13l-8-2V65zM25 137l8 2v25c0 8-4 13-11 13l-9-17v-3c0-10 4-17 12-20zM95 137l-8 2v25c0 8 4 13 11 13l9-17v-3c0-10-4-17-12-20z"/>
-          <path class="car-glass" d="M60 44c-12 0-19 7-20 19l-2 18c0 8 4 13 11 17l5 3v29l-5 3c-7 4-11 9-11 17l2 14c1 10 8 17 20 17s19-7 20-17l2-14c0-8-4-13-11-17l-5-3v-29l5-3c7-4 11-9 11-17l-2-18c-1-12-8-19-20-19z"/>
-          <path class="car-detail" d="M43 31q4-11 12-14h10q8 3 12 14l3 10H40zM41 86h38v4H41zM41 128h38v4H41zM43 184h34l-5 8H48z"/>
-          <path d="M33 30h54M35 34h50M33 188h54M35 192h50" fill="none" stroke="#a8b4c2" stroke-linecap="round" stroke-width="3"/>
-          <path d="M30 29a8 8 0 1 0 16 0 8 8 0 1 0-16 0M74 29a8 8 0 1 0 16 0 8 8 0 1 0-16 0" fill="#f7f2df" stroke="#a8b4c2" stroke-width="2"/>
-          <path d="M60 23v16M60 90v36M60 134v34M21 115h13m52 0h13M21 136h13m52 0h13" fill="none" stroke="#a8b4c2" stroke-linecap="round" stroke-width="1.5"/>
-          <path d="M49 105h22M49 111h22M49 117h22M49 123h22" fill="none" stroke="#6da0ff" stroke-linecap="round" stroke-width="1.5"/>
-        </svg>
+        <img class="intro-car" src="./assets/intro-car-logo.png" alt="Top-down car logo">
         <div class="intro-scroll" aria-hidden="true">Scroll to explore<span>↓</span></div>
       </div>
     </section>
