@@ -394,8 +394,8 @@
     .detail-label { color: var(--text); font-weight: 700; }
     .tool-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
     .tool-list span { border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; color: #c4ccd6; font-size: 11px; }
-    .work-snapshot { display: grid; grid-template-columns: 112px 1fr; align-items: center; gap: 15px; margin: 18px 0 0; border-top: 1px solid var(--border); padding-top: 17px; }
-    .work-snapshot img { display: block; width: 112px; height: 132px; border: 1px solid var(--border); border-radius: 6px; object-fit: cover; }
+    .work-snapshot { margin: 18px 0 0; border-top: 1px solid var(--border); padding-top: 17px; }
+    .work-snapshot img { display: block; width: 100%; max-height: 250px; border: 1px solid var(--border); border-radius: 6px; object-fit: cover; object-position: center; }
     .work-snapshot figcaption { color: var(--muted); font-size: 12px; }
     .work-snapshot strong { display: block; margin-bottom: 4px; color: var(--text); font-size: 12px; }
     .skills-strip { margin-top: 26px; border: 1px solid var(--border); border-radius: 9px; padding: 22px 25px; background: #1c2026; }
@@ -707,8 +707,8 @@
               <p><span class="detail-label">Interested in:</span> Financial operations, reporting and analytical work that supports well-informed business decisions.</p>
               <div class="tool-list" aria-label="Relevant tools and study areas"><span>SAP · vendor and payment processes</span><span>Accountancy studies</span></div>
               <figure class="work-snapshot">
-                <img src="./assets/business-workspace.jpg" alt="Personal workspace with a spreadsheet on an external monitor and a laptop on the desk" loading="lazy">
-                <figcaption><strong>A personal work-space snapshot</strong>A look at the desk and digital tools that are part of my work and study routine.</figcaption>
+                <img src="./assets/finance-dashboard.jpg" alt="Illustrative finance dashboard with sample charts on a laptop screen" loading="lazy">
+                <figcaption><strong>Finance dashboard illustration</strong>Visual context for my interest in finance analysis; this is not a completed project or real business data.</figcaption>
               </figure>
             </div>
           </details>
@@ -722,6 +722,10 @@
               <p><span class="detail-label">Transferable foundation:</span> Business studies, client-facing operations experience and familiarity with business systems.</p>
               <p><span class="detail-label">Currently developing:</span> Deeper knowledge of procurement, supplier performance, logistics and inventory analysis. These are areas of interest, not claimed professional experience.</p>
               <div class="tool-list" aria-label="Relevant tools"><span>Excel</span><span>Salesforce CRM</span><span>Business process analysis</span></div>
+              <figure class="work-snapshot">
+                <img src="./assets/supply-chain-truck.jpg" alt="Illustration of a delivery truck in a distribution warehouse between location markers" loading="lazy">
+                <figcaption><strong>Supply chain illustration</strong>A visual for logistics and goods movement; illustrative imagery, not a record of my work experience.</figcaption>
+              </figure>
             </div>
           </details>
         </div>
@@ -822,15 +826,15 @@
           </figure>
           <figure class="gallery-card">
             <button type="button" class="photo-button"
-              data-image="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1800&q=85"
-              data-caption="A mountain road at dusk, where the landscape becomes part of the experience.">
-              <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=78"
-                alt="Mountain landscape beneath a starry evening sky" loading="lazy">
-              <figcaption>03 / The landscape <span>A little inspiration for the next route</span></figcaption>
+              data-image="./assets/business-workspace.jpg"
+              data-caption="A personal look at the workspace where I study and work with business data.">
+              <img src="./assets/business-workspace.jpg"
+                alt="Personal workspace with a spreadsheet on an external monitor and a laptop on the desk" loading="lazy">
+              <figcaption>03 / At my workspace <span>A personal study and work snapshot</span></figcaption>
             </button>
           </figure>
         </div>
-        <p class="gallery-caveat">The cockpit and driving photographs are personal. The landscape image is illustrative photography and is not presented as a place I have visited.</p>
+        <p class="gallery-caveat">The cockpit, driving and workspace photographs are personal images.</p>
       </div>
     </section>
 
