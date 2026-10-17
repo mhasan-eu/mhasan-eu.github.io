@@ -194,18 +194,18 @@
       z-index: 2;
       bottom: 20px;
       left: 50%;
-      width: 78px;
-      height: 174px;
+      width: 88px;
+      height: 166px;
       overflow: visible;
       filter: drop-shadow(0 12px 20px rgb(0 0 0 / 40%));
       opacity: var(--intro-car-opacity, 1);
       transform: translate3d(-50%, var(--intro-car-y, 0px), 0);
       will-change: transform, opacity;
     }
-    .intro-car .car-body { fill: #d7e0eb; stroke: #6da0ff; stroke-width: 1.4; }
-    .intro-car .car-glass { fill: #28384b; stroke: #8fb7ff; stroke-width: 1; }
-    .intro-car .car-detail { fill: #8f9cad; }
-    .intro-car .car-wheel { fill: #080b10; stroke: #596575; stroke-width: 1; }
+    .intro-car .car-body { fill: #f4f5f6; stroke: #a8b4c2; stroke-width: 1.5; }
+    .intro-car .car-glass { fill: #242a32; stroke: #68788d; stroke-width: 1.3; }
+    .intro-car .car-detail { fill: #a8b4c2; }
+    .intro-car .car-wheel { fill: #090b0f; stroke: #68717d; stroke-width: 1.2; }
     .intro-scroll {
       position: absolute;
       right: max(18px, calc((100% - var(--content)) / 2));
@@ -643,7 +643,7 @@
       .nav-links a { font-size: 12px; }
       .intro-title { font-size: clamp(60px, 15vw, 122px); }
       .intro-copy { padding-inline: 18px; }
-      .intro-car { width: 65px; height: 148px; }
+      .intro-car { width: 76px; height: 148px; }
       .hero-grid { grid-template-columns: 1fr .85fr; gap: 35px; }
       .hero-visual { min-height: 380px; }
       .about-grid { gap: 45px; }
@@ -677,7 +677,7 @@
       .intro-title { font-size: clamp(54px, 14vw, 84px); }
       .intro-location { font-size: 9px; }
       .intro-copy { padding: 0 14px 10vh; }
-      .intro-car { bottom: 18px; width: 55px; height: 124px; }
+      .intro-car { bottom: 18px; width: 64px; height: 124px; }
       .intro-scroll { right: 14px; bottom: 12px; left: auto; font-size: 9px; }
       .hero-intro { font-size: 15px; }
       .hero-visual { min-height: 310px; }
@@ -733,17 +733,14 @@
           <div class="intro-location">Karachi <span aria-hidden="true">—</span> Berlin</div>
           <h1 class="intro-title"><span>Muhammad</span><span>Hasan</span></h1>
         </div>
-        <svg class="intro-car" viewBox="0 0 100 220" role="img" aria-label="Top view of a car" xmlns="http://www.w3.org/2000/svg">
+        <svg class="intro-car" viewBox="0 0 120 220" role="img" aria-label="Top view of a white car" xmlns="http://www.w3.org/2000/svg">
           <title>Top view of a car</title>
-          <rect class="car-wheel" x="17" y="45" width="13" height="32" rx="4"/>
-          <rect class="car-wheel" x="70" y="45" width="13" height="32" rx="4"/>
-          <rect class="car-wheel" x="17" y="151" width="13" height="31" rx="4"/>
-          <rect class="car-wheel" x="70" y="151" width="13" height="31" rx="4"/>
-          <path class="car-body" d="M50 8c-10 0-16 8-20 21L23 54c-3 8-5 17-5 27v79c0 19 10 31 26 35v13h12v-13c16-4 26-16 26-35V81c0-10-2-19-5-27l-7-25C66 16 60 8 50 8Z"/>
-          <path class="car-glass" d="m34 44-6 31c-1 5 2 8 7 8h30c5 0 8-3 7-8l-6-31c-1-5-4-8-9-8H43c-5 0-8 3-9 8ZM29 91h42v43H29z"/>
-          <path class="car-detail" d="M29 141h42v8H29zM33 25h34l5 14H28zM35 185h30l-4 6H39z"/>
-          <path d="M39 13h22" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
-          <path d="M21 91h5m48 0h5M21 137h5m48 0h5" fill="none" stroke="#4d8dff" stroke-linecap="round" stroke-width="2"/>
+          <path class="car-wheel" d="M18 43h12v37H18zM90 43h12v37H90zM18 143h12v37H18zM90 143h12v37H90z" />
+          <path class="car-body" d="M60 7c-13 0-21 8-27 24L23 57c-5 13-8 27-8 42v58c0 23 11 39 30 45v11h30v-11c19-6 30-22 30-45V99c0-15-3-29-8-42L87 31C81 15 73 7 60 7Z"/>
+          <path class="car-glass" d="M40 39c5-7 11-10 20-10s15 3 20 10l10 31c-8 6-18 9-30 9s-22-3-30-9zM32 88h56v39H32zM31 139c8-5 18-8 29-8s21 3 29 8l-7 28c-4 9-11 14-22 14s-18-5-22-14z"/>
+          <path class="car-detail" d="M42 19h36l4 8H38zM36 83h48v3H36zM36 130h48v3H36zM39 192h42v5H39z"/>
+          <path d="M45 12h30" fill="none" stroke="#dce9ff" stroke-linecap="round" stroke-width="2"/>
+          <path d="M17 91h7m72 0h7M17 132h7m72 0h7" fill="none" stroke="#6da0ff" stroke-linecap="round" stroke-width="2"/>
         </svg>
         <div class="intro-scroll" aria-hidden="true">Scroll to explore<span>↓</span></div>
       </div>
