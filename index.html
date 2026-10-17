@@ -209,16 +209,17 @@
       top: -47%;
       width: 44%;
       height: 53%;
-      background: linear-gradient(to top, rgb(255 247 190 / 28%), rgb(255 247 190 / 9%) 50%, transparent);
+      background: linear-gradient(to top, rgb(255 250 207 / 72%), rgb(255 247 190 / 38%) 42%, rgb(255 247 190 / 12%) 76%, transparent);
       clip-path: polygon(45% 100%, 0 0, 100% 0);
       transform-origin: center bottom;
+      filter: drop-shadow(0 0 9px rgb(255 244 173 / 58%));
       animation: headlights-on 1.8s ease-in-out infinite alternate;
     }
     .intro-headlight-beam:first-child { left: 5%; }
     .intro-headlight-beam:nth-child(2) { right: 5%; }
     @keyframes headlights-on {
-      from { opacity: .55; filter: blur(1px); }
-      to { opacity: 1; filter: blur(0); }
+      from { opacity: .78; }
+      to { opacity: 1; }
     }
     .intro-smoke {
       position: absolute;
@@ -1159,8 +1160,8 @@
         oscillator.frequency.setTargetAtTime(revs * multiplier, now, .08);
       });
       engineAudio.masterGain.gain.cancelScheduledValues(now);
-      engineAudio.masterGain.gain.setTargetAtTime((.006 + movement * .034) * carOpacity, now, .07);
-      engineAudio.masterGain.gain.setTargetAtTime(.003 * carOpacity, now + .16, .22);
+      engineAudio.masterGain.gain.setTargetAtTime((.018 + movement * .102) * carOpacity, now, .07);
+      engineAudio.masterGain.gain.setTargetAtTime(.009 * carOpacity, now + .16, .22);
     };
     audioToggle.addEventListener('click', async () => {
       if (reduceMotion) return;
