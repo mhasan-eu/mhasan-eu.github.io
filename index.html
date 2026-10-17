@@ -394,6 +394,10 @@
     .detail-label { color: var(--text); font-weight: 700; }
     .tool-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
     .tool-list span { border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; color: #c4ccd6; font-size: 11px; }
+    .work-snapshot { display: grid; grid-template-columns: 112px 1fr; align-items: center; gap: 15px; margin: 18px 0 0; border-top: 1px solid var(--border); padding-top: 17px; }
+    .work-snapshot img { display: block; width: 112px; height: 132px; border: 1px solid var(--border); border-radius: 6px; object-fit: cover; }
+    .work-snapshot figcaption { color: var(--muted); font-size: 12px; }
+    .work-snapshot strong { display: block; margin-bottom: 4px; color: var(--text); font-size: 12px; }
     .skills-strip { margin-top: 26px; border: 1px solid var(--border); border-radius: 9px; padding: 22px 25px; background: #1c2026; }
     .skills-strip h3 { margin: 0 0 7px; font-size: 14px; }
     .skills-strip p { margin: 0; color: var(--muted); font-size: 13px; }
@@ -619,8 +623,8 @@
           <p class="hero-note">Based in Germany · Open to Werkstudent opportunities</p>
         </div>
         <figure class="hero-visual reveal">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=82"
-            alt="A dark sports car on a quiet road, reflecting a personal love of driving"
+          <img src="./assets/personal-cockpit.jpg"
+            alt="Personal view from the driver's seat of a Volkswagen, looking toward a dealership"
             fetchpriority="high">
           <figcaption class="hero-caption">
             <span>A genuine love of cars and the open road — alongside a professional focus on business.</span>
@@ -702,6 +706,10 @@
               <p><span class="detail-label">Demonstrated:</span> Finance internship experience involving vendor and payment operations in SAP; bachelor's study in Accountancy, Management and Law.</p>
               <p><span class="detail-label">Interested in:</span> Financial operations, reporting and analytical work that supports well-informed business decisions.</p>
               <div class="tool-list" aria-label="Relevant tools and study areas"><span>SAP · vendor and payment processes</span><span>Accountancy studies</span></div>
+              <figure class="work-snapshot">
+                <img src="./assets/business-workspace.jpg" alt="Personal workspace with a spreadsheet on an external monitor and a laptop on the desk" loading="lazy">
+                <figcaption><strong>A personal work-space snapshot</strong>A look at the desk and digital tools that are part of my work and study routine.</figcaption>
+              </figure>
             </div>
           </details>
           <details class="focus-card">
@@ -796,20 +804,20 @@
         <div class="gallery-grid">
           <figure class="gallery-card">
             <button type="button" class="photo-button"
-              data-image="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85"
-              data-caption="A quiet stretch of road and the anticipation of a drive.">
-              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=78"
-                alt="Dark sports car photographed on a quiet road" loading="lazy">
-              <figcaption>01 / The machine <span>Design, detail and the joy of driving</span></figcaption>
+              data-image="./assets/personal-cockpit.jpg"
+              data-caption="A personal view from the driver's seat, taking in the car and the destination ahead.">
+              <img src="./assets/personal-cockpit.jpg"
+                alt="View from inside a Volkswagen, with its steering wheel and dealership ahead" loading="lazy">
+              <figcaption>01 / The driver's view <span>A personal photograph from behind the wheel</span></figcaption>
             </button>
           </figure>
           <figure class="gallery-card">
             <button type="button" class="photo-button"
-              data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85"
-              data-caption="Open landscapes make every journey feel like a new possibility.">
-              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=78"
-                alt="Winding road crossing a broad, open landscape" loading="lazy">
-              <figcaption>02 / The road <span>Space to think and enjoy the journey</span></figcaption>
+              data-image="./assets/personal-driving.jpg"
+              data-caption="A personal moment behind the wheel on an evening drive.">
+              <img src="./assets/personal-driving.jpg"
+                alt="A person holding the steering wheel inside a car at night" loading="lazy">
+              <figcaption>02 / Out for a drive <span>A personal moment on the road</span></figcaption>
             </button>
           </figure>
           <figure class="gallery-card">
@@ -818,11 +826,11 @@
               data-caption="A mountain road at dusk, where the landscape becomes part of the experience.">
               <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=78"
                 alt="Mountain landscape beneath a starry evening sky" loading="lazy">
-              <figcaption>03 / The landscape <span>The places that make a drive memorable</span></figcaption>
+              <figcaption>03 / The landscape <span>A little inspiration for the next route</span></figcaption>
             </button>
           </figure>
         </div>
-        <p class="gallery-caveat">Illustrative photography from Unsplash; these images are not presented as personal photographs or places I have visited.</p>
+        <p class="gallery-caveat">The cockpit and driving photographs are personal. The landscape image is illustrative photography and is not presented as a place I have visited.</p>
       </div>
     </section>
 
