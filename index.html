@@ -1160,8 +1160,8 @@
         oscillator.frequency.setTargetAtTime(revs * multiplier, now, .08);
       });
       engineAudio.masterGain.gain.cancelScheduledValues(now);
-      engineAudio.masterGain.gain.setTargetAtTime((.018 + movement * .102) * carOpacity, now, .07);
-      engineAudio.masterGain.gain.setTargetAtTime(.009 * carOpacity, now + .16, .22);
+      engineAudio.masterGain.gain.setTargetAtTime((.05 + movement * .25) * carOpacity, now, .07);
+      engineAudio.masterGain.gain.setTargetAtTime(.025 * carOpacity, now + .16, .22);
     };
     audioToggle.addEventListener('click', async () => {
       if (reduceMotion) return;
