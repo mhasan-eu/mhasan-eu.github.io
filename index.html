@@ -166,9 +166,8 @@
       width: min(100%, var(--content));
       padding: 0 24px 8vh;
       text-align: center;
-      transform: translate3d(0, var(--intro-name-y, 0px), 0);
       opacity: var(--intro-name-opacity, 1);
-      will-change: transform, opacity;
+      will-change: opacity;
     }
     .intro-location {
       margin-bottom: 22px;
@@ -733,14 +732,16 @@
           <div class="intro-location">Karachi <span aria-hidden="true">—</span> Berlin</div>
           <h1 class="intro-title"><span>Muhammad</span><span>Hasan</span></h1>
         </div>
-        <svg class="intro-car" viewBox="0 0 120 220" role="img" aria-label="Top-down illustration of a white open-wheel racing car" xmlns="http://www.w3.org/2000/svg">
-          <title>Top-down view of a white open-wheel racing car</title>
-          <path class="car-wheel" d="M8 47q0-4 4-4h15q4 0 4 4v35q0 4-4 4H12q-4 0-4-4zM89 47q0-4 4-4h15q4 0 4 4v35q0 4-4 4H93q-4 0-4-4zM5 139q0-5 5-5h16q5 0 5 5v39q0 5-5 5H10q-5 0-5-5zM89 139q0-5 5-5h16q5 0 5 5v39q0 5-5 5H94q-5 0-5-5z"/>
-          <path class="car-detail" d="M7 26h44v8H7zM69 26h44v8H69zM12 22h34v3H12zM74 22h34v3H74zM9 188h102v7H9zM14 197h92v5H14z"/>
-          <path class="car-body" d="M60 8c-7 0-11 7-13 17l-5 27c-2 10-2 20-1 31l4 49c1 18 5 35 10 47v8h10v-8c5-12 9-29 10-47l4-49c1-11 1-21-1-31l-5-27C71 15 67 8 60 8ZM43 88 29 92c-8 2-13 9-13 17v26c0 7 5 11 11 9l19-7zM77 88l14 4c8 2 13 9 13 17v26c0 7-5 11-11 9l-19-7z"/>
-          <path class="car-glass" d="M60 53c-10 0-15 7-15 17v17c0 8 4 13 10 15v13c0 7 2 11 5 11s5-4 5-11v-13c6-2 10-7 10-15V70c0-10-5-17-15-17z"/>
-          <path class="car-detail" d="M54 28h12l4 19H50zM47 83h26v4H47zM47 129h26v4H47zM52 171h16v5H52z"/>
-          <path d="M60 45v8m0 81v30M20 112h8m64 0h8M60 32v12" fill="none" stroke="#6da0ff" stroke-linecap="round" stroke-width="2"/>
+        <svg class="intro-car" viewBox="0 0 120 220" role="img" aria-label="Top-down illustration of a white Porsche 911-style sports car" xmlns="http://www.w3.org/2000/svg">
+          <title>Top-down view of a white Porsche 911-style sports car</title>
+          <path class="car-wheel" d="M10 47q0-5 5-5h13q5 0 5 5v34q0 5-5 5H15q-5 0-5-5zM87 47q0-5 5-5h13q5 0 5 5v34q0 5-5 5H92q-5 0-5-5zM7 137q0-6 6-6h15q6 0 6 6v37q0 6-6 6H13q-6 0-6-6zM86 137q0-6 6-6h15q6 0 6 6v37q0 6-6 6H92q-6 0-6-6z"/>
+          <path class="car-detail" d="M22 24h76v5H22zM27 18h66v4H27zM16 190h88v6H16zM22 197h76v4H22z"/>
+          <path class="car-body" d="M60 8c-12 0-19 8-22 20l-8 28c-3 10-4 20-4 32v43c0 19 4 34 10 46l5 13c3 7 9 11 19 11s16-4 19-11l5-13c6-12 10-27 10-46V88c0-12-1-22-4-32l-8-28C79 16 72 8 60 8ZM30 66c-9 4-14 11-14 21v37c0 8 4 13 11 12l11-2V77zM90 66c9 4 14 11 14 21v37c0 8-4 13-11 12l-11-2V77z"/>
+          <path class="car-glass" d="M60 36c-11 0-17 7-18 18l-2 20c0 8 4 13 10 16l3 2v21c0 6 3 10 7 10s7-4 7-10V92l3-2c6-3 10-8 10-16l-2-20c-1-11-7-18-18-18zM46 132h28l-4 17c-2 8-7 13-10 13s-8-5-10-13z"/>
+          <path class="car-detail" d="M41 28q2-7 7-10h24q5 3 7 10l3 10H38zM43 81h34v4H43zM43 127h34v4H43z"/>
+          <path d="M37 47q5-5 10 0l-2 7q-5 4-10 0zM83 47q-5-5-10 0l2 7q5 4 10 0z" fill="#e8edf2" stroke="#a8b4c2" stroke-width="1"/>
+          <path d="M60 42v8m0 79v11M18 111h8m68 0h8" fill="none" stroke="#6da0ff" stroke-linecap="round" stroke-width="2"/>
+          <path d="M32 187h56" fill="none" stroke="#cf5263" stroke-linecap="round" stroke-width="3"/>
         </svg>
         <div class="intro-scroll" aria-hidden="true">Scroll to explore<span>↓</span></div>
       </div>
@@ -1057,7 +1058,6 @@
         const introProgress = Math.min(1, Math.max(0, (window.scrollY - introStart) / introTravel));
         const nameOpacity = Math.max(0, 1 - introProgress / .78);
         const carOpacity = Math.max(0, 1 - Math.max(0, introProgress - .84) / .16);
-        introStage.style.setProperty('--intro-name-y', `${-introProgress * window.innerHeight * .85}px`);
         introStage.style.setProperty('--intro-name-opacity', String(nameOpacity));
         introStage.style.setProperty('--intro-car-y', `${-introProgress * window.innerHeight * .95}px`);
         introStage.style.setProperty('--intro-car-opacity', String(carOpacity));
