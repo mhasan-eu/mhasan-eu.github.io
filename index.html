@@ -231,6 +231,13 @@
       top: var(--nav-height);
       height: calc(100svh - var(--nav-height));
       min-height: 0;
+      z-index: 2;
+    }
+    .motion-enabled .hero {
+      z-index: 1;
+      align-items: start;
+      margin-top: calc(-1 * (100svh - var(--nav-height)));
+      padding-top: 48px;
     }
 
     .hero {
@@ -1049,9 +1056,9 @@
       progress.style.transform = `scaleX(${scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0})`;
       if (!reduceMotion) {
         const introTravel = Math.max(1, introStage.offsetHeight - introSticky.offsetHeight);
-        const introStart = introStage.getBoundingClientRect().top + window.scrollY;
+        const introStart = introStage.getBoundingClientRect().top + window.scrollY - document.querySelector('.site-header').offsetHeight;
         const introProgress = Math.min(1, Math.max(0, (window.scrollY - introStart) / introTravel));
-        const nameOpacity = Math.max(0, 1 - Math.max(0, introProgress - .62) / .38);
+        const nameOpacity = Math.max(0, 1 - introProgress / .78);
         const carOpacity = Math.max(0, 1 - Math.max(0, introProgress - .84) / .16);
         introStage.style.setProperty('--intro-name-y', `${-introProgress * window.innerHeight * .85}px`);
         introStage.style.setProperty('--intro-name-opacity', String(nameOpacity));
