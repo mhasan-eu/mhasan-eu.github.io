@@ -131,6 +131,106 @@
       cursor: pointer;
     }
 
+    .intro-stage {
+      position: relative;
+      min-height: calc(100vh - var(--nav-height));
+      min-height: calc(100svh - var(--nav-height));
+      overflow: clip;
+      padding: 0;
+      border-bottom: 1px solid rgb(255 255 255 / 6%);
+      background:
+        radial-gradient(ellipse at 50% 42%, rgb(54 71 94 / 20%), transparent 54%),
+        var(--bg);
+    }
+    .intro-sticky {
+      position: relative;
+      display: grid;
+      min-height: calc(100vh - var(--nav-height));
+      min-height: calc(100svh - var(--nav-height));
+      place-items: center;
+      overflow: hidden;
+    }
+    .intro-route {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: repeating-linear-gradient(to bottom, rgb(109 160 255 / 20%) 0 7px, transparent 7px 17px);
+      mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
+      transform: translateX(-50%);
+    }
+    .intro-copy {
+      position: relative;
+      z-index: 1;
+      width: min(100%, var(--content));
+      padding: 0 24px 8vh;
+      text-align: center;
+      transform: translate3d(0, var(--intro-name-y, 0px), 0);
+      opacity: var(--intro-name-opacity, 1);
+      will-change: transform, opacity;
+    }
+    .intro-location {
+      margin-bottom: 22px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .intro-title {
+      margin: 0;
+      font-size: clamp(64px, 15.5vw, 218px);
+      font-weight: 600;
+      letter-spacing: -.095em;
+      line-height: .82;
+    }
+    .intro-title span { display: block; }
+    .intro-title span + span { color: var(--blue); }
+    .intro-car {
+      position: absolute;
+      z-index: 2;
+      bottom: 20px;
+      left: 50%;
+      width: 78px;
+      height: 174px;
+      overflow: visible;
+      filter: drop-shadow(0 12px 20px rgb(0 0 0 / 40%));
+      opacity: var(--intro-car-opacity, 1);
+      transform: translate3d(-50%, var(--intro-car-y, 0px), 0);
+      will-change: transform, opacity;
+    }
+    .intro-car .car-body { fill: #d7e0eb; stroke: #6da0ff; stroke-width: 1.4; }
+    .intro-car .car-glass { fill: #28384b; stroke: #8fb7ff; stroke-width: 1; }
+    .intro-car .car-detail { fill: #8f9cad; }
+    .intro-car .car-wheel { fill: #080b10; stroke: #596575; stroke-width: 1; }
+    .intro-scroll {
+      position: absolute;
+      right: max(18px, calc((100% - var(--content)) / 2));
+      bottom: 22px;
+      left: auto;
+      z-index: 3;
+      width: 110px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+      opacity: var(--intro-cue-opacity, 1);
+    }
+    .intro-scroll span { display: block; margin-top: 5px; color: var(--blue); font-size: 16px; }
+    .motion-enabled .intro-stage {
+      height: 178vh;
+      height: 178svh;
+      min-height: 0;
+    }
+    .motion-enabled .intro-sticky {
+      position: sticky;
+      top: var(--nav-height);
+      height: calc(100svh - var(--nav-height));
+      min-height: 0;
+    }
+
     .hero {
       position: relative;
       display: grid;
@@ -532,6 +632,9 @@
       .nav-wrap, .section-wrap, .hero-wrap, .footer-wrap { width: min(var(--content), calc(100% - 40px)); }
       .nav-links { gap: 17px; }
       .nav-links a { font-size: 12px; }
+      .intro-title { font-size: clamp(60px, 15vw, 122px); }
+      .intro-copy { padding-inline: 18px; }
+      .intro-car { width: 65px; height: 148px; }
       .hero-grid { grid-template-columns: 1fr .85fr; gap: 35px; }
       .hero-visual { min-height: 380px; }
       .about-grid { gap: 45px; }
@@ -541,6 +644,7 @@
     }
     @media (max-width: 650px) {
       .nav-wrap, .section-wrap, .hero-wrap, .footer-wrap { width: min(var(--content), calc(100% - 36px)); }
+      .brand { font-size: 16px; }
       .menu-toggle { display: inline-flex; align-items: center; }
       .nav-links {
         position: absolute;
@@ -561,6 +665,11 @@
       .hero { min-height: unset; padding-block: 64px 50px; }
       .hero-grid { grid-template-columns: 1fr; gap: 32px; }
       h1 { max-width: 520px; margin-top: 19px; font-size: clamp(45px, 12.5vw, 65px); }
+      .intro-title { font-size: clamp(54px, 14vw, 84px); }
+      .intro-location { font-size: 9px; }
+      .intro-copy { padding: 0 14px 10vh; }
+      .intro-car { bottom: 18px; width: 55px; height: 124px; }
+      .intro-scroll { right: 14px; bottom: 12px; left: auto; font-size: 9px; }
       .hero-intro { font-size: 15px; }
       .hero-visual { min-height: 310px; }
       section { padding-block: 75px; }
@@ -584,6 +693,9 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .js .reveal { opacity: 1; transform: none; }
+      .motion-enabled .intro-stage { height: auto; min-height: calc(100svh - var(--nav-height)); }
+      .motion-enabled .intro-sticky { position: relative; height: auto; min-height: calc(100svh - var(--nav-height)); }
+      .intro-copy, .intro-car, .intro-scroll { transform: none; opacity: 1; }
     }
   </style>
 </head>
@@ -592,7 +704,7 @@
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
     <nav class="nav-wrap" aria-label="Main navigation">
-      <a class="brand" href="#top">MUHAMMAD HASAN<span class="brand-mark">.</span></a>
+      <a class="brand" href="#top" aria-label="Muhammad Hasan home">MH<span class="brand-mark">.</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links">Menu</button>
       <div class="nav-links" id="site-links">
         <a href="#story">My story</a>
@@ -605,7 +717,30 @@
   </header>
 
   <main id="main">
-    <div class="hero" id="top">
+    <section class="intro-stage" id="top" aria-label="Muhammad Hasan">
+      <div class="intro-sticky">
+        <div class="intro-route" aria-hidden="true"></div>
+        <div class="intro-copy">
+          <div class="intro-location">Karachi <span aria-hidden="true">—</span> Berlin</div>
+          <h1 class="intro-title"><span>Muhammad</span><span>Hasan</span></h1>
+        </div>
+        <svg class="intro-car" viewBox="0 0 100 220" role="img" aria-label="Top view of a car" xmlns="http://www.w3.org/2000/svg">
+          <title>Top view of a car</title>
+          <rect class="car-wheel" x="17" y="45" width="13" height="32" rx="4"/>
+          <rect class="car-wheel" x="70" y="45" width="13" height="32" rx="4"/>
+          <rect class="car-wheel" x="17" y="151" width="13" height="31" rx="4"/>
+          <rect class="car-wheel" x="70" y="151" width="13" height="31" rx="4"/>
+          <path class="car-body" d="M50 8c-10 0-16 8-20 21L23 54c-3 8-5 17-5 27v79c0 19 10 31 26 35v13h12v-13c16-4 26-16 26-35V81c0-10-2-19-5-27l-7-25C66 16 60 8 50 8Z"/>
+          <path class="car-glass" d="m34 44-6 31c-1 5 2 8 7 8h30c5 0 8-3 7-8l-6-31c-1-5-4-8-9-8H43c-5 0-8 3-9 8ZM29 91h42v43H29z"/>
+          <path class="car-detail" d="M29 141h42v8H29zM33 25h34l5 14H28zM35 185h30l-4 6H39z"/>
+          <path d="M39 13h22" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+          <path d="M21 91h5m48 0h5M21 137h5m48 0h5" fill="none" stroke="#4d8dff" stroke-linecap="round" stroke-width="2"/>
+        </svg>
+        <div class="intro-scroll" aria-hidden="true">Scroll to explore<span>↓</span></div>
+      </div>
+    </section>
+
+    <div class="hero">
       <div class="hero-wrap hero-grid">
         <div class="hero-copy">
           <div class="eyebrow reveal">European Business Management · Germany</div>
@@ -903,9 +1038,25 @@
     const progress = document.querySelector('.scroll-progress');
     const timeline = document.querySelector('.timeline');
     const timelineProgress = document.querySelector('.timeline-progress');
+    const introStage = document.querySelector('.intro-stage');
+    const introSticky = introStage.querySelector('.intro-sticky');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) document.documentElement.classList.add('motion-enabled');
     const updateScrollDecorations = () => {
       const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.transform = `scaleX(${scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0})`;
+      if (!reduceMotion) {
+        const introTravel = Math.max(1, introStage.offsetHeight - introSticky.offsetHeight);
+        const introStart = introStage.getBoundingClientRect().top + window.scrollY;
+        const introProgress = Math.min(1, Math.max(0, (window.scrollY - introStart) / introTravel));
+        const nameOpacity = Math.max(0, 1 - Math.max(0, introProgress - .62) / .38);
+        const carOpacity = Math.max(0, 1 - Math.max(0, introProgress - .84) / .16);
+        introStage.style.setProperty('--intro-name-y', `${-introProgress * window.innerHeight * .85}px`);
+        introStage.style.setProperty('--intro-name-opacity', String(nameOpacity));
+        introStage.style.setProperty('--intro-car-y', `${-introProgress * window.innerHeight * .95}px`);
+        introStage.style.setProperty('--intro-car-opacity', String(carOpacity));
+        introStage.style.setProperty('--intro-cue-opacity', String(Math.max(0, 1 - introProgress * 5)));
+      }
       const timelineRect = timeline.getBoundingClientRect();
       const timelineTravel = timelineRect.height + Math.max(0, timelineRect.top - window.innerHeight * .55);
       const timelinePassed = Math.max(0, Math.min(timelineRect.height, window.innerHeight * .55 - timelineRect.top));
@@ -924,7 +1075,6 @@
     window.addEventListener('resize', queueScrollUpdate);
     updateScrollDecorations();
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if ('IntersectionObserver' in window && !reduceMotion) {
       document.documentElement.classList.add('js');
       const revealObserver = new IntersectionObserver((entries, observer) => {
