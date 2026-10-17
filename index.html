@@ -193,6 +193,7 @@
       z-index: 2;
       bottom: 20px;
       left: 50%;
+      isolation: isolate;
       width: 88px;
       height: 166px;
       overflow: visible;
@@ -200,7 +201,45 @@
       opacity: var(--intro-car-opacity, 1);
       transform: translate3d(-50%, var(--intro-car-y, 0px), 0);
       will-change: transform, opacity;
-      object-fit: contain;
+    }
+    .intro-car-image { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    .intro-headlight-beam {
+      position: absolute;
+      z-index: 1;
+      top: -47%;
+      width: 44%;
+      height: 53%;
+      background: linear-gradient(to top, rgb(255 247 190 / 28%), rgb(255 247 190 / 9%) 50%, transparent);
+      clip-path: polygon(45% 100%, 0 0, 100% 0);
+      transform-origin: center bottom;
+      animation: headlights-on 1.8s ease-in-out infinite alternate;
+    }
+    .intro-headlight-beam:first-child { left: 5%; }
+    .intro-headlight-beam:nth-child(2) { right: 5%; }
+    @keyframes headlights-on {
+      from { opacity: .55; filter: blur(1px); }
+      to { opacity: 1; filter: blur(0); }
+    }
+    .intro-smoke {
+      position: absolute;
+      z-index: 1;
+      bottom: 1%;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgb(218 225 235 / 48%), rgb(173 184 198 / 22%) 48%, transparent 75%);
+      filter: blur(2.5px);
+      opacity: 0;
+      animation: exhaust-smoke 1.9s ease-out infinite;
+    }
+    .intro-smoke:nth-child(3) { left: 15%; --smoke-drift: -13px; }
+    .intro-smoke:nth-child(4) { left: 33%; --smoke-drift: -5px; animation-delay: .65s; }
+    .intro-smoke:nth-child(5) { right: 33%; --smoke-drift: 5px; animation-delay: 1.3s; }
+    .intro-smoke:nth-child(6) { right: 15%; --smoke-drift: 13px; animation-delay: .3s; }
+    @keyframes exhaust-smoke {
+      0% { opacity: 0; transform: translate3d(0, 0, 0) scale(.55); }
+      18% { opacity: .9; }
+      100% { opacity: 0; transform: translate3d(var(--smoke-drift), 40px, 0) scale(2.6); }
     }
     .intro-car .car-body { fill: #f4f5f6; stroke: #a8b4c2; stroke-width: 1.5; }
     .intro-car .car-glass { fill: #242a32; stroke: #68788d; stroke-width: 1.3; }
@@ -733,7 +772,15 @@
           <div class="intro-location">Karachi <span aria-hidden="true">—</span> Berlin</div>
           <h1 class="intro-title"><span>Muhammad</span><span>Hasan</span></h1>
         </div>
-        <img class="intro-car" src="./assets/intro-car-logo.png" alt="Top-down car logo">
+        <div class="intro-car" aria-hidden="true">
+          <span class="intro-headlight-beam"></span>
+          <span class="intro-headlight-beam"></span>
+          <span class="intro-smoke"></span>
+          <span class="intro-smoke"></span>
+          <span class="intro-smoke"></span>
+          <span class="intro-smoke"></span>
+          <img class="intro-car-image" src="./assets/intro-car-logo.png" alt="">
+        </div>
         <div class="intro-scroll" aria-hidden="true">Scroll to explore<span>↓</span></div>
       </div>
     </section>
