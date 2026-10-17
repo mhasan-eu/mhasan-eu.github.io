@@ -262,13 +262,15 @@
     }
     .intro-scroll span { display: block; margin-top: 5px; color: var(--blue); font-size: 16px; }
     .intro-audio-controls {
-      position: absolute;
+      position: fixed;
       bottom: 22px;
       left: max(18px, calc((100% - var(--content)) / 2));
       z-index: 3;
       display: grid;
       justify-items: start;
       gap: 5px;
+      opacity: var(--intro-audio-opacity, 1);
+      transition: opacity .12s linear;
     }
     .intro-audio-toggle {
       border: 1px solid var(--border);
@@ -1115,6 +1117,7 @@
     const timelineProgress = document.querySelector('.timeline-progress');
     const introStage = document.querySelector('.intro-stage');
     const introSticky = introStage.querySelector('.intro-sticky');
+    const audioControls = document.querySelector('.intro-audio-controls');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const audioToggle = document.querySelector('.intro-audio-toggle');
     const audioStatus = document.querySelector('.intro-audio-status');
@@ -1212,6 +1215,8 @@
         introStage.style.setProperty('--intro-car-y', `${-introProgress * window.innerHeight * .95}px`);
         introStage.style.setProperty('--intro-car-opacity', String(carOpacity));
         introStage.style.setProperty('--intro-cue-opacity', String(Math.max(0, 1 - introProgress * 5)));
+        introStage.style.setProperty('--intro-audio-opacity', String(carOpacity));
+        audioControls.style.visibility = carOpacity > 0 ? 'visible' : 'hidden';
         updateEngineAudio(introProgress, Math.min(1, scrollVelocity / 1.4));
       }
       const timelineRect = timeline.getBoundingClientRect();
