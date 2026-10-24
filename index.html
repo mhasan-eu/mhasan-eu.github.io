@@ -187,7 +187,22 @@
       line-height: .82;
     }
     .intro-title span { display: block; }
-    .intro-title span + span { color: var(--blue); }
+    .intro-title span + span {
+      position: relative;
+      width: max-content;
+      max-width: 100%;
+      margin-inline: auto;
+      color: var(--blue);
+    }
+    .intro-nickname {
+      position: absolute;
+      right: 0;
+      bottom: -.82em;
+      color: var(--text);
+      font: italic 500 clamp(14px, 1.8vw, 22px)/1.2 Georgia, "Times New Roman", serif;
+      letter-spacing: normal;
+      white-space: nowrap;
+    }
     .intro-car {
       position: absolute;
       z-index: 2;
@@ -798,7 +813,7 @@
         <div class="intro-route" aria-hidden="true"></div>
         <div class="intro-copy">
           <div class="intro-location">Karachi <span aria-hidden="true">—</span> Berlin</div>
-          <h1 class="intro-title"><span>Muhammad</span><span>Hasan</span></h1>
+          <h1 class="intro-title" aria-label="Muhammad Hasan"><span>Muhammad</span><span>Hasan<span class="intro-nickname">Just call me Hasan</span></span></h1>
         </div>
         <div class="intro-car" aria-hidden="true">
           <span class="intro-headlight-beam"></span>
