@@ -1117,6 +1117,17 @@
       }
     });
 
+    const focusCards = [...document.querySelectorAll('.focus-card')];
+    focusCards.forEach((card) => {
+      card.querySelector('summary').addEventListener('click', () => {
+        if (!card.open) {
+          focusCards.forEach((otherCard) => {
+            if (otherCard !== card) otherCard.open = false;
+          });
+        }
+      });
+    });
+
     const photoDialog = document.querySelector('dialog');
     const dialogImage = photoDialog.querySelector('img');
     const dialogCaption = photoDialog.querySelector('.dialog-caption span');
