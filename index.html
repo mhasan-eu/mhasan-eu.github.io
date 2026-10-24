@@ -994,7 +994,7 @@
               <p>A planned analysis of invoice ageing, vendor balances, payment priorities and expenses using a clearly documented sample dataset.</p>
               <div class="project-tags"><span>Invoice ageing</span><span>Vendor balances</span><span>Reporting</span></div>
             </div>
-            <details>
+            <details name="project-outlines">
               <summary>Project outline</summary>
               <div class="project-detail">
                 <dl>
@@ -1014,7 +1014,7 @@
               <p>A planned exploration of inventory levels, supplier lead times and delivery performance, with stockout analysis as a potential extension.</p>
               <div class="project-tags"><span>Inventory</span><span>Supplier lead times</span><span>Delivery performance</span></div>
             </div>
-            <details>
+            <details name="project-outlines">
               <summary>Project outline</summary>
               <div class="project-detail">
                 <dl>
@@ -1123,6 +1123,17 @@
         if (!card.open) {
           focusCards.forEach((otherCard) => {
             if (otherCard !== card) otherCard.open = false;
+          });
+        }
+      });
+    });
+
+    const projectOutlines = [...document.querySelectorAll('.project-card details')];
+    projectOutlines.forEach((outline) => {
+      outline.querySelector('summary').addEventListener('click', () => {
+        if (!outline.open) {
+          projectOutlines.forEach((otherOutline) => {
+            if (otherOutline !== outline) otherOutline.open = false;
           });
         }
       });
