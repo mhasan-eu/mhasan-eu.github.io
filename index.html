@@ -130,6 +130,19 @@
       color: var(--text);
       cursor: pointer;
     }
+    .language-toggle {
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      transition: border-color 180ms ease, color 180ms ease;
+    }
+    .language-toggle:hover { border-color: var(--blue); color: var(--blue); }
 
     .intro-stage {
       position: relative;
@@ -157,19 +170,6 @@
       left: 50%;
       width: 1px;
       background: repeating-linear-gradient(to bottom, rgb(109 160 255 / 20%) 0 7px, transparent 7px 17px);
-    .language-toggle {
-      flex: 0 0 auto;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 8px 13px;
-      background: transparent;
-      color: var(--text);
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 700;
-      transition: border-color 180ms ease, color 180ms ease;
-    }
-    .language-toggle:hover { border-color: var(--blue); color: var(--blue); }
       mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
       transform: translateX(-50%);
     }
@@ -821,6 +821,7 @@
         <a href="#projects">Projekte</a>
         <a href="#drive">Unterwegs</a>
       </div>
+      <button class="language-toggle" type="button" lang="en" aria-label="Zur englischen Version wechseln">English</button>
     </nav>
   </header>
 
@@ -876,7 +877,6 @@
           </figcaption>
         </figure>
       </div>
-      <button class="language-toggle" type="button" lang="en" aria-label="Zur englischen Version wechseln">English</button>
     </div>
 
     <section class="about" id="story" aria-labelledby="story-title">
