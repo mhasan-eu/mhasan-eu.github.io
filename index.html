@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17191d">
-  <meta name="description" content="Muhammad Hasan is a European Business Management master's student in Germany with a background in accountancy and finance-related experience, interested in finance and supply chain.">
-  <title>Muhammad Hasan | Business, Finance &amp; Operations</title>
+  <meta name="description" content="Muhammad Hasan studiert European Business Management in Deutschland und bringt Erfahrung in Buchhaltung, Finanzen, CRM und Kundenservice mit.">
+  <title>Muhammad Hasan | Business, Finanzen &amp; Kundenservice</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
@@ -157,6 +157,19 @@
       left: 50%;
       width: 1px;
       background: repeating-linear-gradient(to bottom, rgb(109 160 255 / 20%) 0 7px, transparent 7px 17px);
+    .language-toggle {
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      transition: border-color 180ms ease, color 180ms ease;
+    }
+    .language-toggle:hover { border-color: var(--blue); color: var(--blue); }
       mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
       transform: translateX(-50%);
     }
@@ -795,18 +808,18 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
-    <nav class="nav-wrap" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Muhammad Hasan home">MH<span class="brand-mark">.</span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links">Menu</button>
+    <nav class="nav-wrap" aria-label="Hauptnavigation">
+      <a class="brand" href="#top" aria-label="Muhammad Hasan – Startseite">MH<span class="brand-mark">.</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-links">Menü</button>
       <div class="nav-links" id="site-links">
-        <a href="#story">My story</a>
-        <a href="#experience">Experience</a>
-        <a href="#focus">Focus</a>
-        <a href="#projects">Projects</a>
-        <a href="#drive">The drive</a>
+        <a href="#story">Mein Weg</a>
+        <a href="#experience">Erfahrung</a>
+        <a href="#focus">Schwerpunkte</a>
+        <a href="#projects">Projekte</a>
+        <a href="#drive">Unterwegs</a>
       </div>
     </nav>
   </header>
@@ -816,8 +829,8 @@
       <div class="intro-sticky">
         <div class="intro-route" aria-hidden="true"></div>
         <div class="intro-copy">
-          <div class="intro-location">Karachi <span aria-hidden="true">—</span> Berlin</div>
-          <h1 class="intro-title" aria-label="Muhammad Hasan"><span>Muhammad</span><span>Hasan<span class="intro-nickname">Just call me Hasan</span></span></h1>
+          <div class="intro-location">Karatschi <span aria-hidden="true">—</span> Berlin</div>
+          <h1 class="intro-title" aria-label="Muhammad Hasan"><span>Muhammad</span><span>Hasan<span class="intro-nickname">Nenn mich einfach Hasan</span></span></h1>
         </div>
         <div class="intro-car" aria-hidden="true">
           <span class="intro-headlight-beam"></span>
@@ -829,55 +842,56 @@
           <img class="intro-car-image" src="./assets/intro-car-logo.png" alt="">
         </div>
         <div class="intro-audio-controls">
-          <button class="intro-audio-toggle" type="button" aria-pressed="false" aria-label="Turn racing engine sound on">Sound: off</button>
+          <button class="intro-audio-toggle" type="button" aria-pressed="false" aria-label="Motorgeräusch einschalten">Sound: aus</button>
           <span class="intro-audio-status" aria-live="polite"></span>
         </div>
-        <div class="intro-scroll" aria-hidden="true">Scroll to explore<span>↓</span></div>
+        <div class="intro-scroll" aria-hidden="true">Scrollen zum Entdecken<span>↓</span></div>
       </div>
     </section>
 
     <div class="hero">
       <div class="hero-wrap hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow reveal">European Business Management · Germany</div>
-          <h1 class="reveal">I like finding out why the <span>numbers don’t add up.</span></h1>
-          <p class="hero-intro reveal">I bring an academic foundation in accountancy and business, finance-related work experience, and an analytical approach to the way organisations operate. I am interested in opportunities across finance and supply chain.</p>
-          <div class="hero-focus reveal" aria-label="Professional interests">
-            <span class="focus-chip">Finance &amp; Accounting</span>
-            <span class="focus-chip">Supply Chain &amp; Operations</span>
+          <div class="eyebrow reveal">European Business Management · Deutschland</div>
+          <h1 class="reveal">Ich finde gern heraus, warum die <span>Zahlen nicht stimmen.</span></h1>
+          <p class="hero-intro reveal">Ich verbinde eine akademische Grundlage in Rechnungswesen und Wirtschaft mit praktischer Erfahrung im Finanzbereich und einem analytischen Blick auf betriebliche Abläufe. Besonders interessieren mich Finanzen, CRM und Kundenservice.</p>
+          <div class="hero-focus reveal" aria-label="Berufliche Interessen">
+            <span class="focus-chip">Finanzen &amp; Rechnungswesen</span>
+            <span class="focus-chip">CRM &amp; Kundenservice</span>
           </div>
           <div class="hero-actions">
             <a class="button button-primary" href="#experience">Explore my experience <span aria-hidden="true">↓</span></a>
             <a class="button button-secondary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
-            <a class="button button-secondary" href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">View my CV <span aria-hidden="true">↗</span></a>
+            <a class="button button-secondary" href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf ansehen <span aria-hidden="true">↗</span></a>
           </div>
           <p class="hero-note">Based in Germany · Open to Werkstudent opportunities</p>
         </div>
         <figure class="hero-visual reveal">
           <img src="./assets/personal-cockpit.jpg"
-            alt="Personal view from the driver's seat of a Volkswagen, looking toward a dealership"
+            alt="Persönlicher Blick vom Fahrersitz eines Volkswagen in Richtung eines Autohauses"
             fetchpriority="high">
           <figcaption class="hero-caption">
-            <span>A genuine love of cars and the open road — alongside a professional focus on business.</span>
+            <span>Meine Begeisterung für Autos und die Straße – neben meinem beruflichen Interesse an Wirtschaft.</span>
             <span class="route-stamp">KHI <b>—</b> BER</span>
           </figcaption>
         </figure>
       </div>
+      <button class="language-toggle" type="button" lang="en" aria-label="Zur englischen Version wechseln">English</button>
     </div>
 
     <section class="about" id="story" aria-labelledby="story-title">
       <div class="section-wrap about-grid">
-        <div class="about-route reveal" aria-label="Journey from Karachi to Berlin">
-          <div class="city"><span class="city-dot" aria-hidden="true"></span>Karachi</div>
+        <div class="about-route reveal" aria-label="Weg von Karatschi nach Berlin">
+          <div class="city"><span class="city-dot" aria-hidden="true"></span>Karatschi</div>
           <div class="city-line" aria-hidden="true"></div>
           <div class="city"><span class="city-dot" aria-hidden="true"></span>Berlin</div>
-          <p class="route-caption">A new place to learn, build experience and find my next opportunity.</p>
+          <p class="route-caption">Ein neuer Ort, um zu lernen, Erfahrung zu sammeln und den nächsten Schritt zu gehen.</p>
         </div>
         <div class="about-copy reveal">
-          <div class="section-kicker">The person behind the work</div>
-          <h2 id="story-title">The long way to Germany.</h2>
-          <p>My journey from Karachi to Berlin has taken me from studying Accountancy, Management and Law to gaining experience in sales operations and finance, and now to master's studies in European Business Management at TH Wildau.</p>
-          <p>That path has shaped my interest in how organisations make decisions and keep work moving. I am exploring finance and supply chain as distinct career directions, bringing a shared interest in sound analysis, reliable processes and business performance.</p>
+          <div class="section-kicker">Der Mensch hinter der Arbeit</div>
+          <h2 id="story-title">Der lange Weg nach Deutschland.</h2>
+          <p>Mein Weg von Karatschi nach Berlin führte mich vom Studium der Buchhaltung, des Managements und des Rechts über Erfahrungen im Vertriebsbetrieb und Finanzbereich bis zu meinem Masterstudium European Business Management an der TH Wildau.</p>
+          <p>Diese Erfahrungen haben mein Interesse daran geprägt, wie Unternehmen Entscheidungen treffen und Abläufe gestalten. Ich möchte mich fachlich in den Bereichen Finanzen, CRM und Kundenservice weiterentwickeln – mit einem gemeinsamen Fokus auf gute Analysen, verlässliche Prozesse und Unternehmenserfolg.</p>
         </div>
       </div>
     </section>
@@ -886,37 +900,37 @@
       <div class="section-wrap">
         <div class="section-heading">
           <div>
-            <div class="section-kicker">Education &amp; experience</div>
-            <h2 id="experience-title">The road so far</h2>
+            <div class="section-kicker">Ausbildung &amp; Berufserfahrung</div>
+            <h2 id="experience-title">Mein bisheriger Weg</h2>
           </div>
-          <p>A concise view of the education and work experiences that have informed my professional direction.</p>
+          <p>Ein Überblick über die Ausbildung und Berufserfahrung, die meine berufliche Ausrichtung geprägt haben.</p>
         </div>
         <div class="timeline">
           <div class="timeline-progress" aria-hidden="true"></div>
           <article class="milestone">
-            <time datetime="2019">2019 · Karachi</time>
-            <h3>Bachelor of Science in Accountancy, Management and Law</h3>
-            <p>Institute of Business Management. An academic foundation in accounting and business, with a broad grounding in management and law.</p>
+            <time datetime="2019">2019 · Karatschi</time>
+            <h3>Bachelor of Science in Rechnungswesen, Management und Recht</h3>
+            <p>Institute of Business Management. Akademische Grundlagen in Rechnungswesen und Wirtschaft sowie fundierte Kenntnisse in Management und Recht.</p>
           </article>
           <article class="milestone">
-            <time datetime="2021">2021 · Karachi</time>
-            <h3>Outbound Sales &amp; Lead Qualification</h3>
-            <p>Two and a half years at Breakthru (Apexchat), working with US clients and using Salesforce CRM.</p>
+            <time datetime="2021">2021 · Karatschi</time>
+            <h3>Telefonvertrieb &amp; Lead-Qualifizierung</h3>
+            <p>Zweieinhalb Jahre bei Breakthru (Apexchat) mit Kundinnen und Kunden in den USA und Salesforce CRM.</p>
           </article>
           <article class="milestone">
-            <time datetime="2024">2024 · Karachi</time>
-            <h3>Finance Intern · Hoechst Pakistan Limited</h3>
-            <p>Exposure to vendor and payment operations using SAP, seeing how finance processes connect across day-to-day business activity.</p>
+            <time datetime="2024">2024 · Karatschi</time>
+            <h3>Finanzpraktikum · Hoechst Pakistan Limited</h3>
+            <p>Einblicke in Lieferanten- und Zahlungsprozesse mit SAP und deren Verbindung mit dem täglichen Geschäftsbetrieb.</p>
           </article>
           <article class="milestone">
-            <time datetime="2024">2024 · Germany</time>
-            <h3>Master's in European Business Management</h3>
-            <p>TH Wildau, with a specialisation in Marketing and Sustainability. Moving to Germany broadened my academic and international perspective.</p>
+            <time datetime="2024">2024 · Deutschland</time>
+            <h3>Masterstudium European Business Management</h3>
+            <p>TH Wildau, mit Schwerpunkt Marketing und Nachhaltigkeit. Der Umzug nach Deutschland hat meinen akademischen und internationalen Horizont erweitert.</p>
           </article>
           <article class="milestone">
-            <time datetime="2025-09">Sep 2025 – Present · Berlin</time>
-            <h3>Night Auditor · Front Office GmbH</h3>
-            <p>Overnight reconciliation and daily close across a multi-property portfolio, cross-checking revenue and cash records, resolving discrepancies before reporting, and documenting handoffs for the next day.</p>
+            <time datetime="2025-09">Seit Sep. 2025 · Berlin</time>
+            <h3>Nachtportier · Front Office GmbH</h3>
+            <p>Nächtliche Abstimmung und Tagesabschluss für mehrere Hotels: Prüfung von Umsatz- und Kassenbelegen, Klärung von Abweichungen vor der Berichterstattung und Dokumentation der Übergabe für den Folgetag.</p>
           </article>
         </div>
       </div>
@@ -926,48 +940,48 @@
       <div class="section-wrap">
         <div class="section-heading">
           <div>
-            <div class="section-kicker">Professional direction</div>
-            <h2 id="focus-title">Two things I want to get better at.</h2>
+            <div class="section-kicker">Berufliche Schwerpunkte</div>
+            <h2 id="focus-title">Zwei Bereiche, in denen ich mich weiterentwickeln möchte.</h2>
           </div>
-          <p>Finance, CRM and customer support are areas where I want to build on my experience and keep growing.</p>
+          <p>In den Bereichen Finanzen, CRM und Kundenservice möchte ich meine Erfahrung vertiefen und mich weiterentwickeln.</p>
         </div>
         <div class="focus-grid">
           <details class="focus-card" name="professional-focus">
             <summary>
-              <span class="card-number">01 / FINANCE</span>
-              <h3>Finance &amp; Accounting</h3>
-              <p>Practical exposure to vendor and payment operations, backed by an academic accountancy foundation.</p>
+              <span class="card-number">01 / FINANZEN</span>
+              <h3>Finanzen &amp; Rechnungswesen</h3>
+              <p>Praktische Einblicke in Lieferanten- und Zahlungsprozesse, ergänzt durch eine akademische Grundlage im Rechnungswesen.</p>
             </summary>
             <div class="focus-detail">
-              <p><span class="detail-label">Demonstrated:</span> Finance internship experience involving vendor and payment operations in SAP; bachelor's study in Accountancy, Management and Law.</p>
-              <p><span class="detail-label">Interested in:</span> Financial operations, reporting and analytical work that supports well-informed business decisions.</p>
-              <div class="tool-list" aria-label="Relevant tools and study areas"><span>SAP · vendor and payment processes</span><span>Accountancy studies</span></div>
+              <p><span class="detail-label">Erfahrung:</span> Praktikum im Finanzbereich mit Lieferanten- und Zahlungsprozessen in SAP; Bachelorstudium in Rechnungswesen, Management und Recht.</p>
+              <p><span class="detail-label">Meine Interessen:</span> Finanzprozesse, Berichterstattung und Analysen als Grundlage für fundierte Geschäftsentscheidungen.</p>
+              <div class="tool-list" aria-label="Relevante Tools und Studienbereiche"><span>SAP · Lieferanten- und Zahlungsprozesse</span><span>Studium des Rechnungswesens</span></div>
               <figure class="work-snapshot">
-                <img src="./assets/business-workspace.jpg" alt="Personal workspace with a spreadsheet on an external monitor and a laptop on the desk" loading="lazy">
-                <figcaption><strong>My finance workspace</strong>A personal photo from my finance work environment.</figcaption>
+                <img src="./assets/business-workspace.jpg" alt="Persönlicher Arbeitsplatz mit einer Tabelle auf einem externen Monitor und einem Laptop auf dem Schreibtisch" loading="lazy">
+                <figcaption><strong>Mein Arbeitsplatz im Finanzbereich</strong>Ein persönliches Foto aus meinem Arbeitsumfeld im Finanzbereich.</figcaption>
               </figure>
             </div>
           </details>
           <details class="focus-card" name="professional-focus">
             <summary>
-              <span class="card-number">02 / CRM &amp; SUPPORT</span>
-              <h3>CRM &amp; Customer Support</h3>
-              <p>Building on my experience working with US clients and using Salesforce CRM in sales operations.</p>
+              <span class="card-number">02 / CRM &amp; KUNDENSERVICE</span>
+              <h3>CRM &amp; Kundenservice</h3>
+              <p>Aufbauend auf meiner Erfahrung mit Kundinnen und Kunden in den USA und Salesforce CRM im Vertriebsbetrieb.</p>
             </summary>
             <div class="focus-detail">
-              <p><span class="detail-label">Demonstrated:</span> Two and a half years at Breakthru (Apexchat), working with US clients in outbound sales and lead qualification, using Salesforce CRM.</p>
-              <p><span class="detail-label">Currently developing:</span> Stronger customer support skills through clear communication, thoughtful issue resolution and consistent follow-up, alongside better CRM workflows and customer experiences.</p>
-              <div class="tool-list" aria-label="Relevant tools and skills"><span>Salesforce CRM</span><span>Client communication</span><span>Lead qualification</span><span>Customer experience</span></div>
+              <p><span class="detail-label">Erfahrung:</span> Zweieinhalb Jahre bei Breakthru (Apexchat) im Telefonvertrieb und in der Lead-Qualifizierung mit Kundinnen und Kunden in den USA; dabei nutzte ich Salesforce CRM.</p>
+              <p><span class="detail-label">Derzeitige Weiterentwicklung:</span> Ich möchte meine Fähigkeiten im Kundenservice stärken – durch klare Kommunikation, durchdachte Lösungen und verlässliche Rückmeldungen – und zugleich CRM-Abläufe und Kundenerlebnisse verbessern.</p>
+              <div class="tool-list" aria-label="Relevante Tools und Fähigkeiten"><span>Salesforce CRM</span><span>Kundenkommunikation</span><span>Lead-Qualifizierung</span><span>Kundenerlebnis</span></div>
             </div>
           </details>
         </div>
         <div class="skills-strip">
-          <h3>Tools &amp; working skills</h3>
-          <p>Advanced Excel and PowerPoint · SAP (vendor and payment processes) · Salesforce CRM · Zapier automation · AI-assisted workflows · Google Workspace</p>
+          <h3>Tools &amp; Kompetenzen</h3>
+          <p>Fortgeschrittene Kenntnisse in Excel und PowerPoint · SAP (Lieferanten- und Zahlungsprozesse) · Salesforce CRM · Zapier-Automatisierung · KI-gestützte Arbeitsabläufe · Google Workspace</p>
         </div>
         <div class="skills-strip">
-          <h3>Languages</h3>
-          <p>English (C1 / fluent) · Urdu (native) · German (conversational)</p>
+          <h3>Sprachen</h3>
+          <p>Englisch (C1 / fließend) · Urdu (Muttersprache) · Deutsch (Konversationsniveau)</p>
         </div>
       </div>
     </section>
@@ -976,54 +990,54 @@
       <div class="section-wrap">
         <div class="section-heading">
           <div>
-            <div class="section-kicker">Selected work</div>
-            <h2 id="projects-title">What I have worked on.</h2>
+            <div class="section-kicker">Ausgewählte Projekte</div>
+            <h2 id="projects-title">Woran ich gearbeitet habe.</h2>
           </div>
-          <p>A completed finance analysis and a planned CRM and customer-support case study.</p>
+          <p>Eine abgeschlossene Finanzanalyse und eine geplante Fallstudie zu CRM und Kundenservice.</p>
         </div>
         <div class="projects-grid">
           <article class="project-card">
-            <div class="project-visual" aria-hidden="true"><span class="visual-label">Finance · hotel bookings</span></div>
+            <div class="project-visual" aria-hidden="true"><span class="visual-label">Finanzen · Hotelbuchungen</span></div>
             <div class="project-content">
-              <div class="project-status">Portfolio analysis · completed</div>
-              <h3>Finance Performance Dashboard</h3>
-              <p>Examining hotel booking cancellations and the room revenue at risk across 119,390 bookings in Portugal.</p>
-              <div class="project-tags"><span>Cancellation analysis</span><span>Revenue at risk</span><span>Excel</span></div>
+              <div class="project-status">Portfolioanalyse · abgeschlossen</div>
+              <h3>Dashboard zur Finanzperformance</h3>
+              <p>Analyse von Hotelstornierungen und gefährdeten Zimmerumsätzen anhand von 119.390 Buchungen in Portugal.</p>
+              <div class="project-tags"><span>Stornierungsanalyse</span><span>Umsatzrisiko</span><span>Excel</span></div>
             </div>
             <details name="project-outlines">
-              <summary>Analysis details</summary>
+              <summary>Analysedetails</summary>
               <div class="project-detail">
                 <dl>
-                  <dt>Business question</dt><dd>How much revenue do hotels lose to cancellations, and which bookings are most likely to cancel?</dd>
-                  <dt>Dataset &amp; tools</dt><dd>Hotel Booking Demand dataset: 119,390 real bookings from a city hotel and a resort hotel in Portugal, from 2015 to 2017. Excel: COUNTIFS, SUMPRODUCT and bar charts.</dd>
-                  <dt>Approach</dt><dd>Calculated booked revenue per booking (daily rate × nights), then compared cancellation rates by lead time, booking channel, hotel type and special requests.</dd>
-                  <dt>Findings</dt><dd>37% of bookings were cancelled, removing about €16.7M of €42.7M in booked room revenue (39%). Bookings made a week or less ahead cancelled 10% of the time, compared with 55% for bookings made 6 to 12 months ahead. Direct bookings cancelled 15% of the time, online travel agency bookings 37%, and group bookings 61%. Guests who made a special request cancelled less than half as often (22% vs. 48%).</dd>
+                  <dt>Geschäftsfrage</dt><dd>Wie viel Umsatz verlieren Hotels durch Stornierungen, und welche Buchungen werden am ehesten storniert?</dd>
+                  <dt>Datensatz &amp; Tools</dt><dd>Datensatz „Hotel Booking Demand“: 119.390 tatsächliche Buchungen aus einem Stadthotel und einem Resort in Portugal von 2015 bis 2017. Excel: COUNTIFS, SUMPRODUCT und Balkendiagramme.</dd>
+                  <dt>Vorgehen</dt><dd>Berechnung des Buchungsumsatzes (Tagespreis × Übernachtungen) und Vergleich der Stornierungsquoten nach Vorlaufzeit, Buchungskanal, Hoteltyp und Sonderwünschen.</dd>
+                  <dt>Ergebnisse</dt><dd>37 % der Buchungen wurden storniert. Dadurch gingen rund 16,7 Mio. € von 42,7 Mio. € des gebuchten Zimmerumsatzes verloren (39 %). Buchungen mit höchstens einer Woche Vorlauf wurden in 10 % der Fälle storniert, Buchungen mit 6 bis 12 Monaten Vorlauf in 55 %. Die Stornierungsquote lag bei Direktbuchungen bei 15 %, bei Buchungen über Online-Reiseagenturen bei 37 % und bei Gruppenbuchungen bei 61 %. Gäste mit einem Sonderwunsch stornierten weniger als halb so oft (22 % gegenüber 48 %).</dd>
                 </dl>
               </div>
             </details>
           </article>
           <article class="project-card">
-            <div class="project-visual" aria-hidden="true"><span class="visual-label">Customer support · CRM</span></div>
+            <div class="project-visual" aria-hidden="true"><span class="visual-label">Kundenservice · CRM</span></div>
             <div class="project-content">
-              <div class="project-status">Portfolio case study · planned</div>
-              <h3>CRM &amp; Customer Support Workflow</h3>
-              <p>A planned case study on organising customer enquiries, tracking follow-ups and improving the support experience with a CRM.</p>
-              <div class="project-tags"><span>Salesforce CRM</span><span>Support workflows</span><span>Customer experience</span></div>
+              <div class="project-status">Portfolio-Fallstudie · geplant</div>
+              <h3>CRM- und Kundenservice-Workflow</h3>
+              <p>Eine geplante Fallstudie dazu, wie Kundenanfragen organisiert, Rückmeldungen nachverfolgt und Serviceerlebnisse mithilfe eines CRM verbessert werden können.</p>
+              <div class="project-tags"><span>Salesforce CRM</span><span>Serviceabläufe</span><span>Kundenerlebnis</span></div>
             </div>
             <details name="project-outlines">
-              <summary>Case study outline</summary>
+              <summary>Fallstudienkonzept</summary>
               <div class="project-detail">
                 <dl>
-                  <dt>Business question</dt><dd>How can a CRM help a support team keep customer enquiries visible, respond consistently and make sure every issue gets a clear follow-up?</dd>
-                  <dt>Data &amp; tools</dt><dd>To be developed using a clearly labelled sample dataset or anonymised records, with Salesforce CRM and Excel for tracking and summarising support cases.</dd>
-                  <dt>Approach</dt><dd>Map the enquiry-to-resolution workflow, define case categories and priorities, and track each case through ownership, status and follow-up.</dd>
-                  <dt>Measures to explore</dt><dd>First-response time, resolution time, first-contact resolution, open-case backlog and customer satisfaction. Findings will be added after the case study is completed.</dd>
+                  <dt>Geschäftsfrage</dt><dd>Wie kann ein CRM einem Serviceteam helfen, Kundenanfragen im Blick zu behalten, einheitlich zu antworten und eine klare Nachverfolgung sicherzustellen?</dd>
+                  <dt>Daten &amp; Tools</dt><dd>Geplant ist ein klar gekennzeichneter Beispieldatensatz oder anonymisierte Datensätze. Salesforce CRM und Excel sollen zur Erfassung und Auswertung der Servicefälle dienen.</dd>
+                  <dt>Vorgehen</dt><dd>Den Ablauf von der Anfrage bis zur Lösung abbilden, Kategorien und Prioritäten festlegen und Zuständigkeit, Status sowie Rückmeldungen für jeden Fall erfassen.</dd>
+                  <dt>Zu untersuchende Kennzahlen</dt><dd>Zeit bis zur ersten Antwort, Lösungszeit, Lösung beim Erstkontakt, offene Servicefälle und Kundenzufriedenheit. Ergebnisse folgen nach Abschluss der Fallstudie.</dd>
                 </dl>
               </div>
             </details>
           </article>
         </div>
-        <p class="project-note">The finance analysis is completed. The CRM and customer-support case study is planned and is not a completed client or employer project; its findings will be added after the analysis is done.</p>
+        <p class="project-note">Die Finanzanalyse ist abgeschlossen. Die Fallstudie zu CRM und Kundenservice ist geplant und kein abgeschlossenes Kunden- oder Arbeitgeberprojekt. Die Ergebnisse ergänze ich nach Abschluss der Analyse.</p>
       </div>
     </section>
 
@@ -1031,54 +1045,54 @@
       <div class="section-wrap">
         <div class="section-heading">
           <div>
-            <div class="section-kicker">Outside the spreadsheet</div>
-            <h2 id="drive-title">A personal love of the drive.</h2>
+            <div class="section-kicker">Abseits der Tabellen</div>
+            <h2 id="drive-title">Meine Begeisterung fürs Autofahren.</h2>
           </div>
-          <p>Cars, roads and the feeling of setting out are a genuine part of who I am — a personal interest, not my professional specialisation.</p>
+          <p>Autos, Straßen und das Gefühl, aufzubrechen, gehören zu mir – als persönliches Interesse, nicht als beruflicher Schwerpunkt.</p>
         </div>
-        <p class="gallery-note">A few road-and-car scenes that capture the atmosphere I enjoy. Select an image to view it larger.</p>
+        <p class="gallery-note">Einige Eindrücke von Straßen und Autos, die die Atmosphäre zeigen, die ich mag. Wähle ein Bild aus, um es zu vergrößern.</p>
         <div class="gallery-grid">
           <figure class="gallery-card">
             <button type="button" class="photo-button"
               data-image="./assets/personal-cockpit.jpg"
-              data-caption="A personal view from the driver's seat, taking in the car and the destination ahead.">
+              data-caption="Ein persönlicher Blick vom Fahrersitz auf das Auto und das Ziel vor mir.">
               <img src="./assets/personal-cockpit.jpg"
-                alt="View from inside a Volkswagen, with its steering wheel and dealership ahead" loading="lazy">
-              <figcaption>01 / The driver's view <span>A personal photograph from behind the wheel</span></figcaption>
+                alt="Blick aus einem Volkswagen mit Lenkrad und Autohaus im Hintergrund" loading="lazy">
+              <figcaption>01 / Blick vom Fahrersitz <span>Ein persönliches Foto hinter dem Steuer</span></figcaption>
             </button>
           </figure>
           <figure class="gallery-card">
             <button type="button" class="photo-button"
               data-image="./assets/personal-driving.jpg"
-              data-caption="A personal moment behind the wheel on an evening drive.">
+              data-caption="Ein persönlicher Moment am Steuer bei einer abendlichen Fahrt.">
               <img src="./assets/personal-driving.jpg"
-                alt="A person holding the steering wheel inside a car at night" loading="lazy">
-              <figcaption>02 / Out for a drive <span>A personal moment on the road</span></figcaption>
+                alt="Eine Person hält nachts das Lenkrad in einem Auto" loading="lazy">
+              <figcaption>02 / Eine Runde fahren <span>Ein persönlicher Moment unterwegs</span></figcaption>
             </button>
           </figure>
           <figure class="gallery-card">
             <button type="button" class="photo-button"
               data-image="./assets/finance-workspace.jpeg?v=20261024"
-              data-caption="A personal look at my work environment.">
+              data-caption="Ein persönlicher Einblick in mein Arbeitsumfeld.">
               <img src="./assets/finance-workspace.jpeg?v=20261024"
-                alt="Personal workspace with a finance system open on a monitor" loading="lazy">
-              <figcaption>03 / At my workspace <span>A personal work snapshot</span></figcaption>
+                alt="Persönlicher Arbeitsplatz mit einem geöffneten Finanzsystem auf dem Monitor" loading="lazy">
+              <figcaption>03 / An meinem Arbeitsplatz <span>Ein persönlicher Einblick in meinen Arbeitsalltag</span></figcaption>
             </button>
           </figure>
         </div>
-        <p class="gallery-caveat">The cockpit, driving and workspace photographs are personal images.</p>
+        <p class="gallery-caveat">Die Fotos aus dem Auto und vom Arbeitsplatz sind persönliche Aufnahmen.</p>
       </div>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="section-wrap contact-panel">
-        <div class="section-kicker">The next destination</div>
-        <h2 id="contact-title">Ready for the next opportunity.</h2>
-        <p>I am interested in opportunities where financial understanding, analytical thinking and operational execution can create business value.</p>
+        <div class="section-kicker">Der nächste Schritt</div>
+        <h2 id="contact-title">Bereit für die nächste Gelegenheit.</h2>
+        <p>Ich suche Möglichkeiten, bei denen Finanzverständnis, analytisches Denken und operative Umsetzung einen Beitrag zum Unternehmenserfolg leisten.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="mailto:muhammadhasan20001@gmail.com">Email me <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">View my CV <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" href="mailto:muhammadhasan20001@gmail.com">E-Mail schreiben <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="noopener noreferrer">Auf LinkedIn vernetzen <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf ansehen <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -1086,16 +1100,16 @@
 
   <footer>
     <div class="footer-wrap">
-      <p>Muhammad Hasan · Germany · 2026</p>
-      <p>Built with HTML, CSS and JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">CV</a> · <a href="mailto:muhammadhasan20001@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+      <p>Muhammad Hasan · Deutschland · 2026</p>
+      <p>Erstellt mit HTML, CSS und JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf</a> · <a href="mailto:muhammadhasan20001@gmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     </div>
   </footer>
 
-  <dialog aria-label="Photo viewer">
+  <dialog aria-label="Fotogalerie">
     <img alt="">
     <div class="dialog-caption">
       <span></span>
-      <button class="dialog-close" type="button">Close</button>
+      <button class="dialog-close" type="button">Schließen</button>
     </div>
   </dialog>
   <script>
@@ -1142,7 +1156,9 @@
       button.addEventListener('click', () => {
         dialogImage.src = button.dataset.image;
         dialogImage.alt = button.querySelector('img').alt;
-        dialogCaption.textContent = button.dataset.caption;
+        dialogCaption.textContent = currentLanguage === 'en'
+          ? germanToEnglish.get(button.dataset.caption) || button.dataset.caption
+          : button.dataset.caption;
         photoDialog.showModal();
       });
     });
@@ -1161,6 +1177,240 @@
     const introSticky = introStage.querySelector('.intro-sticky');
     const audioControls = document.querySelector('.intro-audio-controls');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const germanToEnglish = new Map(Object.entries({
+      'Zum Inhalt springen': 'Skip to content',
+      'Karatschi': 'Karachi',
+      '2019 · Karatschi': '2019 · Karachi',
+      '2021 · Karatschi': '2021 · Karachi',
+      '2024 · Karatschi': '2024 · Karachi',
+      'European Business Management · Deutschland': 'European Business Management · Germany',
+      'Hauptnavigation': 'Main navigation',
+      'Muhammad Hasan – Startseite': 'Muhammad Hasan home',
+      'Menü': 'Menu',
+      'Mein Weg': 'My story',
+      'Erfahrung': 'Experience',
+      'Schwerpunkte': 'Focus',
+      'Projekte': 'Projects',
+      'Unterwegs': 'The drive',
+      'Nenn mich einfach Hasan': 'Just call me Hasan',
+      'Scrollen zum Entdecken': 'Scroll to explore',
+      'Deutschland': 'Germany',
+      'Ich finde gern heraus, warum die': 'I like finding out why the',
+      'Zahlen nicht stimmen.': 'numbers don’t add up.',
+      'Ich verbinde eine akademische Grundlage in Rechnungswesen und Wirtschaft mit praktischer Erfahrung im Finanzbereich und einem analytischen Blick auf betriebliche Abläufe. Besonders interessieren mich Finanzen, CRM und Kundenservice.': 'I bring an academic foundation in accountancy and business, finance-related work experience, and an analytical approach to the way organisations operate. I am interested in opportunities across finance, CRM and customer support.',
+      'Berufliche Interessen': 'Professional interests',
+      'Finanzen & Rechnungswesen': 'Finance & Accounting',
+      'CRM & Kundenservice': 'CRM & Customer Support',
+      'Meine Erfahrung ansehen': 'Explore my experience',
+      'Projekte ansehen': 'Explore projects',
+      'Lebenslauf ansehen': 'View my CV',
+      'In Deutschland · Offen für Werkstudentenstellen': 'Based in Germany · Open to Werkstudent opportunities',
+      'Online erreichbar': 'Find me online',
+      'Persönlicher Blick vom Fahrersitz eines Volkswagen in Richtung eines Autohauses': 'Personal view from the driver’s seat of a Volkswagen, looking toward a dealership',
+      'Meine Begeisterung für Autos und die Straße – neben meinem beruflichen Interesse an Wirtschaft.': 'A genuine love of cars and the open road — alongside a professional focus on business.',
+      'Weg von Karatschi nach Berlin': 'Journey from Karachi to Berlin',
+      'Ein neuer Ort, um zu lernen, Erfahrung zu sammeln und den nächsten Schritt zu gehen.': 'A new place to learn, build experience and find my next opportunity.',
+      'Der Mensch hinter der Arbeit': 'The person behind the work',
+      'Der lange Weg nach Deutschland.': 'The long way to Germany.',
+      'Mein Weg von Karatschi nach Berlin führte mich vom Studium der Buchhaltung, des Managements und des Rechts über Erfahrungen im Vertriebsbetrieb und Finanzbereich bis zu meinem Masterstudium European Business Management an der TH Wildau.': 'My journey from Karachi to Berlin has taken me from studying Accountancy, Management and Law to gaining experience in sales operations and finance, and now to master’s studies in European Business Management at TH Wildau.',
+      'Diese Erfahrungen haben mein Interesse daran geprägt, wie Unternehmen Entscheidungen treffen und Abläufe gestalten. Ich möchte mich fachlich in den Bereichen Finanzen, CRM und Kundenservice weiterentwickeln – mit einem gemeinsamen Fokus auf gute Analysen, verlässliche Prozesse und Unternehmenserfolg.': 'That path has shaped my interest in how organisations make decisions and keep work moving. I want to develop across finance, CRM and customer support, bringing a shared interest in sound analysis, reliable processes and business performance.',
+      'Ausbildung & Berufserfahrung': 'Education & experience',
+      'Mein bisheriger Weg': 'The road so far',
+      'Ein Überblick über die Ausbildung und Berufserfahrung, die meine berufliche Ausrichtung geprägt haben.': 'A concise view of the education and work experiences that have informed my professional direction.',
+      'Bachelor of Science in Rechnungswesen, Management und Recht': 'Bachelor of Science in Accountancy, Management and Law',
+      'Institute of Business Management. Akademische Grundlagen in Rechnungswesen und Wirtschaft sowie fundierte Kenntnisse in Management und Recht.': 'Institute of Business Management. An academic foundation in accounting and business, with a broad grounding in management and law.',
+      'Telefonvertrieb & Lead-Qualifizierung': 'Outbound Sales & Lead Qualification',
+      'Zweieinhalb Jahre bei Breakthru (Apexchat) mit Kundinnen und Kunden in den USA und Salesforce CRM.': 'Two and a half years at Breakthru (Apexchat), working with US clients and using Salesforce CRM.',
+      'Finanzpraktikum · Hoechst Pakistan Limited': 'Finance Intern · Hoechst Pakistan Limited',
+      'Einblicke in Lieferanten- und Zahlungsprozesse mit SAP und deren Verbindung mit dem täglichen Geschäftsbetrieb.': 'Exposure to vendor and payment operations using SAP, seeing how finance processes connect across day-to-day business activity.',
+      'Masterstudium European Business Management': 'Master’s in European Business Management',
+      'TH Wildau, mit Schwerpunkt Marketing und Nachhaltigkeit. Der Umzug nach Deutschland hat meinen akademischen und internationalen Horizont erweitert.': 'TH Wildau, with a specialisation in Marketing and Sustainability. Moving to Germany broadened my academic and international perspective.',
+      'Seit Sep. 2025 · Berlin': 'Sep 2025 – Present · Berlin',
+      '2024 · Deutschland': '2024 · Germany',
+      'Nachtportier · Front Office GmbH': 'Night Auditor · Front Office GmbH',
+      'Nächtliche Abstimmung und Tagesabschluss für mehrere Hotels: Prüfung von Umsatz- und Kassenbelegen, Klärung von Abweichungen vor der Berichterstattung und Dokumentation der Übergabe für den Folgetag.': 'Overnight reconciliation and daily close across a multi-property portfolio, cross-checking revenue and cash records, resolving discrepancies before reporting, and documenting handoffs for the next day.',
+      'Berufliche Schwerpunkte': 'Professional direction',
+      'Zwei Bereiche, in denen ich mich weiterentwickeln möchte.': 'Two things I want to get better at.',
+      'In den Bereichen Finanzen, CRM und Kundenservice möchte ich meine Erfahrung vertiefen und mich weiterentwickeln.': 'Finance, CRM and customer support are areas where I want to build on my experience and keep growing.',
+      '01 / FINANZEN': '01 / FINANCE',
+      'Praktische Einblicke in Lieferanten- und Zahlungsprozesse, ergänzt durch eine akademische Grundlage im Rechnungswesen.': 'Practical exposure to vendor and payment operations, backed by an academic accountancy foundation.',
+      'Erfahrung:': 'Demonstrated:',
+      'Praktikum im Finanzbereich mit Lieferanten- und Zahlungsprozessen in SAP; Bachelorstudium in Rechnungswesen, Management und Recht.': 'Finance internship experience involving vendor and payment operations in SAP; bachelor’s study in Accountancy, Management and Law.',
+      'Meine Interessen:': 'Interested in:',
+      'Finanzprozesse, Berichterstattung und Analysen als Grundlage für fundierte Geschäftsentscheidungen.': 'Financial operations, reporting and analytical work that supports well-informed business decisions.',
+      'Relevante Tools und Studienbereiche': 'Relevant tools and study areas',
+      'SAP · Lieferanten- und Zahlungsprozesse': 'SAP · vendor and payment processes',
+      'Studium des Rechnungswesens': 'Accountancy studies',
+      'Persönlicher Arbeitsplatz mit einer Tabelle auf einem externen Monitor und einem Laptop auf dem Schreibtisch': 'Personal workspace with a spreadsheet on an external monitor and a laptop on the desk',
+      'Mein Arbeitsplatz im Finanzbereich': 'My finance workspace',
+      'Ein persönliches Foto aus meinem Arbeitsumfeld im Finanzbereich.': 'A personal photo from my finance work environment.',
+      '02 / CRM & KUNDENSERVICE': '02 / CRM & SUPPORT',
+      'Aufbauend auf meiner Erfahrung mit Kundinnen und Kunden in den USA und Salesforce CRM im Vertriebsbetrieb.': 'Building on my experience working with US clients and using Salesforce CRM in sales operations.',
+      'Zweieinhalb Jahre bei Breakthru (Apexchat) im Telefonvertrieb und in der Lead-Qualifizierung mit Kundinnen und Kunden in den USA; dabei nutzte ich Salesforce CRM.': 'Two and a half years at Breakthru (Apexchat), working with US clients in outbound sales and lead qualification, using Salesforce CRM.',
+      'Derzeitige Weiterentwicklung:': 'Currently developing:',
+      'Ich möchte meine Fähigkeiten im Kundenservice stärken – durch klare Kommunikation, durchdachte Lösungen und verlässliche Rückmeldungen – und zugleich CRM-Abläufe und Kundenerlebnisse verbessern.': 'Stronger customer support skills through clear communication, thoughtful issue resolution and consistent follow-up, alongside better CRM workflows and customer experiences.',
+      'Relevante Tools und Fähigkeiten': 'Relevant tools and skills',
+      'Kundenkommunikation': 'Client communication',
+      'Lead-Qualifizierung': 'Lead qualification',
+      'Kundenerlebnis': 'Customer experience',
+      'Tools & Kompetenzen': 'Tools & working skills',
+      'Fortgeschrittene Kenntnisse in Excel und PowerPoint · SAP (Lieferanten- und Zahlungsprozesse) · Salesforce CRM · Zapier-Automatisierung · KI-gestützte Arbeitsabläufe · Google Workspace': 'Advanced Excel and PowerPoint · SAP (vendor and payment processes) · Salesforce CRM · Zapier automation · AI-assisted workflows · Google Workspace',
+      'Sprachen': 'Languages',
+      'Englisch (C1 / fließend) · Urdu (Muttersprache) · Deutsch (Konversationsniveau)': 'English (C1 / fluent) · Urdu (native) · German (conversational)',
+      'Ausgewählte Projekte': 'Selected work',
+      'Woran ich gearbeitet habe.': 'What I have worked on.',
+      'Eine abgeschlossene Finanzanalyse und eine geplante Fallstudie zu CRM und Kundenservice.': 'A completed finance analysis and a planned CRM and customer-support case study.',
+      'Finanzen · Hotelbuchungen': 'Finance · hotel bookings',
+      'Portfolioanalyse · abgeschlossen': 'Portfolio analysis · completed',
+      'Dashboard zur Finanzperformance': 'Finance Performance Dashboard',
+      'Analyse von Hotelstornierungen und gefährdeten Zimmerumsätzen anhand von 119.390 Buchungen in Portugal.': 'Examining hotel booking cancellations and the room revenue at risk across 119,390 bookings in Portugal.',
+      'Stornierungsanalyse': 'Cancellation analysis',
+      'Umsatzrisiko': 'Revenue at risk',
+      'Analysedetails': 'Analysis details',
+      'Geschäftsfrage': 'Business question',
+      'Wie viel Umsatz verlieren Hotels durch Stornierungen, und welche Buchungen werden am ehesten storniert?': 'How much revenue do hotels lose to cancellations, and which bookings are most likely to cancel?',
+      'Datensatz & Tools': 'Dataset & tools',
+      'Datensatz „Hotel Booking Demand“: 119.390 tatsächliche Buchungen aus einem Stadthotel und einem Resort in Portugal von 2015 bis 2017. Excel: COUNTIFS, SUMPRODUCT und Balkendiagramme.': 'Hotel Booking Demand dataset: 119,390 real bookings from a city hotel and a resort hotel in Portugal, from 2015 to 2017. Excel: COUNTIFS, SUMPRODUCT and bar charts.',
+      'Vorgehen': 'Approach',
+      'Berechnung des Buchungsumsatzes (Tagespreis × Übernachtungen) und Vergleich der Stornierungsquoten nach Vorlaufzeit, Buchungskanal, Hoteltyp und Sonderwünschen.': 'Calculated booked revenue per booking (daily rate × nights), then compared cancellation rates by lead time, booking channel, hotel type and special requests.',
+      'Ergebnisse': 'Findings',
+      '37 % der Buchungen wurden storniert. Dadurch gingen rund 16,7 Mio. € von 42,7 Mio. € des gebuchten Zimmerumsatzes verloren (39 %). Buchungen mit höchstens einer Woche Vorlauf wurden in 10 % der Fälle storniert, Buchungen mit 6 bis 12 Monaten Vorlauf in 55 %. Die Stornierungsquote lag bei Direktbuchungen bei 15 %, bei Buchungen über Online-Reiseagenturen bei 37 % und bei Gruppenbuchungen bei 61 %. Gäste mit einem Sonderwunsch stornierten weniger als halb so oft (22 % gegenüber 48 %).': '37% of bookings were cancelled, removing about €16.7M of €42.7M in booked room revenue (39%). Bookings made a week or less ahead cancelled 10% of the time, compared with 55% for bookings made 6 to 12 months ahead. Direct bookings cancelled 15% of the time, online travel agency bookings 37%, and group bookings 61%. Guests who made a special request cancelled less than half as often (22% vs. 48%).',
+      'Kundenservice · CRM': 'Customer support · CRM',
+      'Portfolio-Fallstudie · geplant': 'Portfolio case study · planned',
+      'CRM- und Kundenservice-Workflow': 'CRM & Customer Support Workflow',
+      'Eine geplante Fallstudie dazu, wie Kundenanfragen organisiert, Rückmeldungen nachverfolgt und Serviceerlebnisse mithilfe eines CRM verbessert werden können.': 'A planned case study on organising customer enquiries, tracking follow-ups and improving the support experience with a CRM.',
+      'Serviceabläufe': 'Support workflows',
+      'Fallstudienkonzept': 'Case study outline',
+      'Wie kann ein CRM einem Serviceteam helfen, Kundenanfragen im Blick zu behalten, einheitlich zu antworten und eine klare Nachverfolgung sicherzustellen?': 'How can a CRM help a support team keep customer enquiries visible, respond consistently and make sure every issue gets a clear follow-up?',
+      'Daten & Tools': 'Data & tools',
+      'Geplant ist ein klar gekennzeichneter Beispieldatensatz oder anonymisierte Datensätze. Salesforce CRM und Excel sollen zur Erfassung und Auswertung der Servicefälle dienen.': 'To be developed using a clearly labelled sample dataset or anonymised records, with Salesforce CRM and Excel for tracking and summarising support cases.',
+      'Den Ablauf von der Anfrage bis zur Lösung abbilden, Kategorien und Prioritäten festlegen und Zuständigkeit, Status sowie Rückmeldungen für jeden Fall erfassen.': 'Map the enquiry-to-resolution workflow, define case categories and priorities, and track each case through ownership, status and follow-up.',
+      'Zu untersuchende Kennzahlen': 'Measures to explore',
+      'Zeit bis zur ersten Antwort, Lösungszeit, Lösung beim Erstkontakt, offene Servicefälle und Kundenzufriedenheit. Ergebnisse folgen nach Abschluss der Fallstudie.': 'First-response time, resolution time, first-contact resolution, open-case backlog and customer satisfaction. Findings will be added after the case study is completed.',
+      'Die Finanzanalyse ist abgeschlossen. Die Fallstudie zu CRM und Kundenservice ist geplant und kein abgeschlossenes Kunden- oder Arbeitgeberprojekt. Die Ergebnisse ergänze ich nach Abschluss der Analyse.': 'The finance analysis is completed. The CRM and customer-support case study is planned and is not a completed client or employer project; its findings will be added after the analysis is done.',
+      'Abseits der Tabellen': 'Outside the spreadsheet',
+      'Meine Begeisterung fürs Autofahren.': 'A personal love of the drive.',
+      'Autos, Straßen und das Gefühl, aufzubrechen, gehören zu mir – als persönliches Interesse, nicht als beruflicher Schwerpunkt.': 'Cars, roads and the feeling of setting out are a genuine part of who I am — a personal interest, not my professional specialisation.',
+      'Einige Eindrücke von Straßen und Autos, die die Atmosphäre zeigen, die ich mag. Wähle ein Bild aus, um es zu vergrößern.': 'A few road-and-car scenes that capture the atmosphere I enjoy. Select an image to view it larger.',
+      'Ein persönlicher Blick vom Fahrersitz auf das Auto und das Ziel vor mir.': 'A personal view from the driver’s seat, taking in the car and the destination ahead.',
+      'Blick aus einem Volkswagen mit Lenkrad und Autohaus im Hintergrund': 'View from inside a Volkswagen, with its steering wheel and dealership ahead',
+      '01 / Blick vom Fahrersitz': '01 / The driver’s view',
+      'Ein persönliches Foto hinter dem Steuer': 'A personal photograph from behind the wheel',
+      'Ein persönlicher Moment am Steuer bei einer abendlichen Fahrt.': 'A personal moment behind the wheel on an evening drive.',
+      'Eine Person hält nachts das Lenkrad in einem Auto': 'A person holding the steering wheel inside a car at night',
+      '02 / Eine Runde fahren': '02 / Out for a drive',
+      'Ein persönlicher Moment unterwegs': 'A personal moment on the road',
+      'Ein persönlicher Einblick in mein Arbeitsumfeld.': 'A personal look at my work environment.',
+      'Persönlicher Arbeitsplatz mit einem geöffneten Finanzsystem auf dem Monitor': 'Personal workspace with a finance system open on a monitor',
+      '03 / An meinem Arbeitsplatz': '03 / At my workspace',
+      'Ein persönlicher Einblick in meinen Arbeitsalltag': 'A personal work snapshot',
+      'Die Fotos aus dem Auto und vom Arbeitsplatz sind persönliche Aufnahmen.': 'The cockpit, driving and workspace photographs are personal images.',
+      'Der nächste Schritt': 'The next destination',
+      'Bereit für die nächste Gelegenheit.': 'Ready for the next opportunity.',
+      'Ich suche Möglichkeiten, bei denen Finanzverständnis, analytisches Denken und operative Umsetzung einen Beitrag zum Unternehmenserfolg leisten.': 'I am interested in opportunities where financial understanding, analytical thinking and operational execution can create business value.',
+      'E-Mail schreiben': 'Email me',
+      'Auf LinkedIn vernetzen': 'Connect on LinkedIn',
+      'Mein GitHub-Profil': 'Find me on GitHub',
+      'Deutschland · 2026': 'Germany · 2026',
+      'Muhammad Hasan · Deutschland · 2026': 'Muhammad Hasan · Germany · 2026',
+      'Erstellt mit HTML, CSS und JavaScript.': 'Built with HTML, CSS and JavaScript.',
+      'Lebenslauf': 'CV',
+      'E-Mail': 'Email',
+      'Fotogalerie': 'Photo viewer',
+      'Muhammad Hasan | Business, Finanzen & Kundenservice': 'Muhammad Hasan | Business, Finance & Customer Support',
+      'Muhammad Hasan studiert European Business Management in Deutschland und bringt Erfahrung in Buchhaltung, Finanzen, CRM und Kundenservice mit.': 'Muhammad Hasan is a European Business Management master’s student in Germany with a background in accountancy and finance-related experience, interested in finance, CRM and customer support.',
+      'Profil von Muhammad Hasan mit Schwerpunkt Business, Finanzen, CRM und Kundenservice.': 'Business, finance, CRM and customer support profile for Muhammad Hasan.',
+      'Schließen': 'Close'
+    }));
+
+    const languageToggle = document.querySelector('.language-toggle');
+    let currentLanguage = 'de';
+    const originalTextNodes = new WeakMap();
+    const originalAttributes = new WeakMap();
+    const languageWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        return node.parentElement.closest('script, style, .language-toggle') || !node.textContent.trim()
+          ? NodeFilter.FILTER_REJECT
+          : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const textNodes = [];
+    while (languageWalker.nextNode()) textNodes.push(languageWalker.currentNode);
+    const translatedAttributes = [...document.querySelectorAll('[aria-label], img[alt]')];
+    const metadata = [
+      document.querySelector('meta[name="description"]'),
+      document.querySelector('meta[property="og:title"]'),
+      document.querySelector('meta[property="og:description"]'),
+      document.querySelector('meta[name="twitter:title"]'),
+      document.querySelector('meta[name="twitter:description"]')
+    ].filter(Boolean);
+    const originalTitle = document.title;
+    const originalMetadata = new WeakMap(metadata.map((element) => [element, element.content]));
+    const audioCopy = {
+      de: {
+        on: 'Sound: an',
+        off: 'Sound: aus',
+        turnOn: 'Motorgeräusch einschalten',
+        turnOff: 'Motorgeräusch ausschalten',
+        muted: 'Motorgeräusch ausgeschaltet.',
+        active: 'Motorgeräusch an. Scrolle, um Gas zu geben.',
+        error: 'Audio konnte nicht gestartet werden. Prüfe deine Browsereinstellungen.'
+      },
+      en: {
+        on: 'Sound: on',
+        off: 'Sound: off',
+        turnOn: 'Turn racing engine sound on',
+        turnOff: 'Turn racing engine sound off',
+        muted: 'Engine sound muted.',
+        active: 'Engine sound on. Scroll to rev.',
+        error: 'Audio could not start. Check your browser settings.'
+      }
+    };
+    let audioStatusKey = '';
+    const applyAudioLanguage = () => {
+      const copy = audioCopy[currentLanguage];
+      audioToggle.textContent = engineSoundEnabled ? copy.on : copy.off;
+      audioToggle.setAttribute('aria-label', engineSoundEnabled ? copy.turnOff : copy.turnOn);
+      audioStatus.textContent = audioStatusKey ? copy[audioStatusKey] : '';
+    };
+    const setLanguage = (language) => {
+      currentLanguage = language;
+      const english = language === 'en';
+      textNodes.forEach((node) => {
+        if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.textContent);
+        const original = originalTextNodes.get(node);
+        const trimmed = original.trim();
+        const leading = original.match(/^\s*/)[0];
+        const trailing = original.match(/\s*$/)[0];
+        const translated = english ? germanToEnglish.get(trimmed) || trimmed : trimmed;
+        node.textContent = `${leading}${translated}${trailing}`;
+      });
+      translatedAttributes.forEach((element) => {
+        if (!originalAttributes.has(element)) {
+          originalAttributes.set(element, {
+            ariaLabel: element.getAttribute('aria-label'),
+            alt: element.getAttribute('alt')
+          });
+        }
+        const original = originalAttributes.get(element);
+        if (original.ariaLabel !== null) {
+          element.setAttribute('aria-label', english ? germanToEnglish.get(original.ariaLabel) || original.ariaLabel : original.ariaLabel);
+        }
+        if (original.alt !== null) {
+          element.alt = english ? germanToEnglish.get(original.alt) || original.alt : original.alt;
+        }
+      });
+      metadata.forEach((element) => {
+        const original = originalMetadata.get(element);
+        element.content = english ? germanToEnglish.get(original) || original : original;
+      });
+      document.title = english ? germanToEnglish.get(originalTitle) || originalTitle : originalTitle;
+      document.documentElement.lang = language;
+      languageToggle.textContent = english ? 'Deutsch' : 'English';
+      languageToggle.lang = english ? 'de' : 'en';
+      languageToggle.setAttribute('aria-label', english ? 'Switch to German' : 'Zur englischen Version wechseln');
+      applyAudioLanguage();
+    };
     const audioToggle = document.querySelector('.intro-audio-toggle');
     const audioStatus = document.querySelector('.intro-audio-status');
     let engineAudio = null;
@@ -1212,10 +1462,9 @@
       if (reduceMotion) return;
       if (engineSoundEnabled) {
         engineSoundEnabled = false;
-        audioToggle.textContent = 'Sound: off';
-        audioToggle.setAttribute('aria-label', 'Turn racing engine sound on');
         audioToggle.setAttribute('aria-pressed', 'false');
-        audioStatus.textContent = 'Engine sound muted.';
+        audioStatusKey = 'muted';
+        applyAudioLanguage();
         if (engineAudio) {
           engineAudio.masterGain.gain.cancelScheduledValues(engineAudio.context.currentTime);
           engineAudio.masterGain.gain.setTargetAtTime(0, engineAudio.context.currentTime, .08);
@@ -1227,14 +1476,16 @@
         if (!engineAudio) engineAudio = createEngineAudio();
         await engineAudio.context.resume();
         engineSoundEnabled = true;
-        audioToggle.textContent = 'Sound: on';
-        audioToggle.setAttribute('aria-label', 'Turn racing engine sound off');
+    languageToggle.addEventListener('click', () => setLanguage(currentLanguage === 'de' ? 'en' : 'de'));
+    setLanguage('de');
         audioToggle.setAttribute('aria-pressed', 'true');
-        audioStatus.textContent = 'Engine sound on. Scroll to rev.';
+        audioStatusKey = 'active';
+        applyAudioLanguage();
         updateEngineAudio(latestIntroProgress, Math.min(1, scrollVelocity / 1.4));
       } catch (error) {
         console.error('Unable to start the racing engine sound.', error);
-        audioStatus.textContent = 'Audio could not start. Check your browser settings.';
+        audioStatusKey = 'error';
+        applyAudioLanguage();
       }
     });
     if (!reduceMotion) document.documentElement.classList.add('motion-enabled');
