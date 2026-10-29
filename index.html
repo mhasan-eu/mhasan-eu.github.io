@@ -1415,6 +1415,8 @@
     const audioStatus = document.querySelector('.intro-audio-status');
     let engineAudio = null;
     let engineSoundEnabled = false;
+    languageToggle.addEventListener('click', () => setLanguage(currentLanguage === 'de' ? 'en' : 'de'));
+    setLanguage('de');
     let scrollVelocity = 0;
     let latestIntroProgress = 0;
     let previousScrollY = window.scrollY;
@@ -1476,8 +1478,6 @@
         if (!engineAudio) engineAudio = createEngineAudio();
         await engineAudio.context.resume();
         engineSoundEnabled = true;
-    languageToggle.addEventListener('click', () => setLanguage(currentLanguage === 'de' ? 'en' : 'de'));
-    setLanguage('de');
         audioToggle.setAttribute('aria-pressed', 'true');
         audioStatusKey = 'active';
         applyAudioLanguage();
