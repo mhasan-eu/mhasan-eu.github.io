@@ -1152,7 +1152,6 @@
         <div class="hero-actions">
           <a class="button button-primary" href="mailto:muhammadhasan20001@gmail.com">E-Mail schreiben <span aria-hidden="true">↗</span></a>
           <a class="button button-secondary" href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">Auf LinkedIn vernetzen <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="https://github.com/mhasan-eu" target="_blank" rel="me noopener noreferrer">Mein GitHub-Profil <span aria-hidden="true">↗</span></a>
           <a class="button button-secondary" href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf ansehen <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -1162,7 +1161,7 @@
   <footer>
     <div class="footer-wrap">
       <p>Muhammad Hasan · Deutschland · 2026</p>
-      <p>Erstellt mit HTML, CSS und JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf</a> · <a href="mailto:muhammadhasan20001@gmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">LinkedIn</a> · <a href="https://github.com/mhasan-eu" target="_blank" rel="me noopener noreferrer">GitHub</a></p>
+      <p>Erstellt mit HTML, CSS und JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf</a> · <a href="mailto:muhammadhasan20001@gmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">LinkedIn</a></p>
     </div>
   </footer>
 
@@ -1307,7 +1306,6 @@
       'Ich suche Möglichkeiten, bei denen Finanzverständnis, analytisches Denken und operative Umsetzung einen Beitrag zum Unternehmenserfolg leisten.': 'I am interested in opportunities where financial understanding, analytical thinking and operational execution can create business value.',
       'E-Mail schreiben': 'Email me',
       'Auf LinkedIn vernetzen': 'Connect on LinkedIn',
-      'Mein GitHub-Profil': 'Find me on GitHub',
       'Deutschland · 2026': 'Germany · 2026',
       'Muhammad Hasan · Deutschland · 2026': 'Muhammad Hasan · Germany · 2026',
       'Erstellt mit HTML, CSS und JavaScript.': 'Built with HTML, CSS and JavaScript.',
@@ -1478,10 +1476,7 @@
     let engineSoundEnabled = false;
     languageToggle.addEventListener('click', () => setLanguage(currentLanguage === 'de' ? 'en' : 'de'));
     setLanguage('de');
-    let scrollVelocity = 0;
     let latestIntroProgress = 0;
-    let previousScrollY = window.scrollY;
-    let previousScrollTime = performance.now();
     const createEngineAudio = () => {
       const context = new window.AudioContext();
       const filter = context.createBiquadFilter();
@@ -1509,17 +1504,17 @@
       });
       return { context, masterGain, oscillators };
     };
-    const updateEngineAudio = (introProgress, movement) => {
+    const updateEngineAudio = (introProgress) => {
       if (!engineAudio || !engineSoundEnabled) return;
       const carOpacity = Math.max(0, 1 - Math.max(0, introProgress - .84) / .16);
-      const revs = 48 + introProgress * 74 + movement * 48;
+      const fadeOut = 1 - introProgress;
+      const revs = 48 - introProgress * 30;
       const now = engineAudio.context.currentTime;
       engineAudio.oscillators.forEach(({ oscillator, multiplier }) => {
-        oscillator.frequency.setTargetAtTime(revs * multiplier, now, .08);
+        oscillator.frequency.setTargetAtTime(revs * multiplier, now, .28);
       });
       engineAudio.masterGain.gain.cancelScheduledValues(now);
-      engineAudio.masterGain.gain.setTargetAtTime((.05 + movement * .25) * carOpacity, now, .07);
-      engineAudio.masterGain.gain.setTargetAtTime(.025 * carOpacity, now + .16, .22);
+      engineAudio.masterGain.gain.setTargetAtTime(.05 * fadeOut * carOpacity, now, .35);
     };
     audioToggle.addEventListener('click', async () => {
       if (reduceMotion) return;
@@ -1542,7 +1537,7 @@
         audioToggle.setAttribute('aria-pressed', 'true');
         audioStatusKey = 'active';
         applyAudioLanguage();
-        updateEngineAudio(latestIntroProgress, Math.min(1, scrollVelocity / 1.4));
+        updateEngineAudio(latestIntroProgress);
       } catch (error) {
         console.error('Unable to start the racing engine sound.', error);
         audioStatusKey = 'error';
@@ -1551,11 +1546,6 @@
     });
     if (!reduceMotion) document.documentElement.classList.add('motion-enabled');
     const updateScrollDecorations = () => {
-      const now = performance.now();
-      const currentScrollY = window.scrollY;
-      scrollVelocity = Math.abs(currentScrollY - previousScrollY) / Math.max(16, now - previousScrollTime);
-      previousScrollY = currentScrollY;
-      previousScrollTime = now;
       const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.transform = `scaleX(${scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0})`;
       if (!reduceMotion) {
@@ -1571,7 +1561,7 @@
         introStage.style.setProperty('--intro-cue-opacity', String(Math.max(0, 1 - introProgress * 5)));
         introStage.style.setProperty('--intro-audio-opacity', String(carOpacity));
         audioControls.style.visibility = carOpacity > 0 ? 'visible' : 'hidden';
-        updateEngineAudio(introProgress, Math.min(1, scrollVelocity / 1.4));
+        updateEngineAudio(introProgress);
       }
       const timelineRect = timeline.getBoundingClientRect();
       const timelineTravel = timelineRect.height + Math.max(0, timelineRect.top - window.innerHeight * .55);
