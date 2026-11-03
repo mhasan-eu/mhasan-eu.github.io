@@ -4,12 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17191d">
+  <meta name="author" content="Muhammad Hasan">
+  <meta name="robots" content="index, follow">
   <meta name="description" content="Muhammad Hasan studiert European Business Management in Deutschland und bringt Erfahrung in Buchhaltung, Finanzen, CRM und Kundenservice mit.">
+  <meta property="og:title" content="Muhammad Hasan | Business, Finanzen &amp; Kundenservice">
+  <meta property="og:description" content="Muhammad Hasan studiert European Business Management in Deutschland und bringt Erfahrung in Buchhaltung, Finanzen, CRM und Kundenservice mit.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://mhasan-eu.github.io/">
+  <meta property="og:image" content="https://mhasan-eu.github.io/assets/personal-cockpit.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Muhammad Hasan | Business, Finanzen &amp; Kundenservice">
+  <meta name="twitter:description" content="Profil von Muhammad Hasan mit Schwerpunkt Business, Finanzen, CRM und Kundenservice.">
+  <link rel="canonical" href="https://mhasan-eu.github.io/">
   <title>Muhammad Hasan | Business, Finanzen &amp; Kundenservice</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Muhammad Hasan",
+      "url": "https://mhasan-eu.github.io/",
+      "image": "https://mhasan-eu.github.io/assets/personal-cockpit.jpg",
+      "jobTitle": "Student im Bereich European Business Management",
+      "email": "muhammadhasan20001@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/hasanmu/",
+        "https://github.com/mhasan-eu",
+        "https://mhasan-eu.github.io/"
+      ]
+    }
+  </script>
   <style>
     :root {
       color-scheme: dark;
@@ -427,6 +454,34 @@
     .button-secondary { border-color: var(--border); color: var(--text); }
     .button-secondary:hover { border-color: var(--blue); color: var(--blue); }
     .hero-note { margin: 14px 0 0; color: #8290a0; font-size: 12px; }
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      margin-top: 24px;
+    }
+    .profile-links-label {
+      margin-right: 3px;
+      color: #8290a0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .profile-link {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      color: #d7dce3;
+      font-size: 12px;
+      text-decoration: none;
+      transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+    }
+    .profile-link:hover { border-color: var(--blue); background: rgb(109 160 255 / 7%); color: var(--blue); }
     .hero-visual {
       position: relative;
       min-height: 460px;
@@ -854,18 +909,24 @@
       <div class="hero-wrap hero-grid">
         <div class="hero-copy">
           <div class="eyebrow reveal">European Business Management · Deutschland</div>
-          <h1 class="reveal">Ich finde gern heraus, warum die <span>Zahlen nicht stimmen.</span></h1>
+          <h1 class="reveal">Ich sorge gern dafür, dass die <span>Zahlen stimmen</span></h1>
           <p class="hero-intro reveal">Ich verbinde eine akademische Grundlage in Rechnungswesen und Wirtschaft mit praktischer Erfahrung im Finanzbereich und einem analytischen Blick auf betriebliche Abläufe. Besonders interessieren mich Finanzen, CRM und Kundenservice.</p>
           <div class="hero-focus reveal" aria-label="Berufliche Interessen">
             <span class="focus-chip">Finanzen &amp; Rechnungswesen</span>
             <span class="focus-chip">CRM &amp; Kundenservice</span>
           </div>
           <div class="hero-actions">
-            <a class="button button-primary" href="#experience">Explore my experience <span aria-hidden="true">↓</span></a>
-            <a class="button button-secondary" href="#projects">Explore projects <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="#experience">Meine Erfahrung ansehen <span aria-hidden="true">↓</span></a>
+            <a class="button button-secondary" href="#projects">Projekte ansehen <span aria-hidden="true">↗</span></a>
             <a class="button button-secondary" href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf ansehen <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="hero-note">Based in Germany · Open to Werkstudent opportunities</p>
+          <p class="hero-note">In Deutschland · Offen für Werkstudentenstellen</p>
+          <div class="profile-links reveal" aria-label="Online erreichbar">
+            <span class="profile-links-label">Online erreichbar</span>
+            <a class="profile-link" href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="profile-link" href="https://github.com/mhasan-eu" target="_blank" rel="me noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a class="profile-link" href="mailto:muhammadhasan20001@gmail.com">E-Mail <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
         <figure class="hero-visual reveal">
           <img src="./assets/personal-cockpit.jpg"
@@ -1091,7 +1152,8 @@
         <p>Ich suche Möglichkeiten, bei denen Finanzverständnis, analytisches Denken und operative Umsetzung einen Beitrag zum Unternehmenserfolg leisten.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="mailto:muhammadhasan20001@gmail.com">E-Mail schreiben <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="noopener noreferrer">Auf LinkedIn vernetzen <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">Auf LinkedIn vernetzen <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="https://github.com/mhasan-eu" target="_blank" rel="me noopener noreferrer">Mein GitHub-Profil <span aria-hidden="true">↗</span></a>
           <a class="button button-secondary" href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf ansehen <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -1101,7 +1163,7 @@
   <footer>
     <div class="footer-wrap">
       <p>Muhammad Hasan · Deutschland · 2026</p>
-      <p>Erstellt mit HTML, CSS und JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf</a> · <a href="mailto:muhammadhasan20001@gmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+      <p>Erstellt mit HTML, CSS und JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf</a> · <a href="mailto:muhammadhasan20001@gmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">LinkedIn</a> · <a href="https://github.com/mhasan-eu" target="_blank" rel="me noopener noreferrer">GitHub</a></p>
     </div>
   </footer>
 
@@ -1113,70 +1175,6 @@
     </div>
   </dialog>
   <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const siteLinks = document.querySelector('#site-links');
-    menuToggle.addEventListener('click', () => {
-      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!isOpen));
-      siteLinks.classList.toggle('is-open', !isOpen);
-    });
-    siteLinks.addEventListener('click', (event) => {
-      if (event.target.closest('a')) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        siteLinks.classList.remove('is-open');
-      }
-    });
-
-    const focusCards = [...document.querySelectorAll('.focus-card')];
-    focusCards.forEach((card) => {
-      card.querySelector('summary').addEventListener('click', () => {
-        if (!card.open) {
-          focusCards.forEach((otherCard) => {
-            if (otherCard !== card) otherCard.open = false;
-          });
-        }
-      });
-    });
-
-    const projectOutlines = [...document.querySelectorAll('.project-card details')];
-    projectOutlines.forEach((outline) => {
-      outline.querySelector('summary').addEventListener('click', () => {
-        if (!outline.open) {
-          projectOutlines.forEach((otherOutline) => {
-            if (otherOutline !== outline) otherOutline.open = false;
-          });
-        }
-      });
-    });
-
-    const photoDialog = document.querySelector('dialog');
-    const dialogImage = photoDialog.querySelector('img');
-    const dialogCaption = photoDialog.querySelector('.dialog-caption span');
-    document.querySelectorAll('.photo-button').forEach((button) => {
-      button.addEventListener('click', () => {
-        dialogImage.src = button.dataset.image;
-        dialogImage.alt = button.querySelector('img').alt;
-        dialogCaption.textContent = currentLanguage === 'en'
-          ? germanToEnglish.get(button.dataset.caption) || button.dataset.caption
-          : button.dataset.caption;
-        photoDialog.showModal();
-      });
-    });
-    photoDialog.querySelector('.dialog-close').addEventListener('click', () => photoDialog.close());
-    photoDialog.addEventListener('click', (event) => {
-      if (event.target === photoDialog) photoDialog.close();
-    });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && photoDialog.open) photoDialog.close();
-    });
-
-    const progress = document.querySelector('.scroll-progress');
-    const timeline = document.querySelector('.timeline');
-    const timelineProgress = document.querySelector('.timeline-progress');
-    const introStage = document.querySelector('.intro-stage');
-    const introSticky = introStage.querySelector('.intro-sticky');
-    const audioControls = document.querySelector('.intro-audio-controls');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const germanToEnglish = new Map(Object.entries({
       'Zum Inhalt springen': 'Skip to content',
       'Karatschi': 'Karachi',
@@ -1195,8 +1193,8 @@
       'Nenn mich einfach Hasan': 'Just call me Hasan',
       'Scrollen zum Entdecken': 'Scroll to explore',
       'Deutschland': 'Germany',
-      'Ich finde gern heraus, warum die': 'I like finding out why the',
-      'Zahlen nicht stimmen.': 'numbers don’t add up.',
+      'Ich sorge gern dafür, dass die': 'I enjoy getting the',
+      'Zahlen stimmen': 'numbers right',
       'Ich verbinde eine akademische Grundlage in Rechnungswesen und Wirtschaft mit praktischer Erfahrung im Finanzbereich und einem analytischen Blick auf betriebliche Abläufe. Besonders interessieren mich Finanzen, CRM und Kundenservice.': 'I bring an academic foundation in accountancy and business, finance-related work experience, and an analytical approach to the way organisations operate. I am interested in opportunities across finance, CRM and customer support.',
       'Berufliche Interessen': 'Professional interests',
       'Finanzen & Rechnungswesen': 'Finance & Accounting',
@@ -1411,6 +1409,70 @@
       languageToggle.setAttribute('aria-label', english ? 'Switch to German' : 'Zur englischen Version wechseln');
       applyAudioLanguage();
     };
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteLinks = document.querySelector('#site-links');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      siteLinks.classList.toggle('is-open', !isOpen);
+    });
+    siteLinks.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        siteLinks.classList.remove('is-open');
+      }
+    });
+
+    const focusCards = [...document.querySelectorAll('.focus-card')];
+    focusCards.forEach((card) => {
+      card.querySelector('summary').addEventListener('click', () => {
+        if (!card.open) {
+          focusCards.forEach((otherCard) => {
+            if (otherCard !== card) otherCard.open = false;
+          });
+        }
+      });
+    });
+
+    const projectOutlines = [...document.querySelectorAll('.project-card details')];
+    projectOutlines.forEach((outline) => {
+      outline.querySelector('summary').addEventListener('click', () => {
+        if (!outline.open) {
+          projectOutlines.forEach((otherOutline) => {
+            if (otherOutline !== outline) otherOutline.open = false;
+          });
+        }
+      });
+    });
+
+    const photoDialog = document.querySelector('dialog');
+    const dialogImage = photoDialog.querySelector('img');
+    const dialogCaption = photoDialog.querySelector('.dialog-caption span');
+    document.querySelectorAll('.photo-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        dialogImage.src = button.dataset.image;
+        dialogImage.alt = button.querySelector('img').alt;
+        dialogCaption.textContent = currentLanguage === 'en'
+          ? germanToEnglish.get(button.dataset.caption) || button.dataset.caption
+          : button.dataset.caption;
+        photoDialog.showModal();
+      });
+    });
+    photoDialog.querySelector('.dialog-close').addEventListener('click', () => photoDialog.close());
+    photoDialog.addEventListener('click', (event) => {
+      if (event.target === photoDialog) photoDialog.close();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && photoDialog.open) photoDialog.close();
+    });
+
+    const progress = document.querySelector('.scroll-progress');
+    const timeline = document.querySelector('.timeline');
+    const timelineProgress = document.querySelector('.timeline-progress');
+    const introStage = document.querySelector('.intro-stage');
+    const introSticky = introStage.querySelector('.intro-sticky');
+    const audioControls = document.querySelector('.intro-audio-controls');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const audioToggle = document.querySelector('.intro-audio-toggle');
     const audioStatus = document.querySelector('.intro-audio-status');
     let engineAudio = null;
