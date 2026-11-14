@@ -700,14 +700,6 @@
     .project-card details[open] summary::after { content: "−"; }
     .focus-detail,
     .project-detail { overflow: hidden; }
-    .focus-card[open] .focus-detail,
-    .project-card details[open] .project-detail {
-      animation: details-reveal 360ms cubic-bezier(.42, 0, .58, 1) both;
-    }
-    @keyframes details-reveal {
-      from { max-height: 0; opacity: 0; transform: translateY(-6px); }
-      to { max-height: 1000px; opacity: 1; transform: translateY(0); }
-    }
     .project-detail { padding: 0 22px 20px; }
     .project-detail dl { display: grid; grid-template-columns: 105px 1fr; gap: 7px 14px; margin: 0; font-size: 12px; }
     .project-detail dt { color: var(--text); font-weight: 700; }
@@ -1448,9 +1440,24 @@
         });
       });
     };
+    const animateDisclosure = (disclosure) => {
+      const detail = disclosure.querySelector('.focus-detail, .project-detail');
+      if (!detail) return;
+      let revealAnimation;
+      disclosure.addEventListener('toggle', () => {
+        revealAnimation?.cancel();
+        revealAnimation = undefined;
+        if (!disclosure.open || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        revealAnimation = detail.animate([
+          { maxHeight: '0px', opacity: 0, transform: 'translateY(-6px)' },
+          { maxHeight: `${detail.scrollHeight}px`, opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 360, easing: 'cubic-bezier(.42, 0, .58, 1)' });
+      });
+    };
     const focusCards = [...document.querySelectorAll('.focus-card')];
     enableHoverToOpen(focusCards);
     focusCards.forEach((card) => {
+      animateDisclosure(card);
       card.querySelector('summary').addEventListener('click', () => {
         if (!card.open) {
           focusCards.forEach((otherCard) => {
@@ -1463,6 +1470,7 @@
     const projectOutlines = [...document.querySelectorAll('.project-card details')];
     enableHoverToOpen(projectOutlines);
     projectOutlines.forEach((outline) => {
+      animateDisclosure(outline);
       outline.querySelector('summary').addEventListener('click', () => {
         if (!outline.open) {
           projectOutlines.forEach((otherOutline) => {
