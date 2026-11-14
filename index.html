@@ -698,6 +698,16 @@
     .project-card summary::-webkit-details-marker { display: none; }
     .project-card summary::after { color: var(--blue); content: "+"; font-size: 17px; line-height: 1; }
     .project-card details[open] summary::after { content: "−"; }
+    .focus-detail,
+    .project-detail { overflow: hidden; }
+    .focus-card[open] .focus-detail,
+    .project-card details[open] .project-detail {
+      animation: details-reveal 360ms cubic-bezier(.42, 0, .58, 1) both;
+    }
+    @keyframes details-reveal {
+      from { max-height: 0; opacity: 0; transform: translateY(-6px); }
+      to { max-height: 1000px; opacity: 1; transform: translateY(0); }
+    }
     .project-detail { padding: 0 22px 20px; }
     .project-detail dl { display: grid; grid-template-columns: 105px 1fr; gap: 7px 14px; margin: 0; font-size: 12px; }
     .project-detail dt { color: var(--text); font-weight: 700; }
