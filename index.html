@@ -1352,19 +1352,19 @@
       de: {
         on: 'Sound: an',
         off: 'Sound: aus',
-        turnOn: 'Motorgeräusch einschalten',
+        turnOn: 'Motorstart-Sound einschalten',
         turnOff: 'Motorgeräusch ausschalten',
         muted: 'Motorgeräusch ausgeschaltet.',
-        active: 'Motorgeräusch an. Scrolle, um Gas zu geben.',
+        active: 'Zündung bereit. Scrolle, um zu starten.',
         error: 'Audio konnte nicht gestartet werden. Prüfe deine Browsereinstellungen.'
       },
       en: {
         on: 'Sound: on',
         off: 'Sound: off',
-        turnOn: 'Turn racing engine sound on',
-        turnOff: 'Turn racing engine sound off',
+        turnOn: 'Turn car start sound on',
+        turnOff: 'Turn car start sound off',
         muted: 'Engine sound muted.',
-        active: 'Engine sound on. Scroll to rev.',
+        active: 'Ignition ready. Scroll to start.',
         error: 'Audio could not start. Check your browser settings.'
       }
     };
@@ -1509,19 +1509,59 @@
         oscillator.start();
         return { oscillator, multiplier };
       });
-      return { context, masterGain, oscillators };
+      const starterFilter = context.createBiquadFilter();
+      const starterGain = context.createGain();
+      starterFilter.type = 'lowpass';
+      starterFilter.frequency.value = 1000;
+      starterFilter.connect(starterGain);
+      starterGain.connect(context.destination);
+      starterGain.gain.value = 0;
+      const starterOscillators = [
+        { type: 'square', frequency: 28, multiplier: 1 },
+        { type: 'sawtooth', frequency: 39, multiplier: 1.55 }
+      ].map(({ type, frequency, multiplier }) => {
+        const oscillator = context.createOscillator();
+        oscillator.type = type;
+        oscillator.frequency.value = frequency;
+        oscillator.connect(starterFilter);
+        oscillator.start();
+        return { oscillator, multiplier };
+      });
+      return { context, masterGain, oscillators, starterGain, starterOscillators, startedAt: null };
+    };
+    const startEngineAudio = () => {
+      if (!engineAudio || engineAudio.startedAt !== null) return;
+      const now = engineAudio.context.currentTime;
+      engineAudio.startedAt = now;
+      engineAudio.starterGain.gain.cancelScheduledValues(now);
+      engineAudio.starterGain.gain.setValueAtTime(0, now);
+      engineAudio.starterOscillators.forEach(({ oscillator, multiplier }) => {
+        oscillator.frequency.setValueAtTime(28 * multiplier, now);
+        oscillator.frequency.exponentialRampToValueAtTime(56 * multiplier, now + .8);
+      });
+      for (let pulse = 0; pulse < 6; pulse += 1) {
+        const pulseStart = now + pulse * .14;
+        engineAudio.starterGain.gain.setValueAtTime(pulse === 0 ? 0 : .012, pulseStart);
+        engineAudio.starterGain.gain.linearRampToValueAtTime(.055, pulseStart + .035);
+        engineAudio.starterGain.gain.linearRampToValueAtTime(.014, pulseStart + .085);
+      }
+      engineAudio.starterGain.gain.linearRampToValueAtTime(0, now + 1.05);
     };
     const updateEngineAudio = (introProgress) => {
       if (!engineAudio || !engineSoundEnabled) return;
+      if (introProgress > .01) startEngineAudio();
       const carOpacity = Math.max(0, 1 - Math.max(0, introProgress - .84) / .16);
       const fadeOut = 1 - introProgress;
       const revs = 48 - introProgress * 30;
       const now = engineAudio.context.currentTime;
+      const startupBlend = engineAudio.startedAt === null
+        ? 0
+        : Math.min(1, Math.max(0, (now - engineAudio.startedAt - .68) / .32));
       engineAudio.oscillators.forEach(({ oscillator, multiplier }) => {
         oscillator.frequency.setTargetAtTime(revs * multiplier, now, .28);
       });
       engineAudio.masterGain.gain.cancelScheduledValues(now);
-      engineAudio.masterGain.gain.setTargetAtTime(.05 * fadeOut * carOpacity, now, .35);
+      engineAudio.masterGain.gain.setTargetAtTime(.05 * fadeOut * carOpacity * startupBlend, now, .08);
     };
     audioToggle.addEventListener('click', async () => {
       if (reduceMotion) return;
@@ -1531,8 +1571,11 @@
         audioStatusKey = 'muted';
         applyAudioLanguage();
         if (engineAudio) {
-          engineAudio.masterGain.gain.cancelScheduledValues(engineAudio.context.currentTime);
-          engineAudio.masterGain.gain.setTargetAtTime(0, engineAudio.context.currentTime, .08);
+          const now = engineAudio.context.currentTime;
+          engineAudio.masterGain.gain.cancelScheduledValues(now);
+          engineAudio.masterGain.gain.setTargetAtTime(0, now, .08);
+          engineAudio.starterGain.gain.cancelScheduledValues(now);
+          engineAudio.starterGain.gain.setTargetAtTime(0, now, .02);
         }
         return;
       }
@@ -1546,7 +1589,7 @@
         applyAudioLanguage();
         updateEngineAudio(latestIntroProgress);
       } catch (error) {
-        console.error('Unable to start the racing engine sound.', error);
+        console.error('Unable to start the car engine sound.', error);
         audioStatusKey = 'error';
         applyAudioLanguage();
       }
