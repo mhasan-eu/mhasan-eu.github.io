@@ -777,9 +777,13 @@
       color: var(--text);
     }
     dialog::backdrop { background: rgb(0 0 0 / 82%); backdrop-filter: blur(5px); }
-    dialog img { display: block; width: 100%; max-height: 78vh; object-fit: contain; }
+    .photo-dialog img { display: block; width: 100%; max-height: 78vh; object-fit: contain; }
     .dialog-caption { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 12px 16px; color: var(--muted); font-size: 12px; }
     .dialog-close { border: 1px solid var(--border); border-radius: 5px; padding: 6px 10px; background: #252a32; color: var(--text); cursor: pointer; }
+    .privacy-dialog { overflow-y: auto; padding: clamp(22px, 4vw, 40px); }
+    .privacy-dialog .section-wrap { width: 100%; }
+    .privacy-dialog .privacy-policy { padding-block: 0; border-top: 0; }
+    .privacy-dialog-toolbar { display: flex; justify-content: flex-end; margin-bottom: 12px; }
 
     .contact { padding-block: 96px; }
     .contact-panel {
@@ -808,6 +812,7 @@
     .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 23px 30px; color: #8390a0; font-size: 11px; }
     .footer-wrap p { margin: 0; }
     .footer-wrap a { color: #bdc9d7; text-decoration-color: #5a6775; text-underline-offset: 3px; }
+    .footer-wrap .privacy-open { border: 0; padding: 0; background: none; color: #bdc9d7; font: inherit; text-decoration: underline; text-decoration-color: #5a6775; text-underline-offset: 3px; cursor: pointer; }
     .privacy-policy { padding-block: 68px 36px; border-top: 1px solid var(--border); }
     .privacy-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .privacy-card { border: 1px solid var(--border); border-radius: 8px; padding: 21px; background: var(--surface); }
@@ -924,7 +929,7 @@
       <div class="intro-sticky">
         <div class="intro-route" aria-hidden="true"></div>
         <div class="intro-copy">
-          <div class="intro-location">Karatschi <span aria-hidden="true">—</span> Berlin</div>
+          <div class="intro-location">Pakistan <span aria-hidden="true">—</span> Deutschland</div>
           <h1 class="intro-title" aria-label="Muhammad Hasan"><span>Muhammad</span><span>Hasan<span class="intro-nickname">Nenn mich einfach Hasan</span></span></h1>
         </div>
         <div class="intro-car" aria-hidden="true">
@@ -1199,54 +1204,59 @@
         </div>
       </div>
     </section>
-
-  <section class="privacy-policy" id="privacy" aria-labelledby="privacy-title">
-    <div class="section-wrap">
-      <div class="section-heading">
-        <div>
-          <div class="section-kicker">Datenschutz</div>
-          <h2 id="privacy-title">Datenschutzhinweise</h2>
-        </div>
-        <p>Hinweise zur Verarbeitung personenbezogener Daten auf diesem nicht-kommerziellen Portfolio.</p>
-      </div>
-      <div class="privacy-grid">
-        <article class="privacy-card">
-          <h3>Verantwortlicher</h3>
-          <p>Verantwortlich für diese Website ist Muhammad Hasan.</p>
-          <p>Kontakt: <a href="mailto:muhammadhasan20001@gmail.com">muhammadhasan20001@gmail.com</a></p>
-        </article>
-        <article class="privacy-card">
-          <h3>Hosting und Zugriffsdaten</h3>
-          <p>Diese Website wird über GitHub Pages gehostet. Beim Aufruf verarbeitet der Hosting-Anbieter technische Zugriffsdaten wie IP-Adresse, Zeitpunkt, angeforderte URL, Referrer sowie Browser- und Geräteinformationen, um die Website bereitzustellen und zu schützen.</p>
-          <p>Der Betrieb und die Sicherheit der Website beruhen auf meinem berechtigten Interesse (Art. 6 Abs. 1 lit. f DSGVO). Angaben zu Speicherdauer und möglichen internationalen Übermittlungen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a>.</p>
-        </article>
-        <article class="privacy-card">
-          <h3>Schriftarten, Cookies und externe Links</h3>
-          <p>DM Sans und Manrope werden von dieser Website selbst ausgeliefert. Beim Laden der Schriftarten wird keine Verbindung zu Google Fonts hergestellt. Diese Website verwendet keine Analyse- oder Werbe-Tracker, Kontaktformulare oder Tracking-Cookies und speichert keine Informationen im lokalen Browserspeicher.</p>
-          <p>Externe Links, etwa zu LinkedIn, werden erst beim Anklicken aufgerufen. Ab diesem Zeitpunkt verarbeitet der jeweilige Anbieter Daten in eigener Verantwortung.</p>
-        </article>
-        <article class="privacy-card">
-          <h3>Kontakt per E-Mail</h3>
-          <p>Wenn Sie mir eine E-Mail senden, verarbeite ich Ihre Nachricht und Kontaktdaten, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Anfragen oder Art. 6 Abs. 1 lit. f DSGVO für sonstige Anliegen. Ich lösche die Daten, sobald die Anfrage erledigt ist, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
-        </article>
-        <article class="privacy-card">
-          <h3>Ihre Datenschutzrechte</h3>
-          <p>Sie können im Rahmen der DSGVO Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch verlangen sowie Beschwerde bei einer Datenschutzaufsichtsbehörde einlegen. Für Anfragen erreichen Sie mich unter <a href="mailto:muhammadhasan20001@gmail.com">muhammadhasan20001@gmail.com</a>.</p>
-        </article>
-      </div>
-      <p class="privacy-updated">Stand: 14. November 2026</p>
-    </div>
-  </section>
   </main>
 
   <footer>
     <div class="footer-wrap">
       <p>Muhammad Hasan · Deutschland · 2026</p>
-      <p>Erstellt mit HTML, CSS und JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf</a> · <a href="mailto:muhammadhasan20001@gmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">LinkedIn</a> · <a href="#privacy">Datenschutz</a></p>
+      <p>Erstellt mit HTML, CSS und JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf</a> · <a href="mailto:muhammadhasan20001@gmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">LinkedIn</a> · <button class="privacy-open" type="button" aria-haspopup="dialog" aria-controls="privacy-dialog">Datenschutzhinweise</button></p>
     </div>
   </footer>
 
-  <dialog aria-label="Fotogalerie">
+  <dialog class="privacy-dialog" id="privacy-dialog" aria-labelledby="privacy-title">
+    <div class="privacy-dialog-toolbar">
+      <button class="dialog-close privacy-dialog-close" type="button">Schließen</button>
+    </div>
+    <section class="privacy-policy" aria-labelledby="privacy-title">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Datenschutz</div>
+            <h2 id="privacy-title">Datenschutzhinweise</h2>
+          </div>
+          <p>Hinweise zur Verarbeitung personenbezogener Daten auf diesem nicht-kommerziellen Portfolio.</p>
+        </div>
+        <div class="privacy-grid">
+          <article class="privacy-card">
+            <h3>Verantwortlicher</h3>
+            <p>Verantwortlich für diese Website ist Muhammad Hasan.</p>
+            <p>Kontakt: <a href="mailto:muhammadhasan20001@gmail.com">muhammadhasan20001@gmail.com</a></p>
+          </article>
+          <article class="privacy-card">
+            <h3>Hosting und Zugriffsdaten</h3>
+            <p>Diese Website wird über GitHub Pages gehostet. Beim Aufruf verarbeitet der Hosting-Anbieter technische Zugriffsdaten wie IP-Adresse, Zeitpunkt, angeforderte URL, Referrer sowie Browser- und Geräteinformationen, um die Website bereitzustellen und zu schützen.</p>
+            <p>Der Betrieb und die Sicherheit der Website beruhen auf meinem berechtigten Interesse (Art. 6 Abs. 1 lit. f DSGVO). Angaben zu Speicherdauer und möglichen internationalen Übermittlungen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a>.</p>
+          </article>
+          <article class="privacy-card">
+            <h3>Schriftarten, Cookies und externe Links</h3>
+            <p>DM Sans und Manrope werden von dieser Website selbst ausgeliefert. Beim Laden der Schriftarten wird keine Verbindung zu Google Fonts hergestellt. Diese Website verwendet keine Analyse- oder Werbe-Tracker, Kontaktformulare oder Tracking-Cookies und speichert keine Informationen im lokalen Browserspeicher.</p>
+            <p>Externe Links, etwa zu LinkedIn, werden erst beim Anklicken aufgerufen. Ab diesem Zeitpunkt verarbeitet der jeweilige Anbieter Daten in eigener Verantwortung.</p>
+          </article>
+          <article class="privacy-card">
+            <h3>Kontakt per E-Mail</h3>
+            <p>Wenn Sie mir eine E-Mail senden, verarbeite ich Ihre Nachricht und Kontaktdaten, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Anfragen oder Art. 6 Abs. 1 lit. f DSGVO für sonstige Anliegen. Ich lösche die Daten, sobald die Anfrage erledigt ist, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+          </article>
+          <article class="privacy-card">
+            <h3>Ihre Datenschutzrechte</h3>
+            <p>Sie können im Rahmen der DSGVO Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch verlangen sowie Beschwerde bei einer Datenschutzaufsichtsbehörde einlegen. Für Anfragen erreichen Sie mich unter <a href="mailto:muhammadhasan20001@gmail.com">muhammadhasan20001@gmail.com</a>.</p>
+          </article>
+        </div>
+        <p class="privacy-updated">Stand: 14. November 2026</p>
+      </div>
+    </section>
+  </dialog>
+
+  <dialog class="photo-dialog" aria-label="Fotogalerie">
     <img alt="">
     <div class="dialog-caption">
       <span></span>
@@ -1628,7 +1638,14 @@
     configureDisclosureGroup([...document.querySelectorAll('.focus-card')]);
     configureDisclosureGroup([...document.querySelectorAll('.project-card details')]);
 
-    const photoDialog = document.querySelector('dialog');
+    const privacyDialog = document.querySelector('.privacy-dialog');
+    document.querySelector('.privacy-open').addEventListener('click', () => privacyDialog.showModal());
+    privacyDialog.querySelector('.privacy-dialog-close').addEventListener('click', () => privacyDialog.close());
+    privacyDialog.addEventListener('click', (event) => {
+      if (event.target === privacyDialog) privacyDialog.close();
+    });
+
+    const photoDialog = document.querySelector('.photo-dialog');
     const dialogImage = photoDialog.querySelector('img');
     const dialogCaption = photoDialog.querySelector('.dialog-caption span');
     document.querySelectorAll('.photo-button').forEach((button) => {
