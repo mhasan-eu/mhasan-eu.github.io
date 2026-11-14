@@ -1429,56 +1429,111 @@
       }
     });
 
-    const enableHoverToOpen = (disclosures) => {
-      if (!window.matchMedia('(any-hover: hover)').matches) return;
+    const configureDisclosureGroup = (disclosures) => {
+      const controllers = new Map(disclosures.map((disclosure) => {
+        disclosure.removeAttribute('name');
+        const detail = disclosure.querySelector('.focus-detail, .project-detail');
+        let revealAnimation;
+        let closing = false;
+        const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const currentVisualState = () => {
+          const style = window.getComputedStyle(detail);
+          return {
+            maxHeight: `${detail.getBoundingClientRect().height}px`,
+            opacity: style.opacity,
+            transform: style.transform
+          };
+        };
+        const animate = (start, end) => detail.animate([start, end], {
+          duration: 360,
+          easing: 'cubic-bezier(.42, 0, .58, 1)'
+        });
+        const closeImmediately = () => {
+          disclosure.open = false;
+          revealAnimation?.cancel();
+          revealAnimation = undefined;
+          closing = false;
+        };
+        const open = () => {
+          if (disclosure.open) {
+            if (closing) {
+              const start = currentVisualState();
+              closing = false;
+              revealAnimation.cancel();
+              if (prefersReducedMotion()) {
+                revealAnimation = undefined;
+              } else {
+                revealAnimation = animate(start, {
+                  maxHeight: `${detail.scrollHeight}px`,
+                  opacity: 1,
+                  transform: 'translateY(0)'
+                });
+              }
+            }
+            return;
+          }
+          disclosure.open = true;
+          closing = false;
+          if (prefersReducedMotion()) return;
+          revealAnimation = animate(
+            { maxHeight: '0px', opacity: 0, transform: 'translateY(-6px)' },
+            { maxHeight: `${detail.scrollHeight}px`, opacity: 1, transform: 'translateY(0)' }
+          );
+        };
+        const close = () => {
+          if (!disclosure.open || closing) return;
+          if (prefersReducedMotion() || !revealAnimation) {
+            closeImmediately();
+            return;
+          }
+          const start = currentVisualState();
+          closing = true;
+          revealAnimation.cancel();
+          revealAnimation = animate(start, {
+            maxHeight: '0px',
+            opacity: 0,
+            transform: 'translateY(-6px)'
+          });
+          revealAnimation.onfinish = () => {
+            if (!closing) return;
+            disclosure.open = false;
+            revealAnimation.cancel();
+            revealAnimation = undefined;
+            closing = false;
+          };
+        };
+        const toggle = () => {
+          if (closing) open();
+          else if (disclosure.open) close();
+          else open();
+        };
+        return [disclosure, { open, close, toggle }];
+      }));
+      const openInGroup = (disclosure) => {
+        disclosures.forEach((other) => {
+          if (other !== disclosure) controllers.get(other).close();
+        });
+        controllers.get(disclosure).open();
+      };
       disclosures.forEach((disclosure) => {
+        const controller = controllers.get(disclosure);
+        disclosure.querySelector('summary').addEventListener('click', (event) => {
+          event.preventDefault();
+          if (disclosure.open) controller.toggle();
+          else openInGroup(disclosure);
+        });
         disclosure.addEventListener('pointerenter', (event) => {
-          if (event.pointerType !== 'touch') disclosure.open = true;
+          if (event.pointerType !== 'touch' && window.matchMedia('(any-hover: hover)').matches) {
+            openInGroup(disclosure);
+          }
         });
         disclosure.addEventListener('pointerleave', (event) => {
-          if (event.pointerType !== 'touch') disclosure.open = false;
+          if (event.pointerType !== 'touch') controller.close();
         });
       });
     };
-    const animateDisclosure = (disclosure) => {
-      const detail = disclosure.querySelector('.focus-detail, .project-detail');
-      if (!detail) return;
-      let revealAnimation;
-      disclosure.addEventListener('toggle', () => {
-        revealAnimation?.cancel();
-        revealAnimation = undefined;
-        if (!disclosure.open || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        revealAnimation = detail.animate([
-          { maxHeight: '0px', opacity: 0, transform: 'translateY(-6px)' },
-          { maxHeight: `${detail.scrollHeight}px`, opacity: 1, transform: 'translateY(0)' }
-        ], { duration: 360, easing: 'cubic-bezier(.42, 0, .58, 1)' });
-      });
-    };
-    const focusCards = [...document.querySelectorAll('.focus-card')];
-    enableHoverToOpen(focusCards);
-    focusCards.forEach((card) => {
-      animateDisclosure(card);
-      card.querySelector('summary').addEventListener('click', () => {
-        if (!card.open) {
-          focusCards.forEach((otherCard) => {
-            if (otherCard !== card) otherCard.open = false;
-          });
-        }
-      });
-    });
-
-    const projectOutlines = [...document.querySelectorAll('.project-card details')];
-    enableHoverToOpen(projectOutlines);
-    projectOutlines.forEach((outline) => {
-      animateDisclosure(outline);
-      outline.querySelector('summary').addEventListener('click', () => {
-        if (!outline.open) {
-          projectOutlines.forEach((otherOutline) => {
-            if (otherOutline !== outline) otherOutline.open = false;
-          });
-        }
-      });
-    });
+    configureDisclosureGroup([...document.querySelectorAll('.focus-card')]);
+    configureDisclosureGroup([...document.querySelectorAll('.project-card details')]);
 
     const photoDialog = document.querySelector('dialog');
     const dialogImage = photoDialog.querySelector('img');
