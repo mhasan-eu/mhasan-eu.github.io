@@ -81,15 +81,28 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 20px); }
+    html { background: var(--bg); scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 20px); }
     body {
       margin: 0;
-      background: var(--bg);
+      isolation: isolate;
+      background: transparent;
       color: var(--text);
       font-family: "DM Sans", sans-serif;
       font-size: 16px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      background-color: var(--bg);
+      background-image: linear-gradient(rgb(15 18 23 / 55%), rgb(15 18 23 / 55%)), url("./assets/car-background.webp");
+      background-position: center, center 48%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      content: "";
+      pointer-events: none;
     }
     img { max-width: 100%; }
     a { color: inherit; }
@@ -208,7 +221,7 @@
       border-bottom: 1px solid rgb(255 255 255 / 6%);
       background:
         radial-gradient(ellipse at 50% 42%, rgb(54 71 94 / 20%), transparent 54%),
-        var(--bg);
+        linear-gradient(rgb(23 25 29 / 36%), rgb(23 25 29 / 36%));
     }
     .intro-sticky {
       position: relative;
@@ -581,7 +594,7 @@
       line-height: 1.1;
     }
     .section-heading > p { max-width: 430px; margin: 0; color: var(--muted); font-size: 14px; }
-    .about { border-top: 1px solid rgb(255 255 255 / 5%); background: #1a1d22; }
+    .about { border-top: 1px solid rgb(255 255 255 / 5%); background: rgb(26 29 34 / 72%); }
     .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(48px, 9vw, 130px); }
     .about-route {
       display: flex;
@@ -651,7 +664,7 @@
     .milestone h3 { margin: 7px 0 8px; font-size: 20px; letter-spacing: -.03em; }
     .milestone p { max-width: 740px; margin-bottom: 0; color: var(--muted); font-size: 14px; }
 
-    .focus { background: #1a1d22; }
+    .focus { background: rgb(26 29 34 / 72%); }
     .focus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 18px; }
     .focus-card {
       border: 1px solid var(--border);
@@ -734,7 +747,7 @@
     .project-detail dd { margin: 0; color: var(--muted); }
     .project-note { margin: 20px 0 0; color: #8491a0; font-size: 12px; }
 
-    .personal { background: #1a1d22; }
+    .personal { background: rgb(26 29 34 / 72%); }
     .gallery-note { margin: -24px 0 25px; color: var(--muted); font-size: 13px; }
     .gallery-grid { display: grid; grid-template-columns: 1.15fr .85fr .85fr; gap: 14px; }
     .gallery-card {
@@ -870,6 +883,7 @@
       h1 { max-width: 520px; margin-top: 19px; font-size: clamp(45px, 12.5vw, 65px); }
       .intro-title { font-size: clamp(54px, 14vw, 84px); }
       .intro-location { font-size: 9px; }
+      body::before { background-position: center, center 42%; background-size: cover, 100% auto; }
       .intro-copy { padding: 0 14px 10vh; }
       .intro-car { bottom: 18px; width: 64px; height: 124px; }
       .intro-scroll { right: 14px; bottom: 12px; left: auto; font-size: 9px; }
