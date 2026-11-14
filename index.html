@@ -1427,7 +1427,19 @@
       }
     });
 
+    const enableHoverToOpen = (disclosures) => {
+      if (!window.matchMedia('(any-hover: hover)').matches) return;
+      disclosures.forEach((disclosure) => {
+        disclosure.addEventListener('pointerenter', (event) => {
+          if (event.pointerType !== 'touch') disclosure.open = true;
+        });
+        disclosure.addEventListener('pointerleave', (event) => {
+          if (event.pointerType !== 'touch') disclosure.open = false;
+        });
+      });
+    };
     const focusCards = [...document.querySelectorAll('.focus-card')];
+    enableHoverToOpen(focusCards);
     focusCards.forEach((card) => {
       card.querySelector('summary').addEventListener('click', () => {
         if (!card.open) {
@@ -1439,6 +1451,7 @@
     });
 
     const projectOutlines = [...document.querySelectorAll('.project-card details')];
+    enableHoverToOpen(projectOutlines);
     projectOutlines.forEach((outline) => {
       outline.querySelector('summary').addEventListener('click', () => {
         if (!outline.open) {
