@@ -17,10 +17,6 @@
   <meta name="twitter:description" content="Profil von Muhammad Hasan mit Schwerpunkt Business, Finanzen, CRM und Kundenservice.">
   <link rel="canonical" href="https://mhasan-eu.github.io/">
   <title>Muhammad Hasan | Business, Finanzen &amp; Kundenservice</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,6 +34,38 @@
     }
   </script>
   <style>
+    @font-face {
+      font-family: "DM Sans";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url("./assets/fonts/dm-sans-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "DM Sans";
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url("./assets/fonts/dm-sans-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Manrope";
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url("./assets/fonts/manrope-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Manrope";
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url("./assets/fonts/manrope-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
     :root {
       color-scheme: dark;
       --bg: #17191d;
@@ -780,6 +808,14 @@
     .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 23px 30px; color: #8390a0; font-size: 11px; }
     .footer-wrap p { margin: 0; }
     .footer-wrap a { color: #bdc9d7; text-decoration-color: #5a6775; text-underline-offset: 3px; }
+    .privacy-policy { padding-block: 68px 36px; border-top: 1px solid var(--border); }
+    .privacy-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .privacy-card { border: 1px solid var(--border); border-radius: 8px; padding: 21px; background: var(--surface); }
+    .privacy-card h3 { margin: 0 0 9px; font-size: 15px; }
+    .privacy-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .privacy-card p + p { margin-top: 11px; }
+    .privacy-card a { color: #d5e0ef; text-underline-offset: 3px; }
+    .privacy-updated { margin: 16px 0 0; color: #8390a0; font-size: 11px; }
 
     @keyframes hero-drift { from { transform: scale(1.015); } to { transform: scale(1.07); } }
     .js .reveal { opacity: .12; transform: translateY(15px); transition: opacity 650ms ease, transform 650ms ease; }
@@ -852,6 +888,7 @@
       .contact { padding-block: 60px; }
       .contact-panel::after { right: -210px; }
       .footer-wrap { align-items: flex-start; flex-direction: column; gap: 7px; }
+      .privacy-grid { grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -1162,12 +1199,50 @@
         </div>
       </div>
     </section>
+
+  <section class="privacy-policy" id="privacy" aria-labelledby="privacy-title">
+    <div class="section-wrap">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">Datenschutz</div>
+          <h2 id="privacy-title">Datenschutzhinweise</h2>
+        </div>
+        <p>Hinweise zur Verarbeitung personenbezogener Daten auf diesem nicht-kommerziellen Portfolio.</p>
+      </div>
+      <div class="privacy-grid">
+        <article class="privacy-card">
+          <h3>Verantwortlicher</h3>
+          <p>Verantwortlich für diese Website ist Muhammad Hasan.</p>
+          <p>Kontakt: <a href="mailto:muhammadhasan20001@gmail.com">muhammadhasan20001@gmail.com</a></p>
+        </article>
+        <article class="privacy-card">
+          <h3>Hosting und Zugriffsdaten</h3>
+          <p>Diese Website wird über GitHub Pages gehostet. Beim Aufruf verarbeitet der Hosting-Anbieter technische Zugriffsdaten wie IP-Adresse, Zeitpunkt, angeforderte URL, Referrer sowie Browser- und Geräteinformationen, um die Website bereitzustellen und zu schützen.</p>
+          <p>Der Betrieb und die Sicherheit der Website beruhen auf meinem berechtigten Interesse (Art. 6 Abs. 1 lit. f DSGVO). Angaben zu Speicherdauer und möglichen internationalen Übermittlungen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von GitHub</a>.</p>
+        </article>
+        <article class="privacy-card">
+          <h3>Schriftarten, Cookies und externe Links</h3>
+          <p>DM Sans und Manrope werden von dieser Website selbst ausgeliefert. Beim Laden der Schriftarten wird keine Verbindung zu Google Fonts hergestellt. Diese Website verwendet keine Analyse- oder Werbe-Tracker, Kontaktformulare oder Tracking-Cookies und speichert keine Informationen im lokalen Browserspeicher.</p>
+          <p>Externe Links, etwa zu LinkedIn, werden erst beim Anklicken aufgerufen. Ab diesem Zeitpunkt verarbeitet der jeweilige Anbieter Daten in eigener Verantwortung.</p>
+        </article>
+        <article class="privacy-card">
+          <h3>Kontakt per E-Mail</h3>
+          <p>Wenn Sie mir eine E-Mail senden, verarbeite ich Ihre Nachricht und Kontaktdaten, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Anfragen oder Art. 6 Abs. 1 lit. f DSGVO für sonstige Anliegen. Ich lösche die Daten, sobald die Anfrage erledigt ist, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+        </article>
+        <article class="privacy-card">
+          <h3>Ihre Datenschutzrechte</h3>
+          <p>Sie können im Rahmen der DSGVO Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch verlangen sowie Beschwerde bei einer Datenschutzaufsichtsbehörde einlegen. Für Anfragen erreichen Sie mich unter <a href="mailto:muhammadhasan20001@gmail.com">muhammadhasan20001@gmail.com</a>.</p>
+        </article>
+      </div>
+      <p class="privacy-updated">Stand: 14. November 2026</p>
+    </div>
+  </section>
   </main>
 
   <footer>
     <div class="footer-wrap">
       <p>Muhammad Hasan · Deutschland · 2026</p>
-      <p>Erstellt mit HTML, CSS und JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf</a> · <a href="mailto:muhammadhasan20001@gmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">LinkedIn</a></p>
+      <p>Erstellt mit HTML, CSS und JavaScript. <a href="./Muhammad_Hasan_Resume.pdf" target="_blank" rel="noopener noreferrer">Lebenslauf</a> · <a href="mailto:muhammadhasan20001@gmail.com">E-Mail</a> · <a href="https://www.linkedin.com/in/hasanmu/" target="_blank" rel="me noopener noreferrer">LinkedIn</a> · <a href="#privacy">Datenschutz</a></p>
     </div>
   </footer>
 
@@ -1321,6 +1396,24 @@
       'Lebenslauf': 'CV',
       'E-Mail': 'Email',
       'Fotogalerie': 'Photo viewer',
+      'Datenschutz': 'Privacy',
+      'Datenschutzhinweise': 'Privacy notice',
+      'Hinweise zur Verarbeitung personenbezogener Daten auf diesem nicht-kommerziellen Portfolio.': 'Information about personal data processed through this non-commercial portfolio.',
+      'Verantwortlicher': 'Controller',
+      'Verantwortlich für diese Website ist Muhammad Hasan.': 'Muhammad Hasan is responsible for this website.',
+      'Kontakt:': 'Contact:',
+      'Hosting und Zugriffsdaten': 'Hosting and access data',
+      'Diese Website wird über GitHub Pages gehostet. Beim Aufruf verarbeitet der Hosting-Anbieter technische Zugriffsdaten wie IP-Adresse, Zeitpunkt, angeforderte URL, Referrer sowie Browser- und Geräteinformationen, um die Website bereitzustellen und zu schützen.': 'This website is hosted through GitHub Pages. When it is accessed, the hosting provider processes technical access data such as IP address, time, requested URL, referrer, and browser and device information to deliver and protect the website.',
+      'Der Betrieb und die Sicherheit der Website beruhen auf meinem berechtigten Interesse (Art. 6 Abs. 1 lit. f DSGVO). Angaben zu Speicherdauer und möglichen internationalen Übermittlungen finden Sie in der': 'Operating and securing this website is based on my legitimate interest (Article 6(1)(f) GDPR). Details about retention periods and possible international transfers are available in the',
+      'Datenschutzerklärung von GitHub': 'GitHub Privacy Statement',
+      'Schriftarten, Cookies und externe Links': 'Fonts, cookies and external links',
+      'DM Sans und Manrope werden von dieser Website selbst ausgeliefert. Beim Laden der Schriftarten wird keine Verbindung zu Google Fonts hergestellt. Diese Website verwendet keine Analyse- oder Werbe-Tracker, Kontaktformulare oder Tracking-Cookies und speichert keine Informationen im lokalen Browserspeicher.': 'DM Sans and Manrope are served locally by this website. Loading the fonts does not connect to Google Fonts. This website uses no analytics or advertising trackers, contact forms, tracking cookies, or local browser storage.',
+      'Externe Links, etwa zu LinkedIn, werden erst beim Anklicken aufgerufen. Ab diesem Zeitpunkt verarbeitet der jeweilige Anbieter Daten in eigener Verantwortung.': 'External links, such as LinkedIn, are opened only when clicked. From then on, the respective provider processes data under its own responsibility.',
+      'Kontakt per E-Mail': 'Contact by email',
+      'Wenn Sie mir eine E-Mail senden, verarbeite ich Ihre Nachricht und Kontaktdaten, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Anfragen oder Art. 6 Abs. 1 lit. f DSGVO für sonstige Anliegen. Ich lösche die Daten, sobald die Anfrage erledigt ist, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.': 'If you email me, I process your message and contact details to respond. The legal basis is Article 6(1)(b) GDPR for pre-contractual enquiries, or Article 6(1)(f) GDPR for other requests. I delete the data once the request is resolved unless legal retention obligations apply.',
+      'Ihre Datenschutzrechte': 'Your privacy rights',
+      'Sie können im Rahmen der DSGVO Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch verlangen sowie Beschwerde bei einer Datenschutzaufsichtsbehörde einlegen. Für Anfragen erreichen Sie mich unter': 'Subject to the GDPR, you may request access, rectification, erasure, restriction of processing, data portability, and object to processing. You may also lodge a complaint with a data protection supervisory authority. To exercise your rights, contact me at',
+      'Stand: 14. November 2026': 'Last updated: 14 November 2026',
       'Muhammad Hasan | Business, Finanzen & Kundenservice': 'Muhammad Hasan | Business, Finance & Customer Support',
       'Muhammad Hasan studiert European Business Management in Deutschland und bringt Erfahrung in Buchhaltung, Finanzen, CRM und Kundenservice mit.': 'Muhammad Hasan is a European Business Management master’s student in Germany with a background in accountancy and finance-related experience, interested in finance, CRM and customer support.',
       'Profil von Muhammad Hasan mit Schwerpunkt Business, Finanzen, CRM und Kundenservice.': 'Business, finance, CRM and customer support profile for Muhammad Hasan.',
